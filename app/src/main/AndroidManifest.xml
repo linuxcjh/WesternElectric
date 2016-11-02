@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <!-- 使用相机权限 -->
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
@@ -32,19 +33,20 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <user-permission android:name="android.permission.DEVICE_POWER"/>
+
+    <user-permission android:name="android.permission.DEVICE_POWER" />
     <application
         android:name="com.nuoman.NuoManApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:screenOrientation="landscape"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen">
+        android:theme="@style/AppTheme">
 
         <activity
             android:name=".SplashActivity"
-            android:screenOrientation="landscape">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,16 +54,9 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="landscape" />r
-
-        <activity
-            android:name=".common.utils.CameraNoMarkActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".LoginActivity"
-            android:screenOrientation="landscape" />
+        <activity android:name=".MainActivity" />r
+        <activity android:name=".common.utils.CameraNoMarkActivity" />
+        <activity android:name=".LoginActivity" />
 
 
     </application>
