@@ -45,7 +45,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".SplashActivity"
+            android:name="com.nuoman.westernele.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,9 +54,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity" />r
-        <activity android:name=".common.utils.CameraNoMarkActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name="com.nuoman.westernele.MainActivity" />r
+        <activity android:name="com.nuoman.westernele.common.utils.CameraNoMarkActivity" />
+        <activity android:name="com.nuoman.westernele.LoginActivity" />
 
 
     </application>
