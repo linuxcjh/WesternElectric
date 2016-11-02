@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/right_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:id="@+id/item_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/icon" />
+
+        <FrameLayout
+            android:id="@+id/recorder_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/item_icon"
+            android:background="@drawable/voice_right_bg">
+
+            <View
+                android:id="@+id/id_recorder_anim"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="30dp"
+                android:layout_gravity="center_vertical|right"
+                android:background="@drawable/adj" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/recorder_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:layout_toLeftOf="@id/recorder_length"
+            android:text=""
+            android:textColor="#ff777777" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/left_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:id="@+id/item_icon_2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/icon" />
+
+        <FrameLayout
+            android:id="@+id/recorder_length_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/item_icon_2"
+            android:background="@drawable/voice_left_bg">
+
+            <View
+                android:id="@+id/id_recorder_anim_2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/adj" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/recorder_time_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:layout_toLeftOf="@id/recorder_length_2"
+            android:text=""
+            android:textColor="#ff777777" />
+
+    </RelativeLayout>
+
+</LinearLayout>

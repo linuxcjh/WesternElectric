@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center_horizontal">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="70dp">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/image_first_iv"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/add_03" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/image_second_iv"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/add_03" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/image_third_iv"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/add_03" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:padding="70dp">
+
+        <EditText
+            android:id="@+id/edit_input_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@null"
+            android:textSize="2sp" />
+
+        <Button
+            android:id="@+id/cancel_bt"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:background="@drawable/login_bt_bg"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@android:color/white"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/commit_bt"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="24dp"
+            android:background="@drawable/login_bt_bg"
+            android:gravity="center"
+            android:text="发送"
+            android:textColor="@android:color/white"
+            android:textSize="30dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tip_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorTranBg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableLeft="@drawable/tips_02_03"
+            android:drawablePadding="5dp"
+            android:text="请刷卡验证身份或点击屏幕返回"
+            android:textColor="@android:color/white"
+            android:textSize="40sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

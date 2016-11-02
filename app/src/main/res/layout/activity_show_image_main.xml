@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/content_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_bg"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorTranBg"
+        android:layout_height="88dp">
+
+        <ImageView
+            android:id="@+id/back_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="60dp"
+            android:paddingRight="40dp"
+            android:src="@drawable/return_03"/>
+
+        <ImageView
+            android:id="@+id/delete_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="40dp"
+            android:paddingRight="60dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/delete_03"/>
+    </RelativeLayout>
+
+</RelativeLayout>
