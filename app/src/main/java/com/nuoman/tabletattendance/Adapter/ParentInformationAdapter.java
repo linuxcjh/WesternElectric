@@ -1,9 +1,7 @@
 package com.nuoman.tabletattendance.Adapter;
 
 import android.content.Context;
-import android.widget.LinearLayout;
 
-import com.nuoman.tabletattendance.R;
 import com.nuoman.tabletattendance.common.BaseAdapterHelper;
 import com.nuoman.tabletattendance.common.QuickAdapter;
 import com.nuoman.tabletattendance.model.BaseReceivedModel;
@@ -25,7 +23,7 @@ public class ParentInformationAdapter extends QuickAdapter<BaseReceivedModel> {
     @Override
     protected void convert(BaseAdapterHelper helper, BaseReceivedModel item, int position) {
 
-        LinearLayout rootLayout = helper.getView(R.id.root_layout);
+//        LinearLayout rootLayout = helper.getView(R.id.root_layout);
 
 
     }
