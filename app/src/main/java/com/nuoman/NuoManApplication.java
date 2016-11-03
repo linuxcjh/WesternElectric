@@ -5,6 +5,7 @@ import android.app.Application;
 import com.nuoman.westernele.common.utils.AppConfig;
 
 /**
+ * 应用application
  * Created by chen on 21/10/2015.
  */
 public class NuoManApplication extends Application {

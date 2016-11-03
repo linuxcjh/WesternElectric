@@ -35,6 +35,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <user-permission android:name="android.permission.DEVICE_POWER" />
+
     <application
         android:name="com.nuoman.NuoManApplication"
         android:allowBackup="true"
