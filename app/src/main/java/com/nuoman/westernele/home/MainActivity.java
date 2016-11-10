@@ -1,4 +1,4 @@
-package com.nuoman.westernele;
+package com.nuoman.westernele.home;
 
 import android.os.Bundle;
 

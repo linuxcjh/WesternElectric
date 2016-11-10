@@ -55,7 +55,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.nuoman.westernele.MainActivity" />r
+        <activity android:name="com.nuoman.westernele.home.MainActivity" />r
         <activity android:name="com.nuoman.westernele.common.utils.CameraNoMarkActivity" />
         <activity android:name="com.nuoman.westernele.LoginActivity" />
 

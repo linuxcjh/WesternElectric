@@ -8,6 +8,7 @@ import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.utils.AppConfig;
+import com.nuoman.westernele.home.MainActivity;
 
 /**
  * 跳转页面
