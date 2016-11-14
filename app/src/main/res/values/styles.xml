@@ -41,4 +41,14 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
+    <style name="title_mid_text">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="title_side_text">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
 </resources>
