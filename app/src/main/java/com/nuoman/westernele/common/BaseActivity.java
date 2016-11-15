@@ -1,16 +1,16 @@
 package com.nuoman.westernele.common;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.view.View;
-import android.view.Window;
+import android.support.v4.content.ContextCompat;
 import android.view.WindowManager;
 
-import com.nuoman.westernele.common.utils.AppConfig;
-import com.nuoman.westernele.common.utils.AppTools;
+import com.nuoman.tabletattendance.R;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,31 +22,29 @@ import java.util.List;
 public class BaseActivity extends FragmentActivity {
 
     public static List<Activity> activityList = new ArrayList<>();
-
+    public SystemBarTintManager tintManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //去除title
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//去掉Activity上面的状态栏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//去掉虚拟按键全屏显示
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         activityList.add(0, this);
+    }
+
+    public void initWindow() {
+        //设置为竖屏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        tintManager = new SystemBarTintManager(this);
+        tintManager.setStatusBarTintColor(ContextCompat.getColor(this, R.color.colorBlue));
+        tintManager.setStatusBarTintEnabled(true);
+//        }
     }
 
 
     @Override
     protected void onStop() {
         super.onStop();
-        if (AppTools.isAppOnForeground(BaseActivity.this)) {
-            AppConfig.setIntConfig(NuoManConstant.DEVICE_STATUS, 3);
-            AppConfig.setStringConfig(NuoManConstant.DEVICE_STATUS_DEC, "程序恢复前台运行");
-        } else {
-            AppConfig.setIntConfig(NuoManConstant.DEVICE_STATUS, 1);
-            AppConfig.setStringConfig(NuoManConstant.DEVICE_STATUS_DEC, "程序后台运行");
-
-        }
     }
 
 
@@ -67,14 +65,6 @@ public class BaseActivity extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                View.SYSTEM_UI_FLAG_FULLSCREEN |
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY |
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
-                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
-        decorView.setSystemUiVisibility(uiOptions);
     }
 
     @Override
