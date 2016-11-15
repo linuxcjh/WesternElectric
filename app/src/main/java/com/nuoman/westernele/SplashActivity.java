@@ -6,9 +6,7 @@ import android.os.Handler;
 
 import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.common.BaseActivity;
-import com.nuoman.westernele.common.NuoManConstant;
-import com.nuoman.westernele.common.utils.AppConfig;
-import com.nuoman.westernele.home.MainActivity;
+import com.nuoman.westernele.home.MainTableActivity;
 
 /**
  * 跳转页面
@@ -34,11 +32,11 @@ public class SplashActivity extends BaseActivity {
 
     private void checkUserName() {
 
-        if (!AppConfig.getBooleanConfig(NuoManConstant.IS_LOGIN, false)) {
-            startActivity(new Intent(this, LoginActivity.class));
-        } else {
-            startActivity(new Intent(this, MainActivity.class));
-        }
+//        if (!AppConfig.getBooleanConfig(NuoManConstant.IS_LOGIN, false)) {
+//            startActivity(new Intent(this, LoginActivity.class));
+//        } else {
+            startActivity(new Intent(this, MainTableActivity.class));
+//        }
         this.finish();
     }
 }

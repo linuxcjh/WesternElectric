@@ -50,7 +50,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.nuoman.westernele.home.MainActivity" />
         <activity android:name="com.nuoman.westernele.common.utils.CameraNoMarkActivity" />
         <activity android:name="com.nuoman.westernele.LoginActivity" />
 
@@ -71,6 +70,8 @@
         <activity android:name="com.nuoman.westernele.warningCenter.WarningCenter" />
         <!--西变新闻-->
         <activity android:name="com.nuoman.westernele.westNew.WestNew" />
+        <!--主页导航-->
+        <activity android:name="com.nuoman.westernele.home.MainTableActivity" />
     </application>
 
 </manifest>

@@ -51,4 +51,9 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <style name="option_menu_txt">
+        <item name="android:textColor">@color/colorAssist</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

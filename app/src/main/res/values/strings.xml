@@ -5,4 +5,12 @@
     <string name="want_to_cancle">松开手指，取消发送</string>
     <string name="shouzhishanghua">手指上滑，取消发送</string>
     <string name="tooshort">录音时间过短</string>
+
+    <string name="tab_bottom_client">联系人</string>
+    <string name="tab_bottom_workstation">主页</string>
+    <string name="tab_bottom_app">设置</string>
+    <string name="tab_bottom_mine">我的</string>
+
+
+
 </resources>
