@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.nuoman.westernelectric"
-        minSdkVersion 18
+        minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -44,5 +44,5 @@ dependencies {
     compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
     compile 'com.squareup.okhttp3:okhttp:3.3.1'
-
+    compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.1.1'
 }

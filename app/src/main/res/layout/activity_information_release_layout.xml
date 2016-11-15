@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_information_release_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nuoman.westernele.informationRelease.InformationReleaseActivity">
+
+    <include layout="@layout/title_layout"/>
+
+    <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
+        android:id="@+id/rv_information_release"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nuoman.tabletattendance">
 
-
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <!-- 使用相机权限 -->
@@ -13,7 +12,6 @@
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -26,12 +24,11 @@
 
     <!-- 获取蓝牙地址权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
-    <!--震动权限-->
+    <!-- 震动权限 -->
     <uses-permission android:name="android.permission.VIBRATE" />
     <!-- 开机启动 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <user-permission android:name="android.permission.DEVICE_POWER" />
@@ -44,7 +41,6 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name="com.nuoman.westernele.SplashActivity"
             android:screenOrientation="portrait">
@@ -54,12 +50,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.nuoman.westernele.home.MainActivity" />r
+        <activity android:name="com.nuoman.westernele.home.MainActivity" />
         <activity android:name="com.nuoman.westernele.common.utils.CameraNoMarkActivity" />
         <activity android:name="com.nuoman.westernele.LoginActivity" />
 
+        <!-- 工号查询 -->
+        <activity
+            android:name="com.nuoman.westernele.numberQuery.NumberQueryActivity"
+            android:windowSoftInputMode="stateHidden" />
 
+        <!-- 工号的基本信息 -->
+        <activity android:name="com.nuoman.westernele.numberDetail.NumberDetailActivity" />
+        <!-- 账款信息 -->
+        <activity android:name="com.nuoman.westernele.billInformation.BillInformationActivity" />
+        <!-- 信息发布页面 -->
+        <activity android:name="com.nuoman.westernele.informationRelease.InformationReleaseActivity" />
+        <!--发布信息详情页-->
+        <activity android:name="com.nuoman.westernele.informationDetail.InformationDetail" />
+        <!--预警中心-->
+        <activity android:name="com.nuoman.westernele.warningCenter.WarningCenter" />
+        <!--西变新闻-->
+        <activity android:name="com.nuoman.westernele.westNew.WestNew" />
     </application>
 
 </manifest>
