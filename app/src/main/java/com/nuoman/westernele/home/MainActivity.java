@@ -24,6 +24,8 @@ public class MainActivity extends BaseActivity implements ICommonAction {
     TextView titleLeftTv;
     @Bind(R.id.title_right_tv)
     TextView titleRightTv;
+    @Bind(R.id.title_mid_tv)
+    TextView titleMidTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,14 @@ public class MainActivity extends BaseActivity implements ICommonAction {
 
         setContentView(R.layout.activity_home_layout);
         ButterKnife.bind(this);
+        init();
+    }
+
+    /**
+     * 初始化
+     */
+    private void init() {
+        titleMidTv.setText("首页");
     }
 
 
