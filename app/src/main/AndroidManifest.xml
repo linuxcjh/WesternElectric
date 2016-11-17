@@ -69,7 +69,7 @@
         <!--预警中心-->
         <activity android:name="com.nuoman.westernele.warningCenter.WarningCenter" />
         <!--西变新闻-->
-        <activity android:name="com.nuoman.westernele.westNew.WestNew" />
+        <activity android:name="com.nuoman.westernele.westNew.WestNewActivity" />
         <!--主页导航-->
         <activity android:name="com.nuoman.westernele.home.MainTableActivity" />
     </application>

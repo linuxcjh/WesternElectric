@@ -1,5 +1,6 @@
 package com.nuoman.westernele.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import com.nuoman.westernele.common.BaseFragment;
 import com.nuoman.westernele.components.MyGridView;
 import com.nuoman.westernele.home.adapter.ApplicationAdapter;
 import com.nuoman.westernele.home.model.ApplicationModel;
+import com.nuoman.westernele.westNew.WestNewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,6 +76,8 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
 
         switch (position) {
             case 0:
+                Intent intent = new Intent(getActivity(), WestNewActivity.class);
+                startActivity(intent);
                 break;
             case 1:
                 break;
