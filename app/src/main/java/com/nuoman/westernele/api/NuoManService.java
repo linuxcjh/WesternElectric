@@ -50,4 +50,7 @@ public interface NuoManService {
     //上传设备信息
     String DEVICECOMM="DeviceComm";
 
+
+    String GETMAINPAGEINFO="GetMainPageInfo";
+
 }

@@ -21,7 +21,8 @@ import retrofit.http.QueryMap;
  */
 public interface NuoManAPI {
 
-    String URL = "http://120.27.137.6:8080/AttendenceMachineSys/";
+    //    String URL = "http://120.27.137.6:8080/AttendenceMachineSys/";
+    String URL = "120.27.137.6:8080/IntelligenceTransformer/";
 
     /**
      * 通用接口调用
@@ -35,7 +36,6 @@ public interface NuoManAPI {
 
     @GET("{part}/{methodName}")
     Call<String> serviceGetAPI(@Path("part") String part, @Path("methodName") String methodName, @QueryMap() Map<String, String> map);
-
 
 
     //图片上传

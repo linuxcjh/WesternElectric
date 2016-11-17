@@ -9,15 +9,21 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
+import com.google.gson.reflect.TypeToken;
 import com.nuoman.tabletattendance.R;
+import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.common.BaseFragment;
+import com.nuoman.westernele.common.CommonPresenter;
+import com.nuoman.westernele.common.ICommonAction;
 import com.nuoman.westernele.components.MyGridView;
 import com.nuoman.westernele.home.adapter.ApplicationAdapter;
 import com.nuoman.westernele.home.model.ApplicationModel;
+import com.nuoman.westernele.model.BaseTransModel;
 import com.nuoman.westernele.westNew.WestNewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -26,7 +32,7 @@ import butterknife.ButterKnife;
  * 管理
  * 2016/1/13
  */
-public class MainFragment extends BaseFragment implements AdapterView.OnItemClickListener {
+public class MainFragment extends BaseFragment implements AdapterView.OnItemClickListener, ICommonAction {
 
     @Bind(R.id.title_tv)
     TextView titleTv;
@@ -46,6 +52,10 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
             R.drawable.zhangkuanxinxi_03,
             R.drawable.xiaoxizhongxin_03};
 
+
+    private CommonPresenter commonPresenter = new CommonPresenter(this);
+    private BaseTransModel transModel = new BaseTransModel();
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,6 +63,7 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
         ButterKnife.bind(this, view);
 
         init();
+        invoke();
         return view;
     }
 
@@ -69,6 +80,27 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
         mAdapter = new ApplicationAdapter(getActivity(), R.layout.fragment_application_item, data);
         appGridView.setAdapter(mAdapter);
         appGridView.setOnItemClickListener(this);
+
+
+    }
+
+    /**
+     * 调用方法获取数据¬
+     */
+    public void invoke() {
+        transModel.setUserId("");//TODO
+        commonPresenter.invokeInterfaceObtainData(true, "appUserCtrl", NuoManService.GETMAINPAGEINFO, transModel, new TypeToken<Object>() {
+        });
+    }
+
+
+    @Override
+    public void obtainData(Object data, String methodIndex, int status, Map<String, String> parameterMap) {
+        switch (methodIndex) {
+            case NuoManService.GETMAINPAGEINFO:
+
+                break;
+        }
     }
 
     @Override
