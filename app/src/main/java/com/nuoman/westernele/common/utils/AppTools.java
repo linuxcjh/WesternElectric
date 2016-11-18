@@ -21,7 +21,6 @@ import com.google.gson.reflect.TypeToken;
 import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.common.BasePresenter;
 import com.nuoman.westernele.common.NuoManConstant;
-import com.nuoman.westernele.login.model.LoginReturn;
 import com.nuoman.westernele.login.model.User;
 
 import java.io.DataOutputStream;
@@ -163,18 +162,6 @@ public class AppTools {
                 e.printStackTrace();
             }
         }
-    }
-
-    /**
-     * 获取登陆信息
-     *
-     * @return
-     */
-    public static LoginReturn getLogInfo() {
-
-        LoginReturn model = BasePresenter.gson.fromJson(ACache.get(AppConfig.getContext()).getAsString(NuoManService.LOGIN), new TypeToken<LoginReturn>() {
-        }.getType());
-        return model;
     }
 
     /**
@@ -418,7 +405,7 @@ public class AppTools {
      *
      * @param user 用户信息类
      */
-    public static void setUser(User user) {
+    public static void saveUser(User user) {
         String userModelString = new GsonBuilder().create().toJson(user);
         AppConfig.setStringConfig("user", userModelString);
     }

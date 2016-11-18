@@ -8,7 +8,6 @@ package com.nuoman.westernele.login;
 public interface Contract {
 
     interface LoginView{
-        void showLoading();
         void jumpToMain();
         void loginError(String errorMsg);
     }

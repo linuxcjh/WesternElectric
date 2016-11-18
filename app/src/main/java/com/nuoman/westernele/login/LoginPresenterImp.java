@@ -1,15 +1,15 @@
 package com.nuoman.westernele.login;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.google.gson.reflect.TypeToken;
 import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.common.CommonPresenter;
 import com.nuoman.westernele.common.ICommonAction;
+import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.common.utils.Md5AndBase64;
 import com.nuoman.westernele.login.model.LoginParameter;
-import com.nuoman.westernele.login.model.LoginReturn;
+import com.nuoman.westernele.login.model.User;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
@@ -42,7 +42,7 @@ public class LoginPresenterImp implements ICommonAction, Contract.LoginPresenter
             loginParameter.setPassword(Md5AndBase64.encrypt(passWord));
             loginParameter.setPhoneType("1");
             commonPresenter.invokeInterfaceObtainData(true, "appUserCtrl", NuoManService.LOGIN,
-                    loginParameter, new TypeToken<LoginReturn>() {
+                    loginParameter, new TypeToken<User>() {
                     });
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -53,13 +53,10 @@ public class LoginPresenterImp implements ICommonAction, Contract.LoginPresenter
     public void obtainData(Object data, String methodIndex, int status, Map<String, String> parameterMap) {
         switch (methodIndex) {
             case NuoManService.LOGIN:
-                LoginReturn loginReturn = (LoginReturn) data;
                 if (status == 1) {
-//                    AppTools.setUser(loginReturn.getData());
-                    Log.d("test", loginReturn.getData().getAppVersion());
+                    User user = (User) data;
+                    AppTools.saveUser(user);
                     mLoginView.jumpToMain();
-                } else {
-                    mLoginView.loginError("服务器出错");
                 }
                 break;
         }

@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.common.BaseActivity;
+import com.nuoman.westernele.common.NuoManConstant;
+import com.nuoman.westernele.common.utils.AppConfig;
 import com.nuoman.westernele.home.MainTableActivity;
 
 import butterknife.Bind;
@@ -51,19 +54,15 @@ public class LoginActivity extends BaseActivity implements Contract.LoginView {
     }
 
     @Override
-    public void showLoading() {
-
-    }
-
-    @Override
     public void jumpToMain() {
         Intent intent = new Intent(this, MainTableActivity.class);
         startActivity(intent);
+        AppConfig.setBooleanConfig(NuoManConstant.IS_LOGIN, true);
         finish();
     }
 
     @Override
     public void loginError(String errorMsg) {
-
+        Toast.makeText(AppConfig.getContext(), errorMsg, Toast.LENGTH_SHORT).show();
     }
 }
