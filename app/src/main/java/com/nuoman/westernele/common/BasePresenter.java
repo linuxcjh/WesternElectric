@@ -77,40 +77,38 @@ public abstract class BasePresenter {
     public void commonApi(boolean isPost, final String part, final String methodName, final Map<String, String> parameterMap, final TypeToken<?> typeToken) {
         isShowFlag = false;
         if (Utils.checkNetworkConnection()) {
-        delayDisplayProgress();
-        Call<String> call;
-        if (isPost) {
-            call = service.serviceAPI(part, methodName, parameterMap);
-        } else {
-            call = service.serviceGetAPI(part, methodName, parameterMap);
-        }
-        call.enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Response<String> response, Retrofit retrofit) {
-                dialogDismiss();
-                isShowFlag = true;
-                Object object = null;
-                if (typeToken != null) {
-
-                    object = ParseResult.instance().requestServer(methodName, response.body(), typeToken);
-                }
-                if (object == null) {
-                    BasePresenter.this.onResponse(methodName, object, REQUEST_FAILURE, parameterMap);
-
-
-                } else {
-                    BasePresenter.this.onResponse(methodName, object, REQUEST_SUCCESS, parameterMap);
-
-                }
+            delayDisplayProgress();
+            Call<String> call;
+            if (isPost) {
+                call = service.serviceAPI(part, methodName, parameterMap);
+            } else {
+                call = service.serviceGetAPI(part, methodName, parameterMap);
             }
+            call.enqueue(new Callback<String>() {
+                @Override
+                public void onResponse(Response<String> response, Retrofit retrofit) {
+                    dialogDismiss();
+                    isShowFlag = true;
+                    Object object = null;
+                    if (ParseResult.instance().requestServerResult(response.body())) {
+                        if (typeToken != null) {
+                            object = ParseResult.instance().requestServer(methodName, response.body(), typeToken);
+                        }
 
-            @Override
-            public void onFailure(Throwable t) {
-                dialogDismiss();
-                BasePresenter.this.onResponse(methodName, null, REQUEST_FAILURE, parameterMap);
-                isShowFlag = true;
-            }
-        });
+                        BasePresenter.this.onResponse(methodName, object, REQUEST_SUCCESS,parameterMap);
+                    } else {
+                        BasePresenter.this.onResponse(methodName, object, REQUEST_FAILURE,parameterMap);
+                        BasePresenter.this.onFailure(methodName);
+                    }
+                }
+
+                @Override
+                public void onFailure(Throwable t) {
+                    dialogDismiss();
+                    BasePresenter.this.onResponse(methodName, null, REQUEST_FAILURE, parameterMap);
+                    isShowFlag = true;
+                }
+            });
 
         } else {
             Toast.makeText(AppConfig.getContext(), "网络不给力，请稍后重试！", Toast.LENGTH_SHORT).show();
