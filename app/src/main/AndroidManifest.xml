@@ -51,7 +51,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.nuoman.westernele.common.utils.CameraNoMarkActivity" />
-        <activity android:name="com.nuoman.westernele.LoginActivity" />
+
+        <!--登陆界面-->
+        <activity android:name="com.nuoman.westernele.login.LoginActivity" />
 
         <!-- 工号查询 -->
         <activity

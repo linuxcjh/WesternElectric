@@ -16,11 +16,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.common.BasePresenter;
 import com.nuoman.westernele.common.NuoManConstant;
-import com.nuoman.westernele.model.LoginInfoModel;
+import com.nuoman.westernele.login.model.LoginReturn;
+import com.nuoman.westernele.login.model.User;
 
 import java.io.DataOutputStream;
 import java.io.File;
@@ -168,9 +170,9 @@ public class AppTools {
      *
      * @return
      */
-    public static LoginInfoModel getLogInfo() {
+    public static LoginReturn getLogInfo() {
 
-        LoginInfoModel model = BasePresenter.gson.fromJson(ACache.get(AppConfig.getContext()).getAsString(NuoManService.LOGIN), new TypeToken<LoginInfoModel>() {
+        LoginReturn model = BasePresenter.gson.fromJson(ACache.get(AppConfig.getContext()).getAsString(NuoManService.LOGIN), new TypeToken<LoginReturn>() {
         }.getType());
         return model;
     }
@@ -410,4 +412,30 @@ public class AppTools {
             return false;
         }
     }
+
+    /**
+     * 保存登录信息
+     *
+     * @param user 用户信息类
+     */
+    public static void setUser(User user) {
+        String userModelString = new GsonBuilder().create().toJson(user);
+        AppConfig.setStringConfig("user", userModelString);
+    }
+
+    /**
+     * 获取登录人对象
+     *
+     * @return 登录人实体类
+     */
+    public static User getUser() {
+        User user = new User();
+        String str = AppConfig.getStringConfig("user", null);
+        if (!TextUtils.isEmpty(str)) {
+            user = new GsonBuilder().create().fromJson(str, new TypeToken<User>() {
+            }.getType());
+        }
+        return user;
+    }
+
 }
