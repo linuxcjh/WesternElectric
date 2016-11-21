@@ -67,9 +67,9 @@
         <!-- 信息发布页面 -->
         <activity android:name="com.nuoman.westernele.informationRelease.InformationReleaseActivity" />
         <!--发布信息详情页-->
-        <activity android:name="com.nuoman.westernele.informationDetail.InformationDetail" />
+        <activity android:name="com.nuoman.westernele.informationDetail.InformationDetailActivity" />
         <!--预警中心-->
-        <activity android:name="com.nuoman.westernele.warningCenter.WarningCenter" />
+        <activity android:name="com.nuoman.westernele.warningCenter.WarningCenterActivity" />
         <!--西变新闻-->
         <activity android:name="com.nuoman.westernele.westNew.WestNewActivity" />
         <!--主页导航-->

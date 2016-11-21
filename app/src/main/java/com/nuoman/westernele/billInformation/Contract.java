@@ -1,0 +1,23 @@
+package com.nuoman.westernele.billInformation;
+
+import com.nuoman.westernele.billInformation.model.BillInformation;
+
+import java.util.List;
+
+/**
+ * 账款信息契约类
+ * Created by 杨小过 on 2016/11/18.
+ */
+
+public interface Contract {
+
+    interface BillInformationView {
+        void refreshInformation(List<BillInformation> data);
+
+        void loadMoreInformation(List<BillInformation> data);
+    }
+
+    interface BillInformationPresenter {
+        void requestBillInformation(int type);
+    }
+}

@@ -4,6 +4,7 @@
     android:id="@+id/activity_bill_information_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorContent"
     android:orientation="vertical"
     tools:context="com.nuoman.westernele.billInformation.BillInformationActivity">
 
@@ -12,6 +13,6 @@
     <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
         android:id="@+id/rv_bill_information"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

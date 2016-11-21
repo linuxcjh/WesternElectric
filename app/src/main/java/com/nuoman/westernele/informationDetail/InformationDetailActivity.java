@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.common.BaseActivity;
 
-public class InformationDetail extends BaseActivity {
+public class InformationDetailActivity extends BaseActivity {
 
 
 

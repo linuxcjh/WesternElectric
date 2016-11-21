@@ -12,13 +12,17 @@ import android.widget.TextView;
 import com.google.gson.reflect.TypeToken;
 import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.api.NuoManService;
+import com.nuoman.westernele.billInformation.BillInformationActivity;
 import com.nuoman.westernele.common.BaseFragment;
 import com.nuoman.westernele.common.CommonPresenter;
 import com.nuoman.westernele.common.ICommonAction;
 import com.nuoman.westernele.components.MyGridView;
 import com.nuoman.westernele.home.adapter.ApplicationAdapter;
 import com.nuoman.westernele.home.model.ApplicationModel;
+import com.nuoman.westernele.informationRelease.InformationReleaseActivity;
 import com.nuoman.westernele.model.BaseTransModel;
+import com.nuoman.westernele.numberQuery.NumberQueryActivity;
+import com.nuoman.westernele.warningCenter.WarningCenterActivity;
 import com.nuoman.westernele.westNew.WestNewActivity;
 
 import java.util.ArrayList;
@@ -106,23 +110,31 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
+        Intent intent;
         switch (position) {
             case 0:
-                Intent intent = new Intent(getActivity(), WestNewActivity.class);
+                intent = new Intent(getActivity(), WestNewActivity.class);
                 startActivity(intent);
                 break;
             case 1:
                 break;
             case 2:
+                intent = new Intent(getActivity(), NumberQueryActivity.class);
+                startActivity(intent);
                 break;
             case 3:
+                intent = new Intent(getActivity(), BillInformationActivity.class);
+                startActivity(intent);
                 break;
             case 4:
+                intent = new Intent(getActivity(), InformationReleaseActivity.class);
+                startActivity(intent);
                 break;
             case 5:
+                intent = new Intent(getActivity(), WarningCenterActivity.class);
+                startActivity(intent);
                 break;
-            case 6:
-                break;
+
         }
 
     }

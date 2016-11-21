@@ -4,7 +4,7 @@
     android:id="@+id/activity_information_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nuoman.westernele.informationDetail.InformationDetail">
+    tools:context="com.nuoman.westernele.informationDetail.InformationDetailActivity">
 
     <include layout="@layout/title_layout" />
 

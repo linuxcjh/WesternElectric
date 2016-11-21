@@ -18,4 +18,9 @@ public interface NuoManService {
      */
     String GETMAINPAGEINFO="GetMainPageInfo";
 
+    /*
+    账款信息
+     */
+    String BILL_INFORMATION="GetAccountInfoByPage";
+
 }
