@@ -9,16 +9,44 @@
         android:layout_height="50dp"
         android:background="@color/colorBlue">
 
-
-        <TextView
-            style="@style/title_mid_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <LinearLayout
+            android:id="@+id/top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             android:layout_centerInParent="true"
-            android:text="联系人" />
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/client_bt"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/client_top_left_fouces"
+                android:gravity="center"
+                android:text="客户"
+                android:textColor="@color/colorBlue"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/staff_bt"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/client_top_right_normal"
+                android:text="员工"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp" />
+
+        </LinearLayout>
 
 
     </RelativeLayout>
+w
+    <android.support.v4.view.ViewPager
+        android:id="@+id/content_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
 
 
 </LinearLayout>

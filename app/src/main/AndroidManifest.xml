@@ -74,6 +74,8 @@
         <activity android:name="com.nuoman.westernele.westNew.WestNewActivity" />
         <!--主页导航-->
         <activity android:name="com.nuoman.westernele.home.MainTableActivity" />
+        <!--修改密码-->
+        <activity android:name="com.nuoman.westernele.set.PwdActivity" />
     </application>
 
 </manifest>

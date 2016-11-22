@@ -16,6 +16,8 @@
     <color name="colorBlueLight">#82C1F6</color>
 
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorBg">#F4F4F4</color>
+    <color name="colorBg">#EEEEEE</color>
+    <color name="colorUnComplete">#D5E0E8</color>
+
 
 </resources>
