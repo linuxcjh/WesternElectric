@@ -64,11 +64,26 @@ public class ContactsLeaderFragment extends BaseFragment {
         data.add(new ClientRecordModel());
         data.add(new ClientRecordModel());
         data.add(new ClientRecordModel());
+
         pullLoadMoreRecyclerView.setLinearLayout();
+        pullLoadMoreRecyclerView.setFooterViewText("loading");
+        pullLoadMoreRecyclerView.setPushRefreshEnable(false);
+
+
         mAdapter = new ClientRecordAdapter(getActivity(), R.layout.fragment_client_clue_item_layout, data);
         pullLoadMoreRecyclerView.setAdapter(mAdapter);
 
+        pullLoadMoreRecyclerView.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
+            @Override
+            public void onRefresh() {
 
+            }
+
+            @Override
+            public void onLoadMore() {
+
+            }
+        });
     }
 
     @Override
