@@ -61,7 +61,7 @@
             android:windowSoftInputMode="stateHidden" />
 
         <!-- 工号的基本信息 -->
-        <activity android:name="com.nuoman.westernele.numberDetail.NumberDetailActivity" />
+        <activity android:name="com.nuoman.westernele.numberDetail.view.NumberDetailActivity" />
         <!-- 账款信息 -->
         <activity android:name="com.nuoman.westernele.billInformation.BillInformationActivity" />
         <!-- 信息发布页面 -->

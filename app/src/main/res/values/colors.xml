@@ -17,5 +17,8 @@
 
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBg">#F4F4F4</color>
+    <color name="colorGray">#7c7c7c</color>
+    <color name="colorGray1">#E0E0E0</color>
+    <color name="colorGray2">#F0F3F3</color>
 
 </resources>

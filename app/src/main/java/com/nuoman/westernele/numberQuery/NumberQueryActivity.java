@@ -10,10 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.common.BaseActivity;
-import com.nuoman.westernele.numberDetail.NumberDetailActivity;
+import com.nuoman.westernele.numberDetail.view.NumberDetailActivity;
+import com.nuoman.westernele.numberQuery.model.Number;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +39,7 @@ public class NumberQueryActivity extends BaseActivity implements Contract.Number
     RecyclerView rv_search_reason;
 
     private NumberQueryPresenterImp numberQueryPresenterImp;
-    private SearchReasonAdapter searchReasonAdapter;
+    private NumberAdapter numberAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +54,7 @@ public class NumberQueryActivity extends BaseActivity implements Contract.Number
 
     private void initVariable() {
         numberQueryPresenterImp = new NumberQueryPresenterImp(this);
-        searchReasonAdapter = new SearchReasonAdapter();
+        numberAdapter = new NumberAdapter();
     }
 
     private void initLayout() {
@@ -65,7 +67,7 @@ public class NumberQueryActivity extends BaseActivity implements Contract.Number
     }
 
     private void bindAdapter() {
-        rv_search_reason.setAdapter(searchReasonAdapter);
+        rv_search_reason.setAdapter(numberAdapter);
     }
 
     @OnClick({R.id.title_left_tv, R.id.btn_search})
@@ -81,8 +83,13 @@ public class NumberQueryActivity extends BaseActivity implements Contract.Number
     }
 
     @Override
-    public void updateSearchReason(List<NumberEntity> searchReasons) {
-        searchReasonAdapter.update(searchReasons);
+    public void refreshNumber(List<Number> data) {
+        numberAdapter.refresh(data);
+    }
+
+    @Override
+    public void showNotification(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     public void onItemClick(String number) {
@@ -92,12 +99,12 @@ public class NumberQueryActivity extends BaseActivity implements Contract.Number
     }
 
 
-    class SearchReasonAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    class NumberAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-        private List<NumberEntity> numberEntities;
+        private List<Number> mData;
 
-        SearchReasonAdapter() {
-            numberEntities = new ArrayList<>();
+        NumberAdapter() {
+            mData = new ArrayList<>();
         }
 
         @Override
@@ -108,31 +115,34 @@ public class NumberQueryActivity extends BaseActivity implements Contract.Number
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            ((SearchReasonViewHolder) holder).textViewItem.setText(numberEntities.get(position).getNumber());
+            ((SearchReasonViewHolder) holder).initView(mData.get(position));
         }
 
         @Override
         public int getItemCount() {
-            return numberEntities.size();
+            return mData.size();
         }
 
-        void update(List<NumberEntity> number) {
-            numberEntities = number;
+        void refresh(List<Number> data) {
+            mData = data;
             notifyDataSetChanged();
         }
 
-        NumberEntity getItemData(int position) {
-            return numberEntities.get(position);
+        Number getItemData(int position) {
+            return mData.get(position);
         }
 
         class SearchReasonViewHolder extends RecyclerView.ViewHolder {
 
-            @Bind(R.id.textViewItem)
-            TextView textViewItem;
+            private TextView textViewItem;
 
             SearchReasonViewHolder(View itemView) {
                 super(itemView);
-                ButterKnife.bind(itemView);
+                textViewItem = (TextView) itemView.findViewById(R.id.textViewItem);
+            }
+
+            void initView(Number number) {
+                textViewItem.setText(number.getDataName());
             }
         }
     }
@@ -158,11 +168,11 @@ public class NumberQueryActivity extends BaseActivity implements Contract.Number
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
             View childView = rv.findChildViewUnder(e.getX(), e.getY());
             if (childView != null && gestureDetector.onTouchEvent(e)) {
-                SearchReasonAdapter searchReasonAdapter = (SearchReasonAdapter) rv.getAdapter();
-                if (searchReasonAdapter != null) {
-                    mNumberQueryActivity.onItemClick(searchReasonAdapter.
+                NumberAdapter numberAdapter = (NumberAdapter) rv.getAdapter();
+                if (numberAdapter != null) {
+                    mNumberQueryActivity.onItemClick(numberAdapter.
                             getItemData(rv.getChildLayoutPosition(childView)).
-                            getNumber());
+                            getId());
                 } else {
                     throw new RuntimeException("NoAdapter");
                 }
