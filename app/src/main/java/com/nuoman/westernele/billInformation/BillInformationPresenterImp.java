@@ -1,6 +1,7 @@
 package com.nuoman.westernele.billInformation;
 
 import com.google.gson.reflect.TypeToken;
+import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.billInformation.model.BillInformation;
 import com.nuoman.westernele.billInformation.model.BillInformationParameter;
 import com.nuoman.westernele.common.CommonPresenter;
@@ -43,7 +44,7 @@ public class BillInformationPresenterImp implements Contract.BillInformationPres
         } else {
             billInformationParameter.setPages("0");
         }
-        commonPresenter.invokeInterfaceObtainData(true, "appAccountInfoCtrl", "GetAccountInfoByPage",
+        commonPresenter.invokeInterfaceObtainData(true, "appAccountInfoCtrl", NuoManService.BILL_INFORMATION,
                 billInformationParameter, new TypeToken<List<BillInformation>>() {
                 });
     }
@@ -51,7 +52,7 @@ public class BillInformationPresenterImp implements Contract.BillInformationPres
     @Override
     public void obtainData(Object data, String methodIndex, int status, Map<String, String> parameterMap) {
         switch (methodIndex) {
-            case "GetAccountInfoByPage":
+            case NuoManService.BILL_INFORMATION:
                 if (status == 1) {
                     @SuppressWarnings("unchecked")
                     List<BillInformation> billInformationList = (List<BillInformation>) data;
