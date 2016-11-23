@@ -80,7 +80,7 @@ public class NumberDetailActivity extends BaseActivity {
             fragments = new ArrayList<>();
             title.add("进度图表");
             title.add("基本信息");
-            fragments.add(new ProgressFragment());
+            fragments.add(new ProgressChartFragment());
             fragments.add(BasicInformationFragment.newInstance
                     (getIntent().getStringExtra("number"))
             );

@@ -14,7 +14,11 @@ import com.nuoman.westernele.common.BaseFragment;
  * Created by 杨小过 on 2016/11/22.
  */
 
-public class ProgressFragment extends BaseFragment {
+public class ProgressChartFragment extends BaseFragment {
+
+    public static void newInstance(){
+        
+    }
 
     @Nullable
     @Override
