@@ -31,5 +31,9 @@ public interface NuoManService {
     根据工号查询出基本信息
      */
     String NUMBER_BASIC_INFORMATION = "GetOrderBaseInfoByOrderId";
+    /*
+    预警信息
+     */
+    String WARNING_CENTER = "GetAlertInfoByPage";
 
 }

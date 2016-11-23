@@ -23,4 +23,6 @@
     <color name="colorGray1">#E0E0E0</color>
     <color name="colorGray2">#F0F3F3</color>
 
+    <color name="colorTimeContent">#A6A6A6</color>
+
 </resources>
