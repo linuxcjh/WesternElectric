@@ -52,7 +52,7 @@
         </activity>
         <activity android:name="com.nuoman.westernele.common.utils.CameraNoMarkActivity" />
 
-        <!--登陆界面-->
+        <!-- 登陆界面 -->
         <activity android:name="com.nuoman.westernele.login.LoginActivity" />
 
         <!-- 工号查询 -->
@@ -66,16 +66,17 @@
         <activity android:name="com.nuoman.westernele.billInformation.BillInformationActivity" />
         <!-- 信息发布页面 -->
         <activity android:name="com.nuoman.westernele.informationRelease.InformationReleaseActivity" />
-        <!--发布信息详情页-->
+        <!-- 发布信息详情页 -->
         <activity android:name="com.nuoman.westernele.informationDetail.InformationDetailActivity" />
-        <!--预警中心-->
+        <!-- 预警中心 -->
         <activity android:name="com.nuoman.westernele.warningCenter.WarningCenterActivity" />
-        <!--西变新闻-->
+        <!-- 西变新闻 -->
         <activity android:name="com.nuoman.westernele.westNew.WestNewActivity" />
-        <!--主页导航-->
+        <!-- 主页导航 -->
         <activity android:name="com.nuoman.westernele.home.MainTableActivity" />
-        <!--修改密码-->
+        <!-- 修改密码 -->
         <activity android:name="com.nuoman.westernele.set.PwdActivity" />
+        <activity android:name="com.nuoman.westernele.welcome.WelcomeActivity"></activity>
     </application>
 
 </manifest>
