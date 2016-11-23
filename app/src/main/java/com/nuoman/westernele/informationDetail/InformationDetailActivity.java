@@ -1,5 +1,6 @@
 package com.nuoman.westernele.informationDetail;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseActivity;
+import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.informationDetail.model.InformationDetail;
 
 import butterknife.Bind;
@@ -100,15 +102,19 @@ public class InformationDetailActivity extends BaseActivity implements Contract.
         tv_plan_end_date.setText(String.format("实际开工时间：%s", informationDetail.getPlanEndDate()));
         tv_real_start_date.setText(String.format("计划完成时间：%s", informationDetail.getActualStartDate()));
         tv_real_end_date.setText(String.format("实际完成时间：%s", informationDetail.getActualEndDate()));
+        AppTools.setImageViewClub(this, informationDetail.getPicUrl(), iv_detail_photo);
         switch (informationDetail.getNodeCheckStatus()) {
             case "0":
                 tv_detail_status.setText("待审核");
+                tv_detail_status.setTextColor(Color.parseColor("#7c7c7c"));
                 break;
             case "1":
                 tv_detail_status.setText("已通过");
+                tv_detail_status.setTextColor(Color.BLACK);
                 break;
             case "2":
                 tv_detail_status.setText("未通过");
+                tv_detail_status.setTextColor(Color.parseColor("#dc291c"));
                 break;
         }
         switch (informationDetail.getNodeStatus()) {
@@ -120,6 +126,7 @@ public class InformationDetailActivity extends BaseActivity implements Contract.
                 break;
             case "2":
                 tv_is_overdue.setText("逾期完成");
+                tv_is_overdue.setTextColor(Color.parseColor("#dc291c"));
                 break;
             case "3":
                 tv_is_overdue.setText("其他失败");

@@ -6,6 +6,11 @@ package com.nuoman.westernele.common;
  */
 public class NuoManConstant {
 
+    /*
+    是否第一次打开软件
+     */
+    public static String IS_FIRST="is_first";
+
     /**
      * 是否已登录
      */

@@ -2,30 +2,55 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:drawablePadding="10dp"
+        android:drawableTop="@drawable/login_logo"
+        android:text="西安西电智慧服务云平台"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
     <EditText
         android:id="@+id/et_user_name"
-        android:layout_width="match_parent"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:drawableLeft="@drawable/login__account_icon"
+        android:drawablePadding="8dp"
         android:gravity="center_vertical"
+        android:hint="请输入帐号"
         android:inputType="number"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:textColorHint="@color/colorGray3" />
 
 
     <EditText
         android:id="@+id/et_password"
-        android:layout_width="match_parent"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:drawableLeft="@drawable/login_password_icon"
+        android:drawablePadding="8dp"
         android:gravity="center_vertical"
+        android:hint="请输入密码"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:textColorHint="@color/colorGray3" />
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="登陆" />
+        android:layout_width="202dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="34dp"
+        android:background="@color/colorBlue"
+        android:text="登陆"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
 </LinearLayout>
