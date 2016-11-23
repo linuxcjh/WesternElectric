@@ -1,5 +1,7 @@
 package com.nuoman.westernele.login.model;
 
+import java.util.List;
+
 /**
  * 用户信息实体类
  * Created by 杨小过 on 2016/11/18.
@@ -28,6 +30,15 @@ public class User {
     private String showUpdate;
     private String userId;
     private String userName;
+    private List<CompanyInfoModel> subcompany;
+
+    public List<CompanyInfoModel> getSubcompany() {
+        return subcompany;
+    }
+
+    public void setSubcompany(List<CompanyInfoModel> subcompany) {
+        this.subcompany = subcompany;
+    }
 
     public String getAppVersion() {
         return appVersion;

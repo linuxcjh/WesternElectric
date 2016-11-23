@@ -50,4 +50,29 @@ public interface NuoManService {
      */
     String RELEASE_INFORMATION_CHECK = "CheckNode";
 
+    /**
+     * 联系人
+     */
+    String GETCONTACTSLIST = "GetContactsList";
+
+    /**
+     * 7牛token
+     */
+    String GETTOKEN = "GetToken";
+
+    /**
+     * 获取账户信息
+     */
+    String GETACCOUNTINFODETAIL = "GetAccountInfoDetail";
+
+    /**
+     * 保存用户头像
+     */
+    String SAVEUSERHEADPIC="SaveUserHeadPic";
+
+    /**
+     * 保存账户信息
+     */
+    String SAVEACCOUNTINFODETAIL = "SaveAccountInfoDetail";
+
 }

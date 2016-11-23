@@ -40,7 +40,7 @@ public class ContactsFragment extends BaseFragment {
 
 
     private ContactsLeaderFragment leaderFragment = new ContactsLeaderFragment();
-    private ContactsLeaderFragment staffFragment = new ContactsLeaderFragment();
+    private ContactsStaffFragment staffFragment = new ContactsStaffFragment();
 
     private List<Fragment> fragments = new ArrayList<>();
     private FragmentPagerAdapter mAdapter;

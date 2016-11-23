@@ -37,6 +37,7 @@ public class SetFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_set_layout, null);
         ButterKnife.bind(this, view);
 
+
         return view;
     }
 
@@ -56,6 +57,8 @@ public class SetFragment extends BaseFragment {
             case R.id.connect_layout:
                 break;
             case R.id.about_layout:
+                startActivity(new Intent(getActivity(), AboutActivity.class));
+
                 break;
             case R.id.exit_layout:
                 getActivity().finish();

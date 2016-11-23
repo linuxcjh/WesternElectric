@@ -122,8 +122,18 @@ public class NuoManConstant {
     public static final String DEVICE_STATUS = "device_status";
     public static final String DEVICE_STATUS_DEC = "device_status_dec";
 
+    public static final int SINGLESELECTION = 0x001;
 
 
+    /**
+     * 系统图库选择图片
+     **/
+    public static final int SELECT_PICTURE = 0x31;
+
+    /**
+     * 调用系统相机拍照
+     **/
+    public static final int CAMERA_REQUEST_CODE = 0x32;
 
 
 

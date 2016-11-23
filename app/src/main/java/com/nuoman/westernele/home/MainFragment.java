@@ -16,9 +16,11 @@ import com.nuoman.westernele.billInformation.BillInformationActivity;
 import com.nuoman.westernele.common.BaseFragment;
 import com.nuoman.westernele.common.CommonPresenter;
 import com.nuoman.westernele.common.ICommonAction;
+import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.components.MyGridView;
 import com.nuoman.westernele.home.adapter.ApplicationAdapter;
 import com.nuoman.westernele.home.model.ApplicationModel;
+import com.nuoman.westernele.home.model.MainModel;
 import com.nuoman.westernele.informationRelease.InformationReleaseActivity;
 import com.nuoman.westernele.model.BaseTransModel;
 import com.nuoman.westernele.numberQuery.NumberQueryActivity;
@@ -46,6 +48,14 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
     TextView companyNameTv;
     @Bind(R.id.app_gridView)
     MyGridView appGridView;
+    @Bind(R.id.unstart_tv)
+    TextView unstartTv;
+    @Bind(R.id.producting_tv)
+    TextView productingTv;
+    @Bind(R.id.completed_tv)
+    TextView completedTv;
+    @Bind(R.id.notice_content)
+    TextView noticeContent;
     private ApplicationAdapter mAdapter;
     private List<ApplicationModel> data;
     int index[] = {
@@ -72,6 +82,11 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
     }
 
     private void init() {
+
+        commonPresenter.isShowProgressDialog = false;
+        if (AppTools.getUser().getSubcompany().size() > 0) {
+            companyNameTv.setText((AppTools.getUser().getSubcompany().get(0).getDataName()));
+        }
         appGridView.setFocusable(false);
         data = new ArrayList<>();
         String str[] = getActivity().getResources().getStringArray(R.array.apptitle);
@@ -89,11 +104,11 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
     }
 
     /**
-     * 调用方法获取数据¬
+     * 调用方法获取数据
      */
     public void invoke() {
-        transModel.setUserId("");//TODO
-        commonPresenter.invokeInterfaceObtainData(true, "appUserCtrl", NuoManService.GETMAINPAGEINFO, transModel, new TypeToken<Object>() {
+        transModel.setUserId(AppTools.getUser().getUserId());
+        commonPresenter.invokeInterfaceObtainData(true, "appUserCtrl", NuoManService.GETMAINPAGEINFO, transModel, new TypeToken<MainModel>() {
         });
     }
 
@@ -103,6 +118,13 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
         switch (methodIndex) {
             case NuoManService.GETMAINPAGEINFO:
 
+                if (data != null) {
+                    MainModel mainPageModel = (MainModel) data;
+                    unstartTv.setText(mainPageModel.getUnStart());
+                    productingTv.setText(mainPageModel.getProducing());
+                    completedTv.setText(mainPageModel.getFinished());
+                    noticeContent.setText(mainPageModel.getNoticeInfo());
+                }
                 break;
         }
     }

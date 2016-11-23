@@ -1,34 +1,47 @@
 package com.nuoman.westernele.common.utils;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
+import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.common.NuoManConstant;
+import com.nuoman.westernele.common.SelectionDialogListAdapter;
+import com.nuoman.westernele.components.SelectionDialog;
 import com.nuoman.westernele.login.model.User;
+import com.nuoman.westernele.mine.model.BaseDataModel;
 
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.IdentityHashMap;
 import java.util.List;
@@ -448,6 +461,191 @@ public class AppTools {
     public static void setImageViewClub(Context context, String url, ImageView imageView) {
         Glide.with(context).load(url).placeholder(R.drawable.photo_none).error(R.drawable.photo_none).into(imageView);
     }
+
+    /**
+     * 发短信
+     *
+     * @param phone
+     */
+    public static void sendSMS(Context context, String phone) {
+        Uri smsToUri = Uri.parse("smsto:" + (TextUtils.isEmpty(phone) ? "" : phone));
+        Intent intent = new Intent(Intent.ACTION_SENDTO, smsToUri);
+        intent.putExtra("sms_body", "");
+        context.startActivity(intent);
+    }
+
+    /**
+     * 打电话
+     *
+     * @param context
+     * @param phone
+     */
+    public static void callPhone(Context context, String phone) {
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:" + (TextUtils.isEmpty(phone) ? "" : phone)));
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        context.startActivity(intent);
+    }
+
+    /**
+     * Toast
+     *
+     * @param contentStr
+     */
+    public static void getToast(String contentStr) {
+        Toast.makeText(AppConfig.getContext(), contentStr, Toast.LENGTH_SHORT).show();
+
+    }
+
+    /**
+     * 无水印相机
+     *
+     * @param activity fragment
+     */
+    public static void getCapturePathNoWater(Activity activity, Fragment fragment) {
+
+        String path = getImageSavePath(activity) + "/"
+                + DateUtil.getTime(DateUtil.yyyyMMddHHmmss) + ".jpg";
+        AppConfig.setStringConfig("cameraPath", path);
+        Intent cameraIntent = new Intent(activity, CameraNoMarkActivity.class);
+        cameraIntent.putExtra("path", path);
+        if (fragment != null) {
+            fragment.startActivityForResult(cameraIntent,
+                    NuoManConstant.CAMERA_REQUEST_CODE);
+        } else {
+            activity.startActivityForResult(cameraIntent,
+                    NuoManConstant.CAMERA_REQUEST_CODE);
+
+        }
+
+    }
+
+
+    /**
+     * 方法名:获取图片文件存取路径
+     * <p>
+     * 功能说明：获取图片文件存取路径
+     * </p>
+     *
+     * @return
+     */
+    public static String getImageSavePath(Activity activity) {
+        if (AppTools.getSDPath().equals("")) {
+            return activity.getFilesDir().getPath();
+        }
+        File file = new File(AppTools.getSDPath() + "/nuoman/profession/dcim");
+        if (!file.exists()) {
+            if (file.mkdirs()) {
+                return file.getPath();
+            }
+            return "";
+        }
+        return file.getPath();
+    }
+
+    /**
+     * 调用系统相册
+     *
+     * @param activity
+     */
+    public static void getSystemImage(Fragment activity) {
+        Intent intent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        activity.startActivityForResult(intent, NuoManConstant.SELECT_PICTURE);
+
+    }
+
+    /**
+     * 调用拍照、相册
+     *
+     * @param activity
+     * @param handler
+     */
+
+    public static void selectPhotoShow(Activity activity, Handler handler, int selectSign) {
+
+        if (PermissionsChecker.getPermissionsChecker().lacksPermissions(ConstantPermission.PERMISSIONS_PICTURE)) {
+            PermissionsChecker.getPermissionsChecker().startPermissionsActivity(activity, ConstantPermission.PERMISSIONS_PICTURE);
+        } else {
+            List<BaseDataModel> data = new ArrayList<>();
+            BaseDataModel model = new BaseDataModel();
+            model.setDictionaryName(activity.getString(R.string.camera_picture));
+            BaseDataModel modelT = new BaseDataModel();
+            modelT.setDictionaryName(activity.getString(R.string.photo_picture));
+
+            data.add(model);
+            data.add(modelT);
+            selectDialog("请选择", activity, data, handler, selectSign);
+        }
+
+    }
+
+    /**
+     * 选择框
+     *
+     * @param activity
+     * @param data
+     * @param handler
+     */
+    public static void selectDialog(String title, Activity activity, List<BaseDataModel> data, Handler handler, int selectSign) {
+        AppTools.selectHeightDialog(title, activity, data, handler, selectSign, 0);
+    }
+
+
+    /**
+     * 动态设置高度的选择框
+     *
+     * @param activity
+     * @param data
+     * @param handler
+     * @param selectSign
+     */
+    public static void selectHeightDialog(String title, Activity activity, List<BaseDataModel> data, Handler handler, int selectSign, int height) {
+        SelectionDialogListAdapter adapter = new SelectionDialogListAdapter(activity, R.layout.selection_dialog_listview_item, data);
+        SelectionDialog dialog = new SelectionDialog(activity, R.layout.selection_dialog_listview_layout, handler, selectSign, height);
+
+        dialog.buildDialog().setAdapter(adapter).setTitle(title);
+    }
+
+    /**
+     * 更具uri获取绝对路径
+     *
+     * @param context
+     * @param uri
+     * @return
+     */
+    public static String getAbsolutePath(Context context, Uri uri) {
+        if (uri == null) {
+            return null;
+        }
+        if (uri.toString().contains("file://")) {
+
+            String path = uri.toString().replace("file://", "");
+
+            return Uri.decode(path);
+        }
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = context.getContentResolver().query(uri, proj, null,
+                null, null);
+        if (cursor == null) {
+            return null;
+        }
+        int column_index = cursor
+                .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+
+        cursor.moveToFirst();
+        return cursor.getString(column_index);
+    }
+
 
 
 }

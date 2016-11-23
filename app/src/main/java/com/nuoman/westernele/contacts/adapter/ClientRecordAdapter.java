@@ -1,53 +1,73 @@
 package com.nuoman.westernele.contacts.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
 
+import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.common.BaseRecyclerAdapter;
 import com.nuoman.westernele.common.ViewHolder;
-import com.nuoman.westernele.contacts.model.ClientRecordModel;
+import com.nuoman.westernele.common.utils.AppTools;
+import com.nuoman.westernele.components.AvatarImageView;
+import com.nuoman.westernele.contacts.model.Customer;
 
 import java.util.List;
 
 /**
  * Created by Alex on 2016/1/11.
  */
-public class ClientRecordAdapter extends BaseRecyclerAdapter<ClientRecordModel> implements View.OnClickListener {
+public class ClientRecordAdapter extends BaseRecyclerAdapter<Customer> implements View.OnClickListener {
 
-    public ClientRecordAdapter(Context context, int layoutResId, List<ClientRecordModel> data) {
+    public ClientRecordAdapter(Context context, int layoutResId, List<Customer> data) {
         super(context, layoutResId, data);
     }
 
     @Override
-    protected void convert(ViewHolder helper, ClientRecordModel item, int position) {
+    protected void convert(ViewHolder holder, Customer model, int position) {
+
+        ImageView clue_avatar_iv = holder.getView(R.id.clue_avatar_iv);
+        ImageView sms = holder.getView(R.id.message_iv);
+        ImageView phone = holder.getView(R.id.phone_iv);
+
+        AvatarImageView clue_avatar_no_url_iv = holder.getView(R.id.clue_avatar_no_url_iv);
+
+        if (!TextUtils.isEmpty(model.getFirstName())) {
+            clue_avatar_no_url_iv.setVisibility(View.VISIBLE);
+            clue_avatar_iv.setVisibility(View.GONE);
+            clue_avatar_no_url_iv.setContentText(model.getFirstName());
+        }
+        holder.setText(R.id.clue_name_tv, model.getFullName());
+        holder.setText(R.id.position_tv, model.getJob());
+        holder.setText(R.id.clue_create_time_tv, model.getCompany());
+
+        sms.setOnClickListener(this);
+        sms.setTag(model);
+        phone.setOnClickListener(this);
+        phone.setTag(model);
 
     }
 
     @Override
     public void onClick(View v) {
-        ClientRecordModel item = (ClientRecordModel) v.getTag();
-//        switch (v.getId()) {
-//            case R.id.history_tv:
-//                Intent intent=new Intent(context, StatementHistroyActivity.class);
-//                intent.putExtra("item",item);;
-//                context.startActivity(intent);
-//                break;
-//            case R.id.rapportStatus:
-//
-//                switch (item.getRapportStatus()) {
-//                    case "0":
-//                        Intent intent1=new Intent(context,ReportAddActivity.class);
-//                        intent1.putExtra("item",item);
-//                        intent1.putExtra("position",(int)v.getTag(R.id.rapportStatus));
-//                        fragment.startActivityForResult(intent1,1001);
-//                        break;
-//                    case "1":
-//                        Intent intent2=new Intent(context,ReportEditActivity.class);
-//                        intent2.putExtra("item",item);
-//                        context.startActivity(intent2);
-//                        break;
-//                }
-//                break;
-//        }
+        Customer item = (Customer) v.getTag();
+        switch (v.getId()) {
+            case R.id.message_iv:
+                if (!TextUtils.isEmpty(item.getTel())) {
+                    AppTools.sendSMS(context, item.getTel());
+                } else {
+                    AppTools.getToast("暂无电话号码");
+                }
+
+                break;
+            case R.id.phone_iv:
+                if (!TextUtils.isEmpty(item.getTel())) {
+                    AppTools.callPhone(context, item.getTel());
+                } else {
+                    AppTools.getToast("暂无电话号码");
+                }
+
+                break;
+        }
     }
 }

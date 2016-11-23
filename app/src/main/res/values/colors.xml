@@ -10,6 +10,7 @@
     <color name="colorContent">#EEEEEE</color>
     <color name="colorAssist">#999999</color>
     <color name="colorDividerLine">#F2F2F2</color>
+    <color name="colorDivider">#E0E0E0</color>
 
     <color name="colorListName">#666666</color>
     <color name="colorAssistLight">#CCCCCC</color>
@@ -24,5 +25,7 @@
     <color name="colorGray2">#F0F3F3</color>
 
     <color name="colorTimeContent">#A6A6A6</color>
+    <color name="colorTitleText">#333333</color>
+
 
 </resources>

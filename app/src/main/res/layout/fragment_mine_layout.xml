@@ -27,11 +27,11 @@
 
         <ImageView
             android:id="@+id/photo_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="86dp"
+            android:layout_height="86dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="55dp"
-            android:src="@drawable/photo_03" />
+            android:background="@drawable/photo_03" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
             android:layout_below="@+id/photo_iv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="杨坤"
+            android:text=""
             android:textColor="@color/colorListName"
             android:textSize="16sp" />
 
@@ -59,7 +59,7 @@
             android:layout_below="@+id/name_tv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="副总经理"
+            android:text=""
             android:textColor="@color/colorListName"
             android:textSize="16sp" />
 
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:text="公司"
+            android:text=""
             android:textColor="@color/colorAssist"
             android:textSize="16sp" />
 
@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:text="公司"
+            android:text=""
             android:textColor="@color/colorAssist"
             android:textSize="16sp" />
 
@@ -148,7 +148,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:text="18710428665"
+            android:text=""
             android:textColor="@color/colorAssist"
             android:textSize="16sp" />
 
@@ -174,7 +174,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:text="e.cjh.cn@gmail.com"
+            android:text=""
             android:textColor="@color/colorAssist"
             android:textSize="16sp" />
 
