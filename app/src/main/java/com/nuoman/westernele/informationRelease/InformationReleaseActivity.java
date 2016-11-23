@@ -1,6 +1,7 @@
 package com.nuoman.westernele.informationRelease;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
@@ -186,12 +187,15 @@ public class InformationReleaseActivity extends BaseActivity implements Contract
                 switch (releaseInformation.getProjectState()) {
                     case "0":
                         tv_status.setText("待审核");
+                        tv_status.setTextColor(Color.parseColor("#7c7c7c"));
                         break;
                     case "1":
                         tv_status.setText("已通过");
+                        tv_status.setTextColor(Color.BLACK);
                         break;
                     case "2":
                         tv_status.setText("未通过");
+                        tv_status.setTextColor(Color.parseColor("#dc291c"));
                         break;
                 }
             }
