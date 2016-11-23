@@ -12,7 +12,7 @@ public class User {
             "appVersion":"",
             "departmentName":"",
             "isAvailable":"1",
-            "roleId":"1",
+            "roleId":"1", 当为5时是客户，其他是内部人员
             "roleName":"管理员",
             "showUpdate":"",
             "userId":"2",

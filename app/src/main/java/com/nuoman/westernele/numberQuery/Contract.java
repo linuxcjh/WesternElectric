@@ -1,5 +1,7 @@
 package com.nuoman.westernele.numberQuery;
 
+import com.nuoman.westernele.numberQuery.model.Number;
+
 import java.util.List;
 
 /**
@@ -14,8 +16,9 @@ public interface Contract {
     }
 
     interface NumberQueryView {
-        void updateSearchReason(List<NumberEntity> searchReasons);
+        void refreshNumber(List<Number> data);
 
+        void showNotification(String msg);
     }
 
 }
