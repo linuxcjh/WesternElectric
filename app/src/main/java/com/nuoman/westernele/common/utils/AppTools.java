@@ -13,13 +13,14 @@ import android.os.Environment;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.nuoman.westernele.api.NuoManService;
-import com.nuoman.westernele.common.BasePresenter;
+import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.login.model.User;
 
@@ -424,5 +425,29 @@ public class AppTools {
         }
         return user;
     }
+    /**
+     * 异步加载圆形图片
+     *
+     * @param context
+     * @param url
+     * @param imageView
+     */
+    public static void setImageViewPicture(Context context, String url, ImageView imageView) {
+
+        Glide.with(context).load(url).placeholder(R.drawable.defaultavatar).error(R.drawable.defaultavatar).transform(new GlideRoundTransform(context)).into(imageView);
+
+    }
+
+    /**
+     * 异步加载方块图片
+     *
+     * @param context
+     * @param url
+     * @param imageView
+     */
+    public static void setImageViewClub(Context context, String url, ImageView imageView) {
+        Glide.with(context).load(url).placeholder(R.drawable.photo_none).error(R.drawable.photo_none).into(imageView);
+    }
+
 
 }
