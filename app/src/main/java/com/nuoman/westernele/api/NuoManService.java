@@ -35,5 +35,19 @@ public interface NuoManService {
     预警信息
      */
     String WARNING_CENTER = "GetAlertInfoByPage";
+    /*
+    信息发布列表
+     */
+    String RELEASE_INFORMATION_LIST = "GetProjectListForCheck";
+
+    /*
+    信息发布列表详情
+     */
+    String RELEASE_INFORMATION_DETAIL = "GetNodeInfoForCheck";
+
+    /*
+    审核请求
+     */
+    String RELEASE_INFORMATION_CHECK = "CheckNode";
 
 }
