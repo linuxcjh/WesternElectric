@@ -4,7 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.nuoman.tabletattendance.R;
+import com.nuoman.westernelectric.R;
 
 
 /**

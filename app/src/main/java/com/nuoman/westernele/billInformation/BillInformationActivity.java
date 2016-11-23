@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nuoman.tabletattendance.R;
+import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.billInformation.model.BillInformation;
 import com.nuoman.westernele.common.BaseActivity;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;

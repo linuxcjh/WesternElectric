@@ -2,7 +2,7 @@ package com.nuoman.westernele.common;
 
 import android.util.Log;
 
-import com.nuoman.tabletattendance.BuildConfig;
+import com.nuoman.westernelectric.BuildConfig;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;

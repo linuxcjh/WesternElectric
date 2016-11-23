@@ -1,4 +1,4 @@
-package com.nuoman.tabletattendance;
+package com.nuoman.westernelectric;
 
 import org.junit.Test;
 

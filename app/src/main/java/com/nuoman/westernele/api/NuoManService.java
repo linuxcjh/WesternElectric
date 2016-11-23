@@ -50,4 +50,9 @@ public interface NuoManService {
      */
     String RELEASE_INFORMATION_CHECK = "CheckNode";
 
+    /*
+    上传deviceToken
+     */
+    String UPLOAD_DEVICE_TOKEN="SaveUmengPushRelation";
+
 }

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.nuoman.tabletattendance.R;
+import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.utils.AppConfig;

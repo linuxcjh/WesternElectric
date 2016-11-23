@@ -1,6 +1,7 @@
 package com.nuoman.westernele.login;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.gson.reflect.TypeToken;
 import com.nuoman.westernele.api.NuoManService;
@@ -8,7 +9,9 @@ import com.nuoman.westernele.common.CommonPresenter;
 import com.nuoman.westernele.common.ICommonAction;
 import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.common.utils.Md5AndBase64;
+import com.nuoman.westernele.common.utils.PushUtil;
 import com.nuoman.westernele.login.model.LoginParameter;
+import com.nuoman.westernele.login.model.UploadDeviceTokenParameter;
 import com.nuoman.westernele.login.model.User;
 
 import java.security.NoSuchAlgorithmException;
@@ -56,9 +59,28 @@ public class LoginPresenterImp implements ICommonAction, Contract.LoginPresenter
                 if (status == 1) {
                     User user = (User) data;
                     AppTools.saveUser(user);
+                    uploadDeviceToken();
                     mLoginView.jumpToMain();
                 }
                 break;
+            case NuoManService.UPLOAD_DEVICE_TOKEN:
+                if (status == 1) {
+                    Log.d("push", "上传deviceToken成功");
+                } else {
+                    Log.e("push", "上传deviceToken失败");
+                }
+                break;
         }
+    }
+
+    private void uploadDeviceToken() {
+        UploadDeviceTokenParameter uploadDeviceTokenParameter = new UploadDeviceTokenParameter();
+        uploadDeviceTokenParameter.setUserId(AppTools.getUser().getUserId());
+        uploadDeviceTokenParameter.setDeviceType("1");
+        uploadDeviceTokenParameter.setDeviceToken(PushUtil.getDeviceToken());
+        if (TextUtils.isEmpty(PushUtil.getDeviceToken()))
+            Log.e("push", "获取deviceToken失败");
+        commonPresenter.invokeInterfaceObtainData(true, "appUserCtrl", NuoManService.UPLOAD_DEVICE_TOKEN,
+                uploadDeviceTokenParameter, null);
     }
 }

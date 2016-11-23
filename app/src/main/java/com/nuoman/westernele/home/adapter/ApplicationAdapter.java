@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.nuoman.tabletattendance.R;
+import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseAdapterHelper;
 import com.nuoman.westernele.common.QuickAdapter;
 import com.nuoman.westernele.home.model.ApplicationModel;

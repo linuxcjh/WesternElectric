@@ -1,4 +1,4 @@
-package com.nuoman.tabletattendance;
+package com.nuoman.westernelectric;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

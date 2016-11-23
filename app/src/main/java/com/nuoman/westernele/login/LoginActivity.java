@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.nuoman.tabletattendance.R;
+import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.utils.AppConfig;
@@ -32,16 +32,10 @@ public class LoginActivity extends BaseActivity implements Contract.LoginView {
         setContentView(R.layout.activity_login_layout);
         ButterKnife.bind(this);
         initVariable();
-        initView();
-
     }
 
     private void initVariable() {
         loginPresenterImp = new LoginPresenterImp(this);
-    }
-
-    private void initView() {
-
     }
 
     @OnClick({R.id.btn_login})

@@ -16,7 +16,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 
-import com.nuoman.tabletattendance.R;
+import com.nuoman.westernelectric.R;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

@@ -10,7 +10,7 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.google.gson.reflect.TypeToken;
-import com.nuoman.tabletattendance.R;
+import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.billInformation.BillInformationActivity;
 import com.nuoman.westernele.common.BaseFragment;

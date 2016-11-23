@@ -3,6 +3,7 @@ package com.nuoman;
 import android.app.Application;
 
 import com.nuoman.westernele.common.utils.AppConfig;
+import com.nuoman.westernele.common.utils.PushUtil;
 
 /**
  * 应用application
@@ -10,12 +11,11 @@ import com.nuoman.westernele.common.utils.AppConfig;
  */
 public class NuoManApplication extends Application {
 
-
     @Override
     public void onCreate() {
         super.onCreate();
         AppConfig.setContext(this);
-
+        PushUtil.registerPush(getApplicationContext());
     }
 
 
