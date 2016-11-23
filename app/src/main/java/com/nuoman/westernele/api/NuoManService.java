@@ -7,20 +7,34 @@ package com.nuoman.westernele.api;
 public interface NuoManService {
 
 
-
     /*
     登陆接口
      */
-    String LOGIN="Login";
+    String LOGIN = "Login";
 
     /*
     首页数据接口
      */
-    String GETMAINPAGEINFO="GetMainPageInfo";
+    String GETMAINPAGEINFO = "GetMainPageInfo";
 
     /*
     账款信息
      */
-    String BILL_INFORMATION="GetAccountInfoByPage";
+    String BILL_INFORMATION = "GetAccountInfoByPage";
+
+    /*
+    信息发布列表
+     */
+    String RELEASE_INFORMATION_LIST = "GetProjectListForCheck";
+
+    /*
+    信息发布列表详情
+     */
+    String RELEASE_INFORMATION_DETAIL = "GetNodeInfoForCheck";
+
+    /*
+    审核请求
+     */
+    String RELEASE_INFORMATION_CHECK = "CheckNode";
 
 }
