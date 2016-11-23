@@ -13,7 +13,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
-import com.nuoman.tabletattendance.R;
+import com.nuoman.westernelectric.R;
 
 import java.util.ArrayList;
 import java.util.List;

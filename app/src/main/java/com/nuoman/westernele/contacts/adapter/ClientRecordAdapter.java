@@ -5,12 +5,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.common.BaseRecyclerAdapter;
 import com.nuoman.westernele.common.ViewHolder;
 import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.components.AvatarImageView;
 import com.nuoman.westernele.contacts.model.Customer;
+import com.nuoman.westernelectric.R;
 
 import java.util.List;
 

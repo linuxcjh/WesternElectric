@@ -29,7 +29,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.nuoman.tabletattendance.R;
+import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.SelectionDialogListAdapter;
 import com.nuoman.westernele.components.SelectionDialog;

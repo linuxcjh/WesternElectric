@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.nuoman.tabletattendance.R;
+import com.nuoman.westernelectric.R;
 
 
 /**

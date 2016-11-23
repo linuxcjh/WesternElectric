@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.google.gson.reflect.TypeToken;
-import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.common.BaseFragment;
 import com.nuoman.westernele.common.CommonPresenter;
@@ -18,6 +17,7 @@ import com.nuoman.westernele.contacts.adapter.ClientRecordAdapter;
 import com.nuoman.westernele.contacts.model.ContactModel;
 import com.nuoman.westernele.contacts.model.Customer;
 import com.nuoman.westernele.model.BaseTransModel;
+import com.nuoman.westernelectric.R;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;

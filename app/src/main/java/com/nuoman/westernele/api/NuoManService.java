@@ -74,5 +74,9 @@ public interface NuoManService {
      * 保存账户信息
      */
     String SAVEACCOUNTINFODETAIL = "SaveAccountInfoDetail";
+    /*
+    上传deviceToken
+     */
+    String UPLOAD_DEVICE_TOKEN="SaveUmengPushRelation";
 
 }

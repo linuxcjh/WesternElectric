@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.nuoman.tabletattendance.R;
+import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseFragment;
 import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.numberDetail.Contract;

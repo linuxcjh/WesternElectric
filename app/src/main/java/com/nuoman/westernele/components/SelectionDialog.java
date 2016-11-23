@@ -14,10 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.common.BaseQuickAdapter;
 import com.nuoman.westernele.common.utils.Utils;
 import com.nuoman.westernele.mine.model.BaseDataModel;
+import com.nuoman.westernelectric.R;
 
 import java.util.List;
 

@@ -2,8 +2,8 @@ package com.nuoman.westernele.common;
 
 import android.content.Context;
 
-import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.mine.model.BaseDataModel;
+import com.nuoman.westernelectric.R;
 
 import java.util.List;
 
