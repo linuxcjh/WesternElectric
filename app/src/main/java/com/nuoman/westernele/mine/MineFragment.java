@@ -92,7 +92,6 @@ public class MineFragment extends BaseFragment implements ICommonAction {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine_layout, null);
         ButterKnife.bind(this, view);
-
         invoke();
         return view;
     }
