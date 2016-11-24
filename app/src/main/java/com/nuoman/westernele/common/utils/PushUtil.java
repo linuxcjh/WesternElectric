@@ -5,6 +5,8 @@ import android.util.Log;
 
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
+import com.umeng.message.common.inter.ITagManager;
+import com.umeng.message.tag.TagManager;
 
 /**
  * 推送工具类
@@ -31,6 +33,20 @@ public class PushUtil {
     public static String getDeviceToken() {
         PushAgent pushAgent = PushAgent.getInstance(AppConfig.getContext());
         return pushAgent.getRegistrationId();
+    }
+
+    public static void setTag(String tag) {
+        PushAgent pushAgent = PushAgent.getInstance(AppConfig.getContext());
+        pushAgent.getTagManager().add(new TagManager.TCallBack() {
+            @Override
+            public void onMessage(boolean b, ITagManager.Result result) {
+                if (b) {
+                    Log.d("push", "推送添加tag成功");
+                } else {
+                    Log.e("push", "推送添加tag失败");
+                }
+            }
+        }, tag);
     }
 
 }
