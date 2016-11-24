@@ -3,8 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:background="@color/colorDividerLine"
-    android:padding="10dp"
-    >
+    android:paddingBottom="10dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="10dp">
 
     <RelativeLayout
         android:id="@+id/search_layout"

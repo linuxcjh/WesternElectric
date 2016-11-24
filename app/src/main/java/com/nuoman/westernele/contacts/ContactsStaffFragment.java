@@ -1,6 +1,8 @@
 package com.nuoman.westernele.contacts;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +14,10 @@ import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.common.BaseFragment;
 import com.nuoman.westernele.common.CommonPresenter;
 import com.nuoman.westernele.common.ICommonAction;
+import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.utils.AppTools;
+import com.nuoman.westernele.common.utils.Utils;
+import com.nuoman.westernele.components.SearchPopupWindow;
 import com.nuoman.westernele.contacts.adapter.ClientRecordAdapter;
 import com.nuoman.westernele.contacts.model.ContactModel;
 import com.nuoman.westernele.contacts.model.Customer;
@@ -26,6 +31,7 @@ import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 管理
@@ -38,6 +44,8 @@ public class ContactsStaffFragment extends BaseFragment implements ICommonAction
     RelativeLayout searchLayout;
     @Bind(R.id.pullLoadMoreRecyclerView)
     PullLoadMoreRecyclerView pullLoadMoreRecyclerView;
+    @Bind(R.id.view_l)
+    View viewL;
 
     private ClientRecordAdapter mAdapter;
 
@@ -59,6 +67,7 @@ public class ContactsStaffFragment extends BaseFragment implements ICommonAction
     private void init() {
 
         commonPresenter.isShowProgressDialog = false;
+
         pullLoadMoreRecyclerView.setLinearLayout();
         pullLoadMoreRecyclerView.setFooterViewText("加载更多");
 
@@ -98,6 +107,31 @@ public class ContactsStaffFragment extends BaseFragment implements ICommonAction
         }
     }
 
+    /**
+     * 显示搜索框
+     */
+    public void showPop() {
+        SearchPopupWindow searchPopupWindow = new SearchPopupWindow(getActivity(), Utils.getDeviceHeightPixels(getActivity()), mHandler);
+        searchPopupWindow.getPopupWindow().showAsDropDown(viewL, 0, -Utils.dip2px(getActivity(), 50));
+
+    }
+
+    Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case NuoManConstant.SEARCHPOPUPWINDOWRESULT:
+//                    mClientPresenter.isSearch = true;
+//                    mClientPresenter.transClientListModel.setFilter("");
+//                    mClientPresenter.transClientListModel.setSorter("");
+//                    mClientPresenter.transClientListModel.setKeyword(((SelectModel) msg.obj).getName());
+//                    mClientPresenter.searchCustomerList();
+                    break;
+            }
+        }
+    };
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -105,4 +139,8 @@ public class ContactsStaffFragment extends BaseFragment implements ICommonAction
     }
 
 
+    @OnClick(R.id.search_layout)
+    public void onClick() {
+        showPop();
+    }
 }

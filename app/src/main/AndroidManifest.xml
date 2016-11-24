@@ -80,18 +80,24 @@
         <!--关于-->
         <activity android:name="com.nuoman.westernele.set.AboutActivity" />
         <!--权限-->
-        <activity android:name="com.nuoman.westernele.common.utils.PermissionsActivity"/>
+        <activity android:name="com.nuoman.westernele.common.utils.PermissionsActivity" />
         <!--修改信息-->
-        <activity android:name="com.nuoman.westernele.mine.ChangeInfoActivity"/>
+        <activity android:name="com.nuoman.westernele.mine.ChangeInfoActivity" />
+        <!--项目管理-->
+        <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageActivity" />
+        <!--人员列表-->
+        <activity android:name="com.nuoman.westernele.projectmanage.ProjectWorkNumActivity"/>
+        <!--详情-->
+        <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageDetailActivity"/>
+
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="58356993f29d9875710001e4">
-        </meta-data>
+            android:value="58356993f29d9875710001e4"></meta-data>
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
-            android:value="51f88e2bc8c5076ce8a020208a76402d">
-        </meta-data>
+            android:value="51f88e2bc8c5076ce8a020208a76402d"></meta-data>
+
         <activity android:name="com.nuoman.westernele.welcome.WelcomeActivity"></activity>
     </application>
 

@@ -62,4 +62,10 @@
         <item name="@android:windowExitAnimation">@anim/selection_dialog_exit</item>
         //退出时的动画
     </style>
+    <style name="top_title_layout_style">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/colorBlue</item>
+    </style>
+
 </resources>

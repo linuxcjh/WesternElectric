@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.common.BaseFragment;
+import com.nuoman.westernelectric.R;
 
 /**
  * 欢迎页面第一页

@@ -140,6 +140,11 @@ public class NuoManConstant {
      **/
     public static final int CAMERA_REQUEST_CODE = 0x32;
 
+    /**
+     * 搜索popuwindos 选中项返回
+     */
+    public static final int SEARCHPOPUPWINDOWRESULT = 0x34;
+
 
 
 }

@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.google.gson.reflect.TypeToken;
-import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.billInformation.BillInformationActivity;
 import com.nuoman.westernele.common.BaseFragment;
@@ -24,8 +23,10 @@ import com.nuoman.westernele.home.model.MainModel;
 import com.nuoman.westernele.informationRelease.InformationReleaseActivity;
 import com.nuoman.westernele.model.BaseTransModel;
 import com.nuoman.westernele.numberQuery.NumberQueryActivity;
+import com.nuoman.westernele.projectmanage.ProjectManageActivity;
 import com.nuoman.westernele.warningCenter.WarningCenterActivity;
 import com.nuoman.westernele.westNew.WestNewActivity;
+import com.nuoman.westernelectric.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -139,6 +140,7 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
                 startActivity(intent);
                 break;
             case 1:
+                startActivity(new Intent(getActivity(), ProjectManageActivity.class));
                 break;
             case 2:
                 intent = new Intent(getActivity(), NumberQueryActivity.class);

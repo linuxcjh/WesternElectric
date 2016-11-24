@@ -79,4 +79,24 @@ public interface NuoManService {
      */
     String UPLOAD_DEVICE_TOKEN="SaveUmengPushRelation";
 
+    /**
+     * 项目管理
+     */
+    String GETPROJECTLISTCONDITION="GetProjectListCondition";
+
+    /**
+     * 项目员工列表
+     */
+    String GETORDERLISTBYPROJECTID="GetOrderListByProjectId";
+
+    /**
+     * 项目查询详情
+     */
+    String GETNODELISTBYORDERID="GetNodeListByOrderId";
+
+    /**
+     * 获取筛选条件
+     */
+    String GETPROJECTCONDITIONS="GetProjectConditions";
+
 }

@@ -9,11 +9,11 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
 
-import com.nuoman.tabletattendance.R;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.utils.AppConfig;
 import com.nuoman.westernele.login.LoginActivity;
+import com.nuoman.westernelectric.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/client_item"
+        android:gravity="center_vertical"
+        android:paddingRight="30dp">
+
+
+        <RelativeLayout
+            android:id="@+id/relate_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/clue_avatar_iv"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/defaultavatar" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+
+            android:layout_toRightOf="@+id/relate_layout">
+
+            <TextView
+                android:id="@+id/clue_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="霍建华"
+                android:textColor="@color/colorListName"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/clue_create_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/clue_name_tv"
+                android:layout_marginTop="10dp"
+                android:text="检验入库"
+                android:textColor="@color/colorAssist"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/clue_person_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/clue_create_time_tv"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/clue_create_time_tv"
+                android:text="项目主管：往昔"
+                android:textColor="@color/colorAssist"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/clue_focus_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/clue_create_time_tv"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/guanzhu_01_03"
+                />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
