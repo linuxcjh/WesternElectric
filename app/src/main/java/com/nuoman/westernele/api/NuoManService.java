@@ -53,6 +53,11 @@ public interface NuoManService {
     /*
     上传deviceToken
      */
-    String UPLOAD_DEVICE_TOKEN="SaveUmengPushRelation";
+    String UPLOAD_DEVICE_TOKEN = "SaveUmengPushRelation";
+
+    /*
+    获取进度图表信息
+     */
+    String PROGRESS_CHART = "GetOrderProcessByOrderId";
 
 }

@@ -8,8 +8,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseActivity;
+import com.nuoman.westernelectric.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,10 +80,10 @@ public class NumberDetailActivity extends BaseActivity {
             fragments = new ArrayList<>();
             title.add("进度图表");
             title.add("基本信息");
-            fragments.add(new ProgressChartFragment());
+            fragments.add(ProgressChartFragment.newInstance
+                    (getIntent().getStringExtra("number")));
             fragments.add(BasicInformationFragment.newInstance
-                    (getIntent().getStringExtra("number"))
-            );
+                    (getIntent().getStringExtra("number")));
         }
 
         @Override

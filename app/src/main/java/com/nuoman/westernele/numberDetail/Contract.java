@@ -1,6 +1,7 @@
 package com.nuoman.westernele.numberDetail;
 
 import com.nuoman.westernele.numberDetail.model.BasicInformation;
+import com.nuoman.westernele.numberDetail.model.ProgressChart;
 
 /**
  * 契约类
@@ -15,6 +16,21 @@ public interface Contract {
 
     interface BasicInformationPresenter {
         void requestBasicInformation(String number);
+    }
+
+    interface ProgressChartView {
+        void setView(ProgressChart progressChart);
+
+        void setNodeDetail(int index);
+    }
+
+    interface ProgressChartPresenter {
+        void requestProgressChart(String orderId);
+
+        void nextPage();
+
+        void lastPage();
+
     }
 
 }

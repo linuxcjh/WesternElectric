@@ -22,7 +22,13 @@
     <color name="colorGray">#7c7c7c</color>
     <color name="colorGray1">#E0E0E0</color>
     <color name="colorGray2">#F0F3F3</color>
+    <color name="colorGrayOne">#aeaeb2</color>
+    <color name="colorGrayTwo">#D7DADA</color>
 
     <color name="colorTimeContent">#A6A6A6</color>
+    <color name="colorRed">#FE0100</color>
+    <color name="colorRed1">#EF2915</color>
+    <color name="colorGreen">#5AAF0E</color>
+    <color name="colorYellow">#F6E24A</color>
 
 </resources>
