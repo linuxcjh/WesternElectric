@@ -16,6 +16,7 @@ public class NuoManApplication extends Application {
         super.onCreate();
         AppConfig.setContext(this);
         PushUtil.registerPush(getApplicationContext());
+        PushUtil.setTag("xd");
     }
 
 
