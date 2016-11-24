@@ -13,12 +13,22 @@ public class UserInfo implements Serializable{
     private String job;
     private String department;
     private String userTel;
+    private String token;
+
+
 
     
 	public UserInfo () {
 		
-	}	
-        
+	}
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public String getUserId() {
         return this.userId;

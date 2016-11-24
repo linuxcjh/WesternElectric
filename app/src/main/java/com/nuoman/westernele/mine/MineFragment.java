@@ -20,11 +20,16 @@ import com.nuoman.westernele.common.BaseFragment;
 import com.nuoman.westernele.common.CommonPresenter;
 import com.nuoman.westernele.common.ICommonAction;
 import com.nuoman.westernele.common.NuoManConstant;
-import com.nuoman.westernele.common.utils.AppConfig;
 import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.mine.model.BaseDataModel;
 import com.nuoman.westernele.mine.model.UserInfo;
 import com.nuoman.westernele.model.BaseTransModel;
+import com.nuoman.westernelectric.R;
+import com.qiniu.android.http.ResponseInfo;
+import com.qiniu.android.storage.UpCompletionHandler;
+import com.qiniu.android.storage.UploadManager;
+
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -33,7 +38,8 @@ import java.util.Map;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.nuoman.westernelectric.R;
+
+import static com.nuoman.westernele.common.utils.AppConfig.getStringConfig;
 
 /**
  * 管理
@@ -104,16 +110,16 @@ public class MineFragment extends BaseFragment implements ICommonAction {
      * 获取七牛token
      */
     public void invokeQiNiuToken() {
-        commonPresenter.invokeInterfaceObtainData(true, "qiniuTokenCtrl", NuoManService.GETTOKEN, transModel, new TypeToken<UserInfo>() {
+        commonPresenter.invokeInterfaceObtainData(true, "qiniuTokenCtrl", NuoManService.GETTOKEN, null, new TypeToken<BaseTransModel>() {
         });
     }
 
     /**
      * 上传图片
      */
-    public void invokeUpLoadPic() {
+    public void invokeUpLoadPic(BaseTransModel transModel) {
         transModel.setUserId(AppTools.getUser().getUserId());
-        commonPresenter.invokeInterfaceObtainData(true, "appUserCtrl", NuoManService.SAVEUSERHEADPIC, transModel, new TypeToken<UserInfo>() {
+        commonPresenter.invokeInterfaceObtainData(true, "appUserCtrl", NuoManService.SAVEUSERHEADPIC, transModel, new TypeToken<BaseTransModel>() {
         });
     }
 
@@ -135,9 +141,18 @@ public class MineFragment extends BaseFragment implements ICommonAction {
                 }
                 break;
             case NuoManService.GETTOKEN:
+                if (data != null) {
+                    BaseTransModel model = (BaseTransModel) data;
+                    transModel.setToken(model.getToken());
+                }
                 break;
 
             case NuoManService.SAVEUSERHEADPIC:
+                if (status == 1) {
+                    AppTools.getToast("上传成功");
+                } else {
+                    AppTools.getToast("上传失败");
+                }
                 break;
         }
 
@@ -154,6 +169,7 @@ public class MineFragment extends BaseFragment implements ICommonAction {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.photo_iv:
+                invokeQiNiuToken();
                 AppTools.selectPhotoShow(getActivity(), mHandler, NuoManConstant.SINGLESELECTION);
                 break;
             case R.id.edit_bt:
@@ -176,7 +192,7 @@ public class MineFragment extends BaseFragment implements ICommonAction {
                     startPhotoZoom(Uri.fromFile(file));
                     break;
                 case NuoManConstant.CAMERA_REQUEST_CODE: //拍照
-                    String cmPath = AppConfig.getStringConfig("cameraPath", "");
+                    String cmPath = getStringConfig("cameraPath", "");
                     file = new File(cmPath);
                     startPhotoZoom(Uri.fromFile(file));
                     break;
@@ -190,6 +206,9 @@ public class MineFragment extends BaseFragment implements ICommonAction {
                         outputStream.close();
                         if (!TextUtils.isEmpty(file.getPath())) {
 
+                            if (!TextUtils.isEmpty(transModel.getToken())) {
+                                uploadImageToQiNiu(file.getPath(), transModel.getToken());
+                            }
                             AppTools.setImageViewPicture(getActivity(), file.getPath(), photoIv);
 //                            this.imagePath = file.getPath();
 //                            upLoadHeadPhotoPresenter.paths.clear();
@@ -227,5 +246,32 @@ public class MineFragment extends BaseFragment implements ICommonAction {
         intent.putExtra("outputY", 200);
         intent.putExtra("return-data", true);
         startActivityForResult(intent, CUT);
+    }
+
+    /**
+     * 上传图片到七牛成功后上传打卡信息
+     *
+     * @param filePath 要上传的图片路径
+     * @param token    在七牛官网上注册的token
+     */
+
+    private void uploadImageToQiNiu(final String filePath, String token) {
+        UploadManager uploadManager = new UploadManager();
+        File file = new File(filePath);
+
+        if (file.exists()) {
+            uploadManager.put(filePath, file.getName(), token, new UpCompletionHandler() {
+                @Override
+                public void complete(String key, ResponseInfo info, JSONObject res) {
+                    if (info.statusCode == 200) {
+                        BaseTransModel transModel = new BaseTransModel();
+                        transModel.setUserId(AppTools.getUser().getUserId());
+                        transModel.setPicUrl(key);
+                        invokeUpLoadPic(transModel);
+                    }
+                }
+            }, null);
+        }
+
     }
 }

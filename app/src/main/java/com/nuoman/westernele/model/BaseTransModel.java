@@ -14,6 +14,24 @@ public class BaseTransModel implements Serializable {
     private String condition;
     private String projectId;
     private String orderId;
+    private String token;
+    private String picUrl;
+
+    public String getPicUrl() {
+        return picUrl;
+    }
+
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public String getOrderId() {
         return orderId;
