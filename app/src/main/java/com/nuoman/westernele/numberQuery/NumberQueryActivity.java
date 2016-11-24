@@ -92,6 +92,10 @@ public class NumberQueryActivity extends BaseActivity implements Contract.Number
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * 列表点击监听
+     * @param number 项目id
+     */
     public void onItemClick(String number) {
         Intent intent = new Intent(this, NumberDetailActivity.class);
         intent.putExtra("number", number);
