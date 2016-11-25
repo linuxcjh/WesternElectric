@@ -182,6 +182,17 @@ public class ProgressChartFragment extends BaseFragment implements Contract.Prog
             case "ok":
                 tv_purchase.setBackgroundResource(R.drawable.progress_chart_finished);
                 break;
+            case "errorfinish":
+                tv_purchase.setBackgroundResource(R.drawable.progress_chart_finished);
+                tv_purchase_point.setVisibility(View.VISIBLE);
+                break;
+            case "errordoing":
+                tv_purchase.setBackgroundResource(R.drawable.progress_chart_ongoing);
+                tv_purchase_point.setVisibility(View.VISIBLE);
+                break;
+            case "doing":
+                tv_purchase.setBackgroundResource(R.drawable.progress_chart_ongoing);
+                break;
             case "unstart":
                 tv_purchase.setBackgroundResource(R.drawable.progress_chart_not_start);
                 break;
@@ -190,6 +201,16 @@ public class ProgressChartFragment extends BaseFragment implements Contract.Prog
             case "ok":
                 tv_product.setBackgroundResource(R.drawable.progress_chart_finished);
                 break;
+            case "errorfinish":
+                tv_product.setBackgroundResource(R.drawable.progress_chart_finished);
+                tv_product_point.setVisibility(View.VISIBLE);
+                break;
+            case "errordoing":
+                tv_product.setBackgroundResource(R.drawable.progress_chart_ongoing);
+                tv_product_point.setVisibility(View.VISIBLE);
+                break;
+            case "doing":
+                tv_product.setBackgroundResource(R.drawable.progress_chart_ongoing);
             case "unstart":
                 tv_product.setBackgroundResource(R.drawable.progress_chart_not_start);
                 break;
@@ -198,6 +219,16 @@ public class ProgressChartFragment extends BaseFragment implements Contract.Prog
             case "ok":
                 tv_technology.setBackgroundResource(R.drawable.progress_chart_finished);
                 break;
+            case "errorfinish":
+                tv_technology.setBackgroundResource(R.drawable.progress_chart_finished);
+                tv_technology_point.setVisibility(View.VISIBLE);
+                break;
+            case "errordoing":
+                tv_technology.setBackgroundResource(R.drawable.progress_chart_ongoing);
+                tv_technology_point.setVisibility(View.VISIBLE);
+                break;
+            case "doing":
+                tv_technology.setBackgroundResource(R.drawable.progress_chart_ongoing);
             case "unstart":
                 tv_technology.setBackgroundResource(R.drawable.progress_chart_not_start);
                 break;
@@ -206,6 +237,16 @@ public class ProgressChartFragment extends BaseFragment implements Contract.Prog
             case "ok":
                 tv_shipment.setBackgroundResource(R.drawable.progress_chart_finished);
                 break;
+            case "errorfinish":
+                tv_shipment.setBackgroundResource(R.drawable.progress_chart_finished);
+                tv_shipment_point.setVisibility(View.VISIBLE);
+                break;
+            case "errordoing":
+                tv_shipment.setBackgroundResource(R.drawable.progress_chart_ongoing);
+                tv_shipment_point.setVisibility(View.VISIBLE);
+                break;
+            case "doing":
+                tv_shipment.setBackgroundResource(R.drawable.progress_chart_ongoing);
             case "unstart":
                 tv_shipment.setBackgroundResource(R.drawable.progress_chart_not_start);
                 break;
