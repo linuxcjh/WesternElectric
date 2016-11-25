@@ -211,7 +211,7 @@ public class ProgressChartFragment extends BaseFragment implements Contract.Prog
                 break;
         }
         tv_progress_chart_percent.setText(String.format
-                ("%s%%", progressChart.getTotalCompletePrecent()));
+                ("%s%%", progressChart.getTotalCompletePercent()));
         vp_progress_chart.setAdapter(new ProgressChartAdapter(getActivity().getSupportFragmentManager(),
                 progressChart.getNodeStatus()));
 
