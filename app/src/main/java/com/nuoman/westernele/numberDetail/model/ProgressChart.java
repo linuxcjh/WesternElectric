@@ -13,7 +13,7 @@ public class ProgressChart implements Serializable {
     private String produceStatus;
     private String purchaseStatus;
     private String techStatus;
-    private String totalCompletePrecent;
+    private String totalCompletePercent;
     private String transportStatus;
 
     public NodeStatus getNodeStatus() {
@@ -56,12 +56,12 @@ public class ProgressChart implements Serializable {
         this.techStatus = techStatus;
     }
 
-    public String getTotalCompletePrecent() {
-        return totalCompletePrecent;
+    public String getTotalCompletePercent() {
+        return totalCompletePercent;
     }
 
-    public void setTotalCompletePrecent(String totalCompletePrecent) {
-        this.totalCompletePrecent = totalCompletePrecent;
+    public void setTotalCompletePercent(String totalCompletePercent) {
+        this.totalCompletePercent = totalCompletePercent;
     }
 
     public String getTransportStatus() {
