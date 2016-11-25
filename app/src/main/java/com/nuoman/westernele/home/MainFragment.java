@@ -78,7 +78,7 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
         ButterKnife.bind(this, view);
 
         init();
-        invoke();
+//        invoke();
         return view;
     }
 
