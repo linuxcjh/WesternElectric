@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.warningCenter.model.WarningInformation;
@@ -41,6 +42,7 @@ public class WarningCenterActivity extends BaseActivity implements Contract.Warn
     }
 
     private void initVariable() {
+        AppTools.getToast(getIntent().getStringExtra("hasRedPoint"));
         warningCenterPresenterImp = new WarningCenterPresenterImp(this);
         warningCenterAdapter = new WarningCenterAdapter();
     }

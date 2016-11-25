@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.billInformation.model.BillInformation;
 import com.nuoman.westernele.common.BaseActivity;
@@ -48,6 +49,7 @@ public class BillInformationActivity extends BaseActivity implements Contract.Bi
     }
 
     private void initVariable() {
+        AppTools.getToast(getIntent().getStringExtra("hasRedPoint"));
         billInformationPresenterImp = new BillInformationPresenterImp(this);
         billInformationAdapter = new BillInformationAdapter();
     }
