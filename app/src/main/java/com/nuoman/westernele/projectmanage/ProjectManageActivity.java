@@ -79,7 +79,7 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
         pullLoadMoreRecyclerView.setLinearLayout();
         pullLoadMoreRecyclerView.setFooterViewText("加载更多");
 
-        mAdapter = new ProjectManageAdapter(this, R.layout.project_manage_item_layout, contactModels);
+        mAdapter = new ProjectManageAdapter(this, R.layout.project_manage_item_layout, contactModels, mHandler);
         pullLoadMoreRecyclerView.setAdapter(mAdapter);
 
         pullLoadMoreRecyclerView.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
@@ -137,6 +137,22 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
 //                    mClientPresenter.transClientListModel.setKeyword(((SelectModel) msg.obj).getName());
 //                    mClientPresenter.searchCustomerList();
                     break;
+                case NuoManConstant.UPDATE_FOCUS:
+
+                    ProjectModel m = (ProjectModel) msg.obj;
+                    BaseTransModel transModel = new BaseTransModel();
+                    if (m.getIsCollected().equals("1")) {
+                        transModel.setState("0");
+                    } else {
+                        transModel.setState("1");
+                    }
+                    transModel.setUserId(AppTools.getUser().getUserId());
+                    transModel.setProjectId(m.getProjectId());
+
+                    commonPresenter.invokeInterfaceObtainData(true, "appProjectCtrl", NuoManService.PROJECTCOLLECTION, transModel, new TypeToken<CompanyInfoModel>() {
+                    });
+
+                    break;
             }
         }
     };
@@ -181,6 +197,12 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
                 filterSingle.add(new SelectItemModel("3", "以项目名称正序排列"));
                 filterSingle.add(new SelectItemModel("4", "以项目名称反序排列"));
                 filterLayout.setSingleFilterData(filterSingle);
+                break;
+            case NuoManService.PROJECTCOLLECTION:
+                if (status == 1) {
+                    commonPresenter.invokeInterfaceObtainData(true, "appProjectCtrl", NuoManService.GETPROJECTLISTCONDITION, transModel, new TypeToken<List<ProjectModel>>() {
+                    });
+                }
                 break;
         }
 

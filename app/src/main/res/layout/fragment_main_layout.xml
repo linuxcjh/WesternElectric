@@ -21,235 +21,229 @@
 
     </RelativeLayout>
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:orientation="vertical"
+       >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingBottom="70dp">
+            android:layout_height="220dp"
+            android:background="@color/colorBlue"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="14dp"
+                android:text="10月19日  星期三"
+                android:textColor="#FDD87C"
+                android:textSize="22sp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:background="@color/colorBlue"
-                android:orientation="vertical">
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/main_company_item"
+                android:gravity="center"
+                android:minWidth="230dp"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/date_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="14dp"
-                    android:text="10月19日  星期三"
-                    android:textColor="#FDD87C"
-                    android:textSize="22sp" />
-
-                <LinearLayout
+                    android:id="@+id/company_name_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/main_company_item"
-                    android:gravity="center"
-                    android:minWidth="230dp"
-                    android:orientation="horizontal">
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="4dp"
+                    android:drawablePadding="10dp"
+                    android:drawableRight="@drawable/btn_dropdown01_03"
+                    android:text="西电公司名称"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/company_name_tv"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="4dp"
-                        android:layout_marginTop="4dp"
-                        android:drawablePadding="10dp"
-                        android:drawableRight="@drawable/btn_dropdown01_03"
-                        android:text="西电公司名称"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:src="@drawable/weikaishi_03" />
+
+                    <TextView
+                        android:layout_width="64dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/main_item"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="未进行"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/unstart_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="10"
+                        android:textColor="@android:color/white" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="50dp"
-                    android:layout_marginTop="32dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/weikaishi_03" />
-
-                        <TextView
-                            android:layout_width="64dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/main_item"
-                            android:gravity="center"
-                            android:padding="2dp"
-                            android:text="未进行"
-                            android:textColor="@android:color/white" />
-
-                        <TextView
-                            android:id="@+id/unstart_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="10"
-                            android:textColor="@android:color/white" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/shengchanzhong_03" />
-
-                        <TextView
-                            android:layout_width="64dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/main_item"
-                            android:gravity="center"
-                            android:padding="2dp"
-                            android:text="生产中"
-                            android:textColor="@android:color/white" />
-
-                        <TextView
-                            android:id="@+id/producting_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="10"
-                            android:textColor="@android:color/white" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/yiwangong_03" />
-
-                        <TextView
-                            android:layout_width="64dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/main_item"
-                            android:gravity="center"
-                            android:padding="2dp"
-                            android:text="已完工"
-                            android:textColor="@android:color/white" />
-
-                        <TextView
-                            android:id="@+id/completed_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="10"
-                            android:textColor="@android:color/white" />
-
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:orientation="horizontal">
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical">
 
-                    <RelativeLayout
-                        android:layout_width="86dp"
-                        android:layout_height="26dp"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/main_notice_item"
-                        android:paddingLeft="6dp"
-                        android:paddingRight="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:drawableLeft="@drawable/main_notice_left_item"
-                            android:drawablePadding="6dp"
-                            android:text="通知公告"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
-
-
-                    </RelativeLayout>
-
                     <ImageView
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="30dp"
-                        android:background="@color/colorAssist" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/shengchanzhong_03" />
+
+                    <TextView
+                        android:layout_width="64dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/main_item"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="生产中"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/producting_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="10"
+                        android:textColor="@android:color/white" />
+
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/notice_content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="12dp"
-                    android:singleLine="true"
-                    android:text=""
-                    android:textColor="@color/colorListName"
-                    android:textSize="14sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/yiwangong_03" />
+
+                    <TextView
+                        android:layout_width="64dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/main_item"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="已完工"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/completed_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="10"
+                        android:textColor="@android:color/white" />
+
+
+                </LinearLayout>
+
+
             </LinearLayout>
 
-            <com.nuoman.westernele.components.MyGridView
-                android:id="@+id/app_gridView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:horizontalSpacing="1dp"
-                android:numColumns="3"
-                android:verticalSpacing="1dp" />
 
         </LinearLayout>
-    </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="86dp"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/main_notice_item"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:drawableLeft="@drawable/main_notice_left_item"
+                        android:drawablePadding="6dp"
+                        android:text="通知公告"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp" />
+
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:background="@color/colorAssist" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/notice_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@color/colorListName"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <com.nuoman.westernele.components.MyGridView
+            android:id="@+id/app_gridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:horizontalSpacing="1dp"
+            android:numColumns="3"
+            android:verticalSpacing="1dp" />
+
+    </LinearLayout>
 </LinearLayout>

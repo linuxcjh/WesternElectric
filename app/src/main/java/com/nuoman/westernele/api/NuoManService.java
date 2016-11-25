@@ -104,4 +104,9 @@ public interface NuoManService {
      */
     String GETPROJECTCONDITIONS="GetProjectConditions";
 
+    /**
+     * 关注
+     */
+    String PROJECTCOLLECTION="ProjectCollection";
+
 }

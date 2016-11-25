@@ -58,7 +58,7 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
     @Bind(R.id.notice_content)
     TextView noticeContent;
     private ApplicationAdapter mAdapter;
-    private List<ApplicationModel> data;
+    private List<ApplicationModel> applicationModels;
     int index[] = {
             R.drawable.xibianxinwen_03,
             R.drawable.xiangmuchaxun_03,
@@ -89,15 +89,15 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
             companyNameTv.setText((AppTools.getUser().getSubcompany().get(0).getDataName()));
         }
         appGridView.setFocusable(false);
-        data = new ArrayList<>();
+        applicationModels = new ArrayList<>();
         String str[] = getActivity().getResources().getStringArray(R.array.apptitle);
         for (int i = 0; i < str.length; i++) {
             ApplicationModel model = new ApplicationModel();
             model.setIds(index[i]);
             model.setTitle(str[i]);
-            data.add(model);
+            applicationModels.add(model);
         }
-        mAdapter = new ApplicationAdapter(getActivity(), R.layout.fragment_application_item, data);
+        mAdapter = new ApplicationAdapter(getActivity(), R.layout.fragment_application_item, applicationModels);
         appGridView.setAdapter(mAdapter);
         appGridView.setOnItemClickListener(this);
 
@@ -115,6 +115,12 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
 
 
     @Override
+    public void onResume() {
+        super.onResume();
+        invoke();
+    }
+
+    @Override
     public void obtainData(Object data, String methodIndex, int status, Map<String, String> parameterMap) {
         switch (methodIndex) {
             case NuoManService.GETMAINPAGEINFO:
@@ -125,6 +131,22 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
                     productingTv.setText(mainPageModel.getProducing());
                     completedTv.setText(mainPageModel.getFinished());
                     noticeContent.setText(mainPageModel.getNoticeInfo());
+
+                    if (mainPageModel.getHasNewAccountInfo().equals("1")) {
+                        applicationModels.get(3).setVisible(true);
+                    } else {
+                        applicationModels.get(3).setVisible(false);
+
+                    }
+                    if (mainPageModel.getHasNewAlertInfo().equals("1")) {
+                        applicationModels.get(5).setVisible(true);
+                    } else {
+                        applicationModels.get(5).setVisible(false);
+
+                    }
+                    mAdapter.setData(applicationModels);
+
+
                 }
                 break;
         }

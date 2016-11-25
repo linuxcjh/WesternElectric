@@ -145,6 +145,9 @@ public class NuoManConstant {
      */
     public static final int SEARCHPOPUPWINDOWRESULT = 0x34;
 
+    public static final int UPDATE_FOCUS = 0x111;
+
+
 
 
 }

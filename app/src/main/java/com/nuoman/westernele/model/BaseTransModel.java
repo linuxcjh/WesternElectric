@@ -16,6 +16,15 @@ public class BaseTransModel implements Serializable {
     private String orderId;
     private String token;
     private String picUrl;
+    private String state;
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 
     public String getPicUrl() {
         return picUrl;

@@ -2,11 +2,13 @@ package com.nuoman.westernele.projectmanage.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.nuoman.westernele.common.BaseRecyclerAdapter;
+import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.ViewHolder;
 import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.projectmanage.ProjectWorkNumActivity;
@@ -20,8 +22,11 @@ import java.util.List;
  */
 public class ProjectManageAdapter extends BaseRecyclerAdapter<ProjectModel> implements View.OnClickListener {
 
-    public ProjectManageAdapter(Context context, int layoutResId, List<ProjectModel> data) {
+    Handler mHandler;
+
+    public ProjectManageAdapter(Context context, int layoutResId, List<ProjectModel> data, Handler mHandler) {
         super(context, layoutResId, data);
+        this.mHandler = mHandler;
     }
 
     @Override
@@ -55,8 +60,7 @@ public class ProjectManageAdapter extends BaseRecyclerAdapter<ProjectModel> impl
         ProjectModel item = (ProjectModel) v.getTag();
         switch (v.getId()) {
             case R.id.clue_focus_tv:
-
-
+                mHandler.sendMessage(mHandler.obtainMessage(NuoManConstant.UPDATE_FOCUS, item));
                 break;
             case R.id.root_layout:
                 context.startActivity(new Intent(context, ProjectWorkNumActivity.class).putExtra("id", item.getProjectId()));

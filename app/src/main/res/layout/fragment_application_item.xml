@@ -35,10 +35,13 @@
                 android:id="@+id/remind_tip_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="-16dp"
                 android:layout_toRightOf="@+id/item_image"
-                android:visibility="invisible" />
+                android:background="@drawable/main_red"
+                android:visibility="visible" />
+
+
         </RelativeLayout>
+
 
     </RelativeLayout>
 </RelativeLayout>
