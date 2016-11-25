@@ -70,6 +70,7 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
 
     private CommonPresenter commonPresenter = new CommonPresenter(this);
     private BaseTransModel transModel = new BaseTransModel();
+    private MainModel mainPageModel = new MainModel();
 
     @Nullable
     @Override
@@ -126,7 +127,7 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
             case NuoManService.GETMAINPAGEINFO:
 
                 if (data != null) {
-                    MainModel mainPageModel = (MainModel) data;
+                    mainPageModel = (MainModel) data;
                     unstartTv.setText(mainPageModel.getUnStart());
                     productingTv.setText(mainPageModel.getProducing());
                     completedTv.setText(mainPageModel.getFinished());
@@ -170,6 +171,7 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
                 break;
             case 3:
                 intent = new Intent(getActivity(), BillInformationActivity.class);
+                intent.putExtra("hasRedPoint", mainPageModel.getHasNewAccountInfo());
                 startActivity(intent);
                 break;
             case 4:
@@ -178,6 +180,7 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
                 break;
             case 5:
                 intent = new Intent(getActivity(), WarningCenterActivity.class);
+                intent.putExtra("hasRedPoint", mainPageModel.getHasNewAlertInfo());
                 startActivity(intent);
                 break;
 
