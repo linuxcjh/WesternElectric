@@ -12,6 +12,11 @@ import java.util.List;
 public interface Contract {
 
     interface BillInformationView {
+
+        void setIsRead(String isRead);
+
+        String getIsRead();
+
         void refreshInformation(List<BillInformation> data);
 
         void loadMoreInformation(List<BillInformation> data);

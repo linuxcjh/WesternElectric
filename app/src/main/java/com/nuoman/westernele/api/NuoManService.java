@@ -50,6 +50,16 @@ public interface NuoManService {
      */
     String RELEASE_INFORMATION_CHECK = "CheckNode";
 
+    /*
+    账户信息标记已读
+     */
+    String MARK_BILL_INFORMATION="MarkAccountInfoByPage";
+
+    /*
+    预警信息标记已读
+     */
+    String MARK_WARNING="MarkAlertInfoByPage";
+
     /**
      * 联系人
      */

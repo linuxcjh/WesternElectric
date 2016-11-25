@@ -5,6 +5,7 @@ import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.common.CommonPresenter;
 import com.nuoman.westernele.common.ICommonAction;
 import com.nuoman.westernele.common.utils.AppTools;
+import com.nuoman.westernele.warningCenter.model.MarkWarningParameter;
 import com.nuoman.westernele.warningCenter.model.WarningInformation;
 import com.nuoman.westernele.warningCenter.model.WarningParameter;
 
@@ -54,7 +55,7 @@ public class WarningCenterPresenterImp implements Contract.WarningCenterPresente
                 if (status == 1) {
                     @SuppressWarnings("unchecked")
                     List<WarningInformation> warningInformationList = (List<WarningInformation>) data;
-                    Set<Map.Entry<String,String>> mapEntry=parameterMap.entrySet();
+                    Set<Map.Entry<String, String>> mapEntry = parameterMap.entrySet();
                     for (Map.Entry<String, String> entry : mapEntry) {
                         String key = entry.getKey();
                         String value = entry.getValue();
@@ -65,6 +66,14 @@ public class WarningCenterPresenterImp implements Contract.WarningCenterPresente
                         mWarningCenterView.refreshInformation(warningInformationList);
                     } else {
                         mWarningCenterView.loadMoreInformation(warningInformationList);
+                    }
+
+                    if (mWarningCenterView.getIsRead().equals("1")) {
+                        MarkWarningParameter markWarningParameter = new MarkWarningParameter();
+                        markWarningParameter.setUserId(AppTools.getUser().getUserId());
+                        markWarningParameter.setPages(String.valueOf(nowPage));
+                        commonPresenter.invokeInterfaceObtainData(true, "appAlertInfoCtrl", NuoManService.MARK_WARNING,
+                                markWarningParameter, null);
                     }
                 }
                 break;

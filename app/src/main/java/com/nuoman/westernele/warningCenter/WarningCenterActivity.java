@@ -7,10 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.nuoman.westernele.common.utils.AppTools;
-import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.warningCenter.model.WarningInformation;
+import com.nuoman.westernelectric.R;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
@@ -29,6 +28,7 @@ public class WarningCenterActivity extends BaseActivity implements Contract.Warn
 
     private WarningCenterPresenterImp warningCenterPresenterImp;
     private WarningCenterAdapter warningCenterAdapter;
+    private String mIsRead="1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class WarningCenterActivity extends BaseActivity implements Contract.Warn
     }
 
     private void initVariable() {
-        AppTools.getToast(getIntent().getStringExtra("hasRedPoint"));
+        setIsRead(getIntent().getStringExtra("hasRedPoint"));
         warningCenterPresenterImp = new WarningCenterPresenterImp(this);
         warningCenterAdapter = new WarningCenterAdapter();
     }
@@ -85,6 +85,16 @@ public class WarningCenterActivity extends BaseActivity implements Contract.Warn
                 finish();
                 break;
         }
+    }
+
+    @Override
+    public void setIsRead(String isRead) {
+        mIsRead = isRead;
+    }
+
+    @Override
+    public String getIsRead() {
+        return mIsRead;
     }
 
     @Override

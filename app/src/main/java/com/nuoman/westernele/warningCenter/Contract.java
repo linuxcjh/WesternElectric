@@ -12,6 +12,11 @@ import java.util.List;
 public interface Contract {
 
     interface WarningCenterView {
+
+        void setIsRead(String isRead);
+
+        String getIsRead();
+
         void refreshInformation(List<WarningInformation> data);
 
         void loadMoreInformation(List<WarningInformation> data);

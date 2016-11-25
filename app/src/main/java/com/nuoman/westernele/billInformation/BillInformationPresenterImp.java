@@ -4,6 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.billInformation.model.BillInformation;
 import com.nuoman.westernele.billInformation.model.BillInformationParameter;
+import com.nuoman.westernele.billInformation.model.MarkBillInformationParameter;
 import com.nuoman.westernele.common.CommonPresenter;
 import com.nuoman.westernele.common.ICommonAction;
 import com.nuoman.westernele.common.utils.AppTools;
@@ -68,7 +69,13 @@ public class BillInformationPresenterImp implements Contract.BillInformationPres
                     } else {
                         mbillInformationView.loadMoreInformation(billInformationList);
                     }
-
+                    if (mbillInformationView.getIsRead().equals("1")) {
+                        MarkBillInformationParameter markBillInformationParameter = new MarkBillInformationParameter();
+                        markBillInformationParameter.setUserId(AppTools.getUser().getUserId());
+                        markBillInformationParameter.setPages(String.valueOf(nowPage));
+                        commonPresenter.invokeInterfaceObtainData(true, "appAccountInfoCtrl", NuoManService.MARK_BILL_INFORMATION,
+                                markBillInformationParameter, null);
+                    }
                 }
                 break;
         }

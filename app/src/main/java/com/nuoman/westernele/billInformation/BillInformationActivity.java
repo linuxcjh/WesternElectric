@@ -9,10 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nuoman.westernele.common.utils.AppTools;
-import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.billInformation.model.BillInformation;
 import com.nuoman.westernele.common.BaseActivity;
+import com.nuoman.westernelectric.R;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
@@ -32,6 +31,7 @@ public class BillInformationActivity extends BaseActivity implements Contract.Bi
 
     @Bind(R.id.rv_bill_information)
     PullLoadMoreRecyclerView rv_bill_information;
+    private String mIsRead = "1";
 
     private BillInformationAdapter billInformationAdapter;
     private BillInformationPresenterImp billInformationPresenterImp;
@@ -49,7 +49,7 @@ public class BillInformationActivity extends BaseActivity implements Contract.Bi
     }
 
     private void initVariable() {
-        AppTools.getToast(getIntent().getStringExtra("hasRedPoint"));
+        setIsRead(getIntent().getStringExtra("hasRedPoint"));
         billInformationPresenterImp = new BillInformationPresenterImp(this);
         billInformationAdapter = new BillInformationAdapter();
     }
@@ -91,6 +91,16 @@ public class BillInformationActivity extends BaseActivity implements Contract.Bi
                 finish();
                 break;
         }
+    }
+
+    @Override
+    public void setIsRead(String isRead) {
+        mIsRead = isRead;
+    }
+
+    @Override
+    public String getIsRead() {
+        return mIsRead;
     }
 
     /**
