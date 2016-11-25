@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context="com.nuoman.westernele.numberDetail.view.NumberDetailActivity">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorBlue">
@@ -46,20 +46,8 @@
             android:visibility="gone" />
     </RelativeLayout>
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tl_detail_tab"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:orientation="horizontal"
-        app:tabIndicatorColor="@color/colorBlue"
-        app:tabSelectedTextColor="@color/colorBlue"
-        app:tabTextColor="@color/colorGray"
-        />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_detail"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-
+<FrameLayout
+    android:id="@+id/container_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></FrameLayout>
 </LinearLayout>

@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import com.nuoman.westernele.common.BaseRecyclerAdapter;
 import com.nuoman.westernele.common.ViewHolder;
 import com.nuoman.westernele.login.model.CompanyInfoModel;
-import com.nuoman.westernele.numberDetail.view.NumberDetailActivity;
+import com.nuoman.westernele.projectmanage.NumberDetailProjectActivity;
 import com.nuoman.westernelectric.R;
 
 import java.util.List;
@@ -39,7 +39,7 @@ public class ProjectManageStaffListAdapter extends BaseRecyclerAdapter<CompanyIn
         switch (v.getId()) {
             case R.id.root_layout:
 
-                context.startActivity(new Intent(context, NumberDetailActivity.class).putExtra("number",item.getId()).putExtra("title",item.getDataName()));
+                context.startActivity(new Intent(context, NumberDetailProjectActivity.class).putExtra("number",item.getId()).putExtra("title",item.getDataName()));
 
 
                 break;

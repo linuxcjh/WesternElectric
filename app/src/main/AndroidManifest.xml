@@ -89,6 +89,7 @@
         <activity android:name="com.nuoman.westernele.projectmanage.ProjectWorkNumActivity"/>
         <!--详情-->
         <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageDetailActivity"/>
+        <activity android:name="com.nuoman.westernele.projectmanage.NumberDetailProjectActivity"/>
 
 
         <meta-data
