@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.reflect.TypeToken;
@@ -34,6 +35,7 @@ import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 管理
@@ -57,6 +59,12 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
     TextView completedTv;
     @Bind(R.id.notice_content)
     TextView noticeContent;
+    @Bind(R.id.unstart_laytout)
+    LinearLayout unstartLaytout;
+    @Bind(R.id.producting_layout)
+    LinearLayout productingLayout;
+    @Bind(R.id.completed_layout)
+    LinearLayout completedLayout;
     private ApplicationAdapter mAdapter;
     private List<ApplicationModel> applicationModels;
     int index[] = {
@@ -195,4 +203,18 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
     }
 
 
+    @OnClick({R.id.unstart_laytout, R.id.producting_layout, R.id.completed_layout})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.unstart_laytout:
+
+                break;
+            case R.id.producting_layout:
+
+                break;
+            case R.id.completed_layout:
+
+                break;
+        }
+    }
 }
