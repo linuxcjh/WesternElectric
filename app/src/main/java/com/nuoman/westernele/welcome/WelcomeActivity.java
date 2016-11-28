@@ -72,7 +72,7 @@ public class WelcomeActivity extends BaseActivity {
 
     class WelcomeAdapter extends FragmentPagerAdapter {
 
-        public WelcomeAdapter(FragmentManager fm) {
+        WelcomeAdapter(FragmentManager fm) {
             super(fm);
         }
 

@@ -8,8 +8,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
-import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseActivity;
+import com.nuoman.westernelectric.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -43,14 +43,16 @@ public class WestNewActivity extends BaseActivity {
         webSettings.setDomStorageEnabled(true);
         webSettings.setJavaScriptEnabled(true);
         wv_west_new.loadUrl("http://120.27.137.6:8080/IntelligenceTransformer/Html/PhonePages/News.html");
-
     }
 
     @OnClick({R.id.title_left_tv})
     public void OnClick(View view) {
         switch (view.getId()) {
             case R.id.title_left_tv:
-                finish();
+                if (wv_west_new.canGoBack())
+                    wv_west_new.goBack();
+                else
+                    finish();
                 break;
         }
     }

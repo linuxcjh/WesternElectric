@@ -12,10 +12,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.numberDetail.view.NumberDetailActivity;
 import com.nuoman.westernele.numberQuery.model.Number;
+import com.nuoman.westernelectric.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +31,9 @@ public class NumberQueryActivity extends BaseActivity implements Contract.Number
 
     @Bind(R.id.title_mid_tv)
     TextView title_mid_tv;
+
+    @Bind(R.id.tv_query_reason)
+    TextView tv_query_reason;
 
     @Bind(R.id.et_search_no)
     EditText et_search_no;
@@ -84,7 +87,13 @@ public class NumberQueryActivity extends BaseActivity implements Contract.Number
 
     @Override
     public void refreshNumber(List<Number> data) {
-        numberAdapter.refresh(data);
+        if (data.size() > 0) {
+            tv_query_reason.setText("查询结果");
+            tv_query_reason.setVisibility(View.VISIBLE);
+            numberAdapter.refresh(data);
+        } else {
+            Toast.makeText(this, "未找到", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -94,6 +103,7 @@ public class NumberQueryActivity extends BaseActivity implements Contract.Number
 
     /**
      * 列表点击监听
+     *
      * @param number 项目id
      */
     public void onItemClick(String number) {
