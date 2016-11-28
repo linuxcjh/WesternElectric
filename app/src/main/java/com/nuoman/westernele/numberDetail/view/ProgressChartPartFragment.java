@@ -39,7 +39,7 @@ public class ProgressChartPartFragment extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_progress_chart_part, container, false);
         RecyclerView rv_grid = (RecyclerView) rootView.findViewById(R.id.rv_grid);
         rv_grid.setLayoutManager(new GridLayoutManager(getContext(), 3));
-        rv_grid.addItemDecoration(new SpaceItemDecoration(39,9));
+        rv_grid.addItemDecoration(new SpaceItemDecoration(20,9));
         rv_grid.setAdapter(new ProgressChartPartAdapter());
         return rootView;
     }

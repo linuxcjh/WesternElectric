@@ -3,6 +3,7 @@ package com.nuoman.westernele.informationRelease;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -11,10 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.informationDetail.InformationDetailActivity;
 import com.nuoman.westernele.informationRelease.model.ReleaseInformation;
+import com.nuoman.westernelectric.R;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
@@ -55,6 +56,8 @@ public class InformationReleaseActivity extends BaseActivity implements Contract
     private void initLayout() {
         title_mid_tv.setText("信息发布");
         rv_information_release.setLinearLayout();
+        rv_information_release.getRecyclerView().
+                addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
     }
 
     private void bindListener() {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#3099F0</color>
     <color name="colorAccent">#FF4081</color>
     <color name="bg_color">#C4EDFE</color>
     <color name="colorTranBg">#52000000</color>
@@ -15,6 +15,7 @@
     <color name="colorListName">#666666</color>
     <color name="colorAssistLight">#CCCCCC</color>
     <color name="colorBlueLight">#82C1F6</color>
+    <color name="colorBlueOne">#2F9BF0</color>
 
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorUnComplete">#D5E0E8</color>
@@ -35,6 +36,5 @@
     <color name="colorRed1">#EF2915</color>
     <color name="colorGreen">#5AAF0E</color>
     <color name="colorYellow">#F6E24A</color>
-    >>>>>>> origin/dev_progress_chart_1124
 
 </resources>
