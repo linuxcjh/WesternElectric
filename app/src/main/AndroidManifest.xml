@@ -77,29 +77,31 @@
         <activity android:name="com.nuoman.westernele.home.MainTableActivity" />
         <!-- 修改密码 -->
         <activity android:name="com.nuoman.westernele.set.PwdActivity" />
-        <!--关于-->
+        <!-- 关于 -->
         <activity android:name="com.nuoman.westernele.set.AboutActivity" />
-        <!--权限-->
+        <!-- 权限 -->
         <activity android:name="com.nuoman.westernele.common.utils.PermissionsActivity" />
-        <!--修改信息-->
+        <!-- 修改信息 -->
         <activity android:name="com.nuoman.westernele.mine.ChangeInfoActivity" />
-        <!--项目管理-->
+        <!-- 项目管理 -->
         <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageActivity" />
-        <!--人员列表-->
-        <activity android:name="com.nuoman.westernele.projectmanage.ProjectWorkNumActivity"/>
-        <!--详情-->
-        <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageDetailActivity"/>
-        <activity android:name="com.nuoman.westernele.projectmanage.NumberDetailProjectActivity"/>
-
+        <!-- 人员列表 -->
+        <activity android:name="com.nuoman.westernele.projectmanage.ProjectWorkNumActivity" />
+        <!-- 详情 -->
+        <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageDetailActivity" />
+        <activity android:name="com.nuoman.westernele.projectmanage.NumberDetailProjectActivity" />
+        <!--欢迎页面-->
+        <activity android:name="com.nuoman.westernele.welcome.WelcomeActivity" />
+        <!--项目汇总页面-->
+        <activity android:name="com.nuoman.westernele.projectSummary.ProjectSummaryActivity" />
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="58356993f29d9875710001e4"></meta-data>
+            android:value="58356993f29d9875710001e4" />
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
-            android:value="51f88e2bc8c5076ce8a020208a76402d"></meta-data>
+            android:value="51f88e2bc8c5076ce8a020208a76402d" />
 
-        <activity android:name="com.nuoman.westernele.welcome.WelcomeActivity"></activity>
     </application>
 
 </manifest>

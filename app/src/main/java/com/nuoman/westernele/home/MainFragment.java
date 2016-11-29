@@ -24,6 +24,7 @@ import com.nuoman.westernele.home.model.MainModel;
 import com.nuoman.westernele.informationRelease.InformationReleaseActivity;
 import com.nuoman.westernele.model.BaseTransModel;
 import com.nuoman.westernele.numberQuery.NumberQueryActivity;
+import com.nuoman.westernele.projectSummary.ProjectSummaryActivity;
 import com.nuoman.westernele.projectmanage.ProjectManageActivity;
 import com.nuoman.westernele.warningCenter.WarningCenterActivity;
 import com.nuoman.westernele.westNew.WestNewActivity;
@@ -205,15 +206,22 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
 
     @OnClick({R.id.unstart_laytout, R.id.producting_layout, R.id.completed_layout})
     public void onClick(View view) {
+        Intent intent;
         switch (view.getId()) {
             case R.id.unstart_laytout:
-
+                intent=new Intent(getContext(), ProjectSummaryActivity.class);
+                intent.putExtra("type",0);
+                startActivity(intent);
                 break;
             case R.id.producting_layout:
-
+                intent=new Intent(getContext(), ProjectSummaryActivity.class);
+                intent.putExtra("type",1);
+                startActivity(intent);
                 break;
             case R.id.completed_layout:
-
+                intent=new Intent(getContext(), ProjectSummaryActivity.class);
+                intent.putExtra("type",2);
+                startActivity(intent);
                 break;
         }
     }
