@@ -63,6 +63,10 @@ public class MineFragment extends BaseFragment implements ICommonAction {
     TextView phoneTv;
     @Bind(R.id.email_tv)
     TextView emailTv;
+    @Bind(R.id.title_right_tv)
+    TextView titleRightTv;
+
+
     Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -164,7 +168,7 @@ public class MineFragment extends BaseFragment implements ICommonAction {
     }
 
 
-    @OnClick({R.id.photo_iv, R.id.edit_bt})
+    @OnClick({R.id.photo_iv, R.id.edit_bt, R.id.title_right_tv})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.photo_iv:
@@ -173,6 +177,9 @@ public class MineFragment extends BaseFragment implements ICommonAction {
                 break;
             case R.id.edit_bt:
                 startActivityForResult(new Intent(getActivity(), ChangeInfoActivity.class).putExtra("model", info), 0x11);
+                break;
+            case R.id.title_right_tv:
+                startActivity(new Intent(getActivity(), ProjectManageFocusActivity.class));
                 break;
         }
     }
@@ -273,4 +280,5 @@ public class MineFragment extends BaseFragment implements ICommonAction {
         }
 
     }
+
 }

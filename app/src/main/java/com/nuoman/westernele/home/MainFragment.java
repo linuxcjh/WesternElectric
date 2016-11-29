@@ -72,7 +72,7 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
             R.drawable.xiangmuchaxun_03,
             R.drawable.gonghaochaxun_03,
             R.drawable.zhangkuanxinxi_03,
-            R.drawable.zhangkuanxinxi_03,
+            R.drawable.shenhe_03,
             R.drawable.xiaoxizhongxin_03};
 
 

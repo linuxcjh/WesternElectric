@@ -100,6 +100,7 @@
             android:value="51f88e2bc8c5076ce8a020208a76402d"></meta-data>
 
         <activity android:name="com.nuoman.westernele.welcome.WelcomeActivity"></activity>
+        <activity android:name="com.nuoman.westernele.mine.ProjectManageFocusActivity"/>
     </application>
 
 </manifest>

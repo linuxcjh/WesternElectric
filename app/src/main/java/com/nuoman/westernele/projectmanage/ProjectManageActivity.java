@@ -41,24 +41,24 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
 
 
     @Bind(R.id.search_layout)
-    LinearLayout searchLayout;
+   public LinearLayout searchLayout;
     @Bind(R.id.pullLoadMoreRecyclerView)
-    PullLoadMoreRecyclerView pullLoadMoreRecyclerView;
+    public PullLoadMoreRecyclerView pullLoadMoreRecyclerView;
     @Bind(R.id.back_iv)
-    ImageView backIv;
+    public ImageView backIv;
     @Bind(R.id.filter_layout)
-    FilterViewLayout filterLayout;
+    public FilterViewLayout filterLayout;
     @Bind(R.id.search_tv)
-    TextView searchTv;
+    public TextView searchTv;
     @Bind(R.id.root_layout)
-    RelativeLayout rootLayout;
+    public RelativeLayout rootLayout;
 
-    private ProjectManageAdapter mAdapter;
+    public ProjectManageAdapter mAdapter;
 
-    private List<ProjectModel> contactModels = new ArrayList<>();
+    public List<ProjectModel> contactModels = new ArrayList<>();
 
-    private CommonPresenter commonPresenter = new CommonPresenter(this);
-    private BaseTransModel transModel = new BaseTransModel();
+    public CommonPresenter commonPresenter = new CommonPresenter(this);
+    public BaseTransModel transModel = new BaseTransModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +71,7 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
     }
 
 
-    private void initView() {
+    public void initView() {
         filterLayout.setTitleValue(new String[]{"筛选", "排序"});
         setFilerData();
 
@@ -96,7 +96,7 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
 
     }
 
-    private void setFilerData() {
+    public void setFilerData() {
 
 
     }
@@ -125,7 +125,7 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
 
     }
 
-    Handler mHandler = new Handler() {
+    public  Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);

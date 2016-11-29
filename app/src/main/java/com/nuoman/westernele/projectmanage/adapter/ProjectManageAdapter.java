@@ -24,14 +24,23 @@ public class ProjectManageAdapter extends BaseRecyclerAdapter<ProjectModel> impl
 
     Handler mHandler;
 
+    private boolean isDisplayFocus;
+
     public ProjectManageAdapter(Context context, int layoutResId, List<ProjectModel> data, Handler mHandler) {
         super(context, layoutResId, data);
         this.mHandler = mHandler;
     }
 
+    public void setIsFocusDisplay(boolean isDisplayFocus) {
+
+        this.isDisplayFocus = isDisplayFocus;
+
+    }
+
     @Override
     protected void convert(ViewHolder holder, ProjectModel model, int position) {
 
+        RelativeLayout clue_focus_layout = holder.getView(R.id.clue_focus_layout);
         ImageView clue_avatar_iv = holder.getView(R.id.clue_avatar_iv);
         ImageView clue_focus_tv = holder.getView(R.id.clue_focus_tv);
         RelativeLayout rootLayout = holder.getView(R.id.root_layout);
@@ -44,8 +53,8 @@ public class ProjectManageAdapter extends BaseRecyclerAdapter<ProjectModel> impl
         holder.setText(R.id.clue_create_time_tv, model.getFdate());
         holder.setText(R.id.clue_person_tv, model.getProjectManager());
 
-        clue_focus_tv.setOnClickListener(this);
-        clue_focus_tv.setTag(model);
+        clue_focus_layout.setOnClickListener(this);
+        clue_focus_layout.setTag(model);
 
         if (model.getIsCollected().equals("1")) {
             clue_focus_tv.setBackgroundResource(R.drawable.guaznhu_02_03);
@@ -59,7 +68,7 @@ public class ProjectManageAdapter extends BaseRecyclerAdapter<ProjectModel> impl
     public void onClick(View v) {
         ProjectModel item = (ProjectModel) v.getTag();
         switch (v.getId()) {
-            case R.id.clue_focus_tv:
+            case R.id.clue_focus_layout:
                 mHandler.sendMessage(mHandler.obtainMessage(NuoManConstant.UPDATE_FOCUS, item));
                 break;
             case R.id.root_layout:

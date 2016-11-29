@@ -12,8 +12,7 @@
         android:layout_height="75dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/client_item"
-        android:gravity="center_vertical"
-        android:paddingRight="30dp">
+        android:gravity="center_vertical">
 
 
         <RelativeLayout
@@ -74,14 +73,24 @@
                 android:textColor="@color/colorAssist"
                 android:textSize="12sp" />
 
-            <ImageView
-                android:id="@+id/clue_focus_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <RelativeLayout
+                android:id="@+id/clue_focus_layout"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
                 android:layout_alignBottom="@+id/clue_create_time_tv"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/guanzhu_01_03"
-                />
+                android:layout_alignParentRight="true">
+
+                <ImageView
+                    android:id="@+id/clue_focus_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="30dp"
+                    android:src="@drawable/guanzhu_01_03" />
+
+
+            </RelativeLayout>
 
 
         </RelativeLayout>
