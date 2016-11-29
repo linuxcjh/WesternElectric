@@ -191,7 +191,7 @@ public abstract class BasePresenter {
                     dialogShow();
                 }
             }
-        }, 500);
+        }, 100);
     }
 
 }

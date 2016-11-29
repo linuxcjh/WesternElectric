@@ -101,6 +101,7 @@
 
         <activity android:name="com.nuoman.westernele.welcome.WelcomeActivity"></activity>
         <activity android:name="com.nuoman.westernele.mine.ProjectManageFocusActivity"/>
+        <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageDetailNewActivity"/>
     </application>
 
 </manifest>

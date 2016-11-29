@@ -36,11 +36,11 @@ public class ProjectManageDetailsAdapter extends BaseRecyclerAdapter<CompanyInfo
     @Override
     protected void convert(ViewHolder holder, CompanyInfoModel model, int position) {
 
-        RelativeLayout rootLayout = holder.getView(R.id.root_layout);
+        final RelativeLayout rootLayout = holder.getView(R.id.root_layout);
         holder.setText(R.id.name_tv, model.getDataName());
-        final ImageView imageView =holder.getView(R.id.status_iv);
+        final ImageView imageView = holder.getView(R.id.status_iv);
         final GridLayout gridLayout = holder.getView(R.id.gridLayout_tect);
-
+        rootLayout.setTag(model);
         rootLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,30 +51,39 @@ public class ProjectManageDetailsAdapter extends BaseRecyclerAdapter<CompanyInfo
                     gridLayout.setVisibility(View.VISIBLE);
                     imageView.setBackgroundResource(R.drawable.btn_dropdown02_03);
                 }
+                CompanyInfoModel model = (CompanyInfoModel) rootLayout.getTag();
+
+                switch (model.getId()) {
+                    case "0":
+                        setApprovalFlowData(gridLayout, itemModels.getTech());
+//
+
+                        break;
+                    case "1":
+                        setApprovalFlowData(gridLayout, itemModels.getPurchase());
+
+                        break;
+                    case "2":
+                        setApprovalFlowData(gridLayout, itemModels.getProduction());
+
+                        break;
+                    case "3":
+                        setApprovalFlowData(gridLayout, itemModels.getTransport());
+
+                        break;
+                }
+
             }
         });
 
+//        if (position == 0) {
+//            gridLayout.setVisibility(View.VISIBLE);
+//            imageView.setBackgroundResource(R.drawable.btn_dropdown02_03);
+//            setApprovalFlowData(gridLayout, itemModels.getTech());
+//
+//        }
 
-        switch (model.getId()) {
-            case "0":
-                setApprovalFlowData(gridLayout, itemModels.getTech());
-                gridLayout.setVisibility(View.VISIBLE);
-                imageView.setBackgroundResource(R.drawable.btn_dropdown02_03);
 
-                break;
-            case "1":
-                setApprovalFlowData(gridLayout, itemModels.getPurchase());
-
-                break;
-            case "2":
-                setApprovalFlowData(gridLayout, itemModels.getProduction());
-
-                break;
-            case "3":
-                setApprovalFlowData(gridLayout, itemModels.getTransport());
-
-                break;
-        }
     }
 
     @Override
@@ -95,6 +104,10 @@ public class ProjectManageDetailsAdapter extends BaseRecyclerAdapter<CompanyInfo
      * @param transport
      */
     public void setApprovalFlowData(GridLayout flowGridlayout, final List<ProjectDetailModel> transport) {
+
+        if (flowGridlayout.getChildCount() > 0) {
+            return;
+        }
         if (transport != null && transport.size() > 0) {
 
             flowGridlayout.removeAllViews();

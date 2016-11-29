@@ -58,7 +58,7 @@ public class NumberDetailProjectActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.title_right_tv:
-                startActivity(new Intent(this, ProjectManageDetailActivity.class).putExtra("id", getIntent().getStringExtra("number")));
+                startActivity(new Intent(this, ProjectManageDetailNewActivity.class).putExtra("id", getIntent().getStringExtra("number")));
 
                 break;
         }

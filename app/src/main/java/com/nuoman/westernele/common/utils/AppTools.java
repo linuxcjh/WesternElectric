@@ -3,6 +3,7 @@ package com.nuoman.westernele.common.utils;
 import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,12 +31,12 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.SelectionDialogListAdapter;
 import com.nuoman.westernele.components.SelectionDialog;
 import com.nuoman.westernele.login.model.User;
 import com.nuoman.westernele.mine.model.BaseDataModel;
+import com.nuoman.westernelectric.R;
 
 import java.io.DataOutputStream;
 import java.io.File;
@@ -269,6 +271,48 @@ public class AppTools {
         timePickerDialog.show();
     }
 
+    /**
+     * 获取日期
+     *
+     * @param textView
+     * @return
+     */
+    public static void obtainData(Activity activity, final TextView textView, final String content) {
+        final DatePickerDialog datePickerDialog;
+        final Calendar calendar = Calendar.getInstance();
+        datePickerDialog = new DatePickerDialog(activity, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                textView.setText(content + inspectDate(year, monthOfYear, dayOfMonth));
+            }
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+    }
+
+    /**
+     * 转换日期格式
+     *
+     * @param year
+     * @param monthOfYear
+     * @param dayOfMonth
+     * @return
+     */
+    public static String inspectDate(int year, int monthOfYear, int dayOfMonth) {
+
+        String tempMonth = String.valueOf((monthOfYear + 1));
+        String tempDay = String.valueOf((dayOfMonth));
+
+        if ((monthOfYear + 1) < 10) {
+            tempMonth = "0" + String.valueOf((monthOfYear + 1));
+        }
+        if (dayOfMonth < 10) {
+            tempDay = "0" + String.valueOf((dayOfMonth));
+        }
+        String dateString = year + "-" + tempMonth + "-" + tempDay;
+
+        return dateString;
+
+    }
 
     /**
      * 格式化事件
@@ -438,6 +482,7 @@ public class AppTools {
         }
         return user;
     }
+
     /**
      * 异步加载圆形图片
      *
@@ -645,7 +690,6 @@ public class AppTools {
         cursor.moveToFirst();
         return cursor.getString(column_index);
     }
-
 
 
 }
