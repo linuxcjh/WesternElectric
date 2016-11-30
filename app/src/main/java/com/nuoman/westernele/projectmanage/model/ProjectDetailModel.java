@@ -9,7 +9,8 @@ public class ProjectDetailModel {
 
    private String actualEndDate;
     private String actualStartDate;
-    private String isVisible;
+    private String isEditable;
+    private String isPhotoable;
     private String nodeId;
     private String nodeName;
     private String planEndDate;
@@ -31,12 +32,20 @@ public class ProjectDetailModel {
         this.actualStartDate = actualStartDate;
     }
 
-    public String getIsVisible() {
-        return isVisible;
+    public String getIsEditable() {
+        return isEditable;
     }
 
-    public void setIsVisible(String isVisible) {
-        this.isVisible = isVisible;
+    public void setIsEditable(String isEditable) {
+        this.isEditable = isEditable;
+    }
+
+    public String getIsPhotoable() {
+        return isPhotoable;
+    }
+
+    public void setIsPhotoable(String isPhotoable) {
+        this.isPhotoable = isPhotoable;
     }
 
     public String getNodeId() {

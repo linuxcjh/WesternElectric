@@ -215,6 +215,12 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                             item_three_tv.setText("实际开始    " + model.getActualStartDate());
                             item_four_tv.setText("实际完工    " + model.getActualEndDate());
 
+                            if (model.getIsEditable().equals("0")) {
+                                edit_layout.setVisibility(View.GONE);
+                            } else {
+                                edit_layout.setVisibility(View.VISIBLE);
+                            }
+
                             //图片按钮
                             imageView.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -234,8 +240,13 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                                 public void onClick(View view) {
                                     imageView.setVisibility(View.GONE);
                                     edit_iv.setVisibility(View.GONE);
+
                                     commit_iv.setVisibility(View.VISIBLE);
-                                    camera_03.setVisibility(View.VISIBLE);
+                                    if (model.getIsPhotoable().equals("0")) {
+                                        camera_03.setVisibility(View.GONE);
+                                    } else {
+                                        camera_03.setVisibility(View.VISIBLE);
+                                    }
 
                                     item_one_tv.setEnabled(true);
                                     item_two_tv.setEnabled(true);
@@ -269,7 +280,7 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                                 @Override
                                 public void onClick(View view) {
 
-                                    AppTools.obtainData(ProjectManageDetailNewActivity.this, item_one_tv,"计划开始    ");
+                                    AppTools.obtainData(ProjectManageDetailNewActivity.this, item_one_tv, "计划开始    ");
 
 
                                 }
@@ -278,14 +289,14 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                                 @Override
                                 public void onClick(View view) {
 
-                                    AppTools.obtainData(ProjectManageDetailNewActivity.this, item_two_tv,"计划完工    " );
+                                    AppTools.obtainData(ProjectManageDetailNewActivity.this, item_two_tv, "计划完工    ");
 
                                 }
                             });
                             item_three_tv.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    AppTools.obtainData(ProjectManageDetailNewActivity.this, item_three_tv,"实际开始    ");
+                                    AppTools.obtainData(ProjectManageDetailNewActivity.this, item_three_tv, "实际开始    ");
 
 
                                 }
@@ -293,7 +304,7 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                             item_four_tv.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    AppTools.obtainData(ProjectManageDetailNewActivity.this, item_four_tv,"实际完工    " );
+                                    AppTools.obtainData(ProjectManageDetailNewActivity.this, item_four_tv, "实际完工    ");
 
                                 }
                             });
