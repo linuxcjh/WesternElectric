@@ -208,13 +208,14 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                             final ImageView camera_03 = (ImageView) view.findViewById(R.id.camera_03);
                             final LinearLayout edit_layout = (LinearLayout) view.findViewById(R.id.edit_layout);
 
-
+                            //控件值初始化
                             title_name_tv.setText(model.getNodeName());
                             item_one_tv.setText("计划开始    " + model.getPlanStartDate());
                             item_two_tv.setText("计划完工    " + model.getPlanEndDate());
                             item_three_tv.setText("实际开始    " + model.getActualStartDate());
                             item_four_tv.setText("实际完工    " + model.getActualEndDate());
 
+                            //图片按钮
                             imageView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -227,6 +228,7 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                             });
 
 
+                            //编辑按钮
                             edit_iv.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -243,6 +245,7 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                                 }
                             });
 
+                            //提交按钮
                             commit_iv.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -252,6 +255,7 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                             });
 
 
+                            //拍照按钮
                             camera_03.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -260,6 +264,7 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                                 }
                             });
 
+                            //选择日期
                             item_one_tv.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
