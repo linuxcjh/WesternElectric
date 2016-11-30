@@ -220,11 +220,12 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                             } else {
                                 edit_layout.setVisibility(View.VISIBLE);
                             }
-
+                            
                             //图片按钮
                             imageView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
+
 //                                    Intent intent = new Intent(ApprovalDetailsNewActivity.this, ApproverDetailsActivity.class);
 //                                    intent.putExtra("personId", model.getApproveUserId());
 //                                    startActivity(intent);
