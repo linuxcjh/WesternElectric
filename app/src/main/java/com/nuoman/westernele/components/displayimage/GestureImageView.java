@@ -350,7 +350,7 @@ public class GestureImageView extends ImageView {
 	/**
 	 * Waits for a draw
 	 * 
-	 * @param max
+	 * @param
 	 *            time to wait for draw (ms)
 	 * @throws InterruptedException
 	 */
