@@ -610,6 +610,18 @@ public class AppTools {
     }
 
     /**
+     * 调用系统相册
+     *
+     * @param activity
+     */
+    public static void getSystemImage(Activity activity) {
+        Intent intent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        activity.startActivityForResult(intent, NuoManConstant.SELECT_PICTURE);
+
+    }
+
+    /**
      * 调用拍照、相册
      *
      * @param activity

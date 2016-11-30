@@ -7,8 +7,18 @@ package com.nuoman.westernele.projectmanage.model;
 
 public class ProjectDetailModel {
 
-   private String actualEndDate;
+    private String actualEndDate;
     private String actualStartDate;
+
+    public String getHasPhoto() {
+        return hasPhoto;
+    }
+
+    public void setHasPhoto(String hasPhoto) {
+        this.hasPhoto = hasPhoto;
+    }
+
+    private String hasPhoto;
     private String isEditable;
     private String isPhotoable;
     private String nodeId;

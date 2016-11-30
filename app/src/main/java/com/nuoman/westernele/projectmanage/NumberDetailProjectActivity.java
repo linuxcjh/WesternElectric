@@ -25,7 +25,6 @@ public class NumberDetailProjectActivity extends BaseActivity {
     @Bind(R.id.container_layout)
     FrameLayout containerLayout;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +57,9 @@ public class NumberDetailProjectActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.title_right_tv:
-                startActivity(new Intent(this, ProjectManageDetailNewActivity.class).putExtra("id", getIntent().getStringExtra("number")));
+                Intent intent = new Intent(this, ProjectManageDetailNewActivity.class);
+                intent.putExtra("id", getIntent().getStringExtra("number"));
+                startActivity(intent);
 
                 break;
         }

@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <com.rongfeng.xxb.utils.displayimage.GestureImageView
+    <com.nuoman.westernele.components.displayimage.GestureImageView
         android:id="@+id/image"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

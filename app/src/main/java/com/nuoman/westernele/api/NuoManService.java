@@ -94,6 +94,16 @@ public interface NuoManService {
      */
     String PROGRESS_CHART = "GetOrderProcessByOrderId";
 
+    /*
+    获取详情页面节点照片
+     */
+    String NODE_PIC="GetNodePicByNodeId";
+
+    /*
+        保存节点信息
+     */
+    String SAVE_NODE_INFO="SaveNodeInfo";
+
     /**
      * 项目管理
      */
