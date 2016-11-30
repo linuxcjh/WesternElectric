@@ -22,6 +22,7 @@ import retrofit.http.QueryMap;
 public interface NuoManAPI {
 
     String URL = "http://120.27.137.6:8080/IntelligenceTransformer/";
+//    String URL="http://192.168.1.8:8080/IntelligenceTransformer/";
 
     /**
      * 通用接口调用

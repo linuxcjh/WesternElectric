@@ -255,7 +255,7 @@ public class MineFragment extends BaseFragment implements ICommonAction {
     }
 
     /**
-     * 上传图片到七牛成功后上传打卡信息
+     * 上传图片到七牛成功后上传信息
      *
      * @param filePath 要上传的图片路径
      * @param token    在七牛官网上注册的token
