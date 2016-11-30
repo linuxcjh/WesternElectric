@@ -215,10 +215,12 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                             item_three_tv.setText("实际开始    " + model.getActualStartDate());
                             item_four_tv.setText("实际完工    " + model.getActualEndDate());
 
+
                             //图片按钮
                             imageView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
+
 //                                    Intent intent = new Intent(ApprovalDetailsNewActivity.this, ApproverDetailsActivity.class);
 //                                    intent.putExtra("personId", model.getApproveUserId());
 //                                    startActivity(intent);
