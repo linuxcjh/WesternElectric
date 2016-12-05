@@ -210,17 +210,17 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
         switch (view.getId()) {
             case R.id.unstart_laytout:
                 intent=new Intent(getContext(), ProjectSummaryActivity.class);
-                intent.putExtra("type",0);
+                intent.putExtra("kind",0);
                 startActivity(intent);
                 break;
             case R.id.producting_layout:
                 intent=new Intent(getContext(), ProjectSummaryActivity.class);
-                intent.putExtra("type",1);
+                intent.putExtra("kind",1);
                 startActivity(intent);
                 break;
             case R.id.completed_layout:
                 intent=new Intent(getContext(), ProjectSummaryActivity.class);
-                intent.putExtra("type",2);
+                intent.putExtra("kind",2);
                 startActivity(intent);
                 break;
         }
