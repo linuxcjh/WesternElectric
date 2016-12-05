@@ -21,6 +21,7 @@ import com.nuoman.westernele.common.CommonPresenter;
 import com.nuoman.westernele.common.ICommonAction;
 import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.utils.AppTools;
+import com.nuoman.westernele.common.utils.DateUtil;
 import com.nuoman.westernele.mine.model.BaseDataModel;
 import com.nuoman.westernele.mine.model.UserInfo;
 import com.nuoman.westernele.model.BaseTransModel;
@@ -204,6 +205,10 @@ public class MineFragment extends BaseFragment implements ICommonAction {
                     break;
                 case CUT:
                     try {
+                        String path = AppTools.getImageSavePath(getActivity()) + "/"
+                                + DateUtil.getTime(DateUtil.yyyyMMddHHmmss) + ".jpg";
+
+                        File file = new File(path);
                         Bundle extras = data.getExtras();
                         Bitmap photo = extras.getParcelable("data");
                         FileOutputStream outputStream = new FileOutputStream(file);
@@ -216,10 +221,6 @@ public class MineFragment extends BaseFragment implements ICommonAction {
                                 uploadImageToQiNiu(file.getPath(), transModel.getToken());
                             }
                             AppTools.setImageViewPicture(getActivity(), file.getPath(), photoIv);
-//                            this.imagePath = file.getPath();
-//                            upLoadHeadPhotoPresenter.paths.clear();
-//                            upLoadHeadPhotoPresenter.paths.add(file.getPath());
-//                            upLoadHeadPhotoPresenter.uploadFile(upLoadHeadPhotoPresenter.paths);
                         }
 
                     } catch (Exception e) {
