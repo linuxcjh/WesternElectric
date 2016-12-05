@@ -82,14 +82,21 @@ public class PwdActivity extends BaseActivity implements ICommonAction {
 
         switch (methodIndex) {
             case NuoManService.CHANGEPWD:
-                break;
+                if (status == 1) {
+                    AppTools.getToast("修改成功");
+                    finish();
+
+                }
+
+                    break;
             case NuoManService.CHECKPWD:
 
                 if (status == 1) {
 
                     if (TextUtils.isEmpty(newPwdEt.getText().toString()) || TextUtils.isEmpty(confirmPwdEt.getText().toString())
                             ) {
-                        AppTools.getToast("新密码和确认密码不能为空");
+                        AppTools.getToast("新密码或确认密码不能为空");
+                        return;
 
                     }
                     if (newPwdEt.getText().toString().equals(confirmPwdEt.getText().toString())) {
