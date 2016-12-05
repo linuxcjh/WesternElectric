@@ -29,7 +29,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="190dp"
             android:background="@color/colorBlue"
             android:orientation="vertical">
 
@@ -52,6 +52,7 @@
                 android:background="@drawable/main_company_item"
                 android:gravity="center"
                 android:minWidth="230dp"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
