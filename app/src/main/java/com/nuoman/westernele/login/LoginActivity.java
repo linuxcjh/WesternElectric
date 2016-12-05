@@ -3,7 +3,8 @@ package com.nuoman.westernele.login;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,8 +12,13 @@ import android.widget.Toast;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.utils.AppConfig;
+import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.home.MainTableActivity;
+import com.nuoman.westernele.mine.model.BaseDataModel;
 import com.nuoman.westernelectric.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -56,13 +62,24 @@ public class LoginActivity extends BaseActivity implements Contract.LoginView {
      */
     @Override
     public void showSubCompanyDialog(String[] subCompanyNames) {
-        AlertDialog selectSubCompany = new AlertDialog.Builder(this)
-                .setTitle("选择子公司")
-                .setItems(subCompanyNames,
-                        new SubCompanyClickListener(subCompanyNames))
-                .create();
-        selectSubCompany.setCanceledOnTouchOutside(false);
-        selectSubCompany.show();
+//        AlertDialog selectSubCompany = new AlertDialog.Builder(this)
+//                .setTitle("选择子公司")
+//                .setItems(subCompanyNames,
+//                        new SubCompanyClickListener(subCompanyNames))
+//                .create();
+//        selectSubCompany.setCanceledOnTouchOutside(false);
+//        selectSubCompany.show();
+
+        List<BaseDataModel> data = new ArrayList<>();
+        for (int i = 0; i < subCompanyNames.length; i++) {
+
+            BaseDataModel m = new BaseDataModel();
+            m.setDictionaryId(i + "");
+            m.setDictionaryName(subCompanyNames[i]);
+            data.add(m);
+        }
+
+        AppTools.selectDialog("请选择子公司", this, data, mHandler, LoginPresenterImp.SELECT_SUB_COMPANY_INDEX);
 
     }
 
@@ -99,4 +116,20 @@ public class LoginActivity extends BaseActivity implements Contract.LoginView {
             jumpToMain();
         }
     }
+
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            switch (msg.what) {
+                case LoginPresenterImp.SELECT_SUB_COMPANY_INDEX:
+                    BaseDataModel mode = (BaseDataModel) msg.obj;
+                    loginPresenterImp.saveSelectedSubCompany(mode.getDictionaryName());
+                    jumpToMain();
+                    break;
+            }
+        }
+    };
 }

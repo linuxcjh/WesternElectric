@@ -27,6 +27,11 @@ import java.util.Map;
 
 class LoginPresenterImp implements ICommonAction, Contract.LoginPresenter {
 
+    /**
+     * 选择子公司
+     */
+    public static final int SELECT_SUB_COMPANY_INDEX = 1;
+
     private CommonPresenter commonPresenter;
     private Contract.LoginView mLoginView;
 
