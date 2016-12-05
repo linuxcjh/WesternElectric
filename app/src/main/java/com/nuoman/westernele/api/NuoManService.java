@@ -138,5 +138,9 @@ public interface NuoManService {
      * 修改密码
      */
     String CHANGEPWD = "ChangePwd";
+    /*
+    项目概览
+     */
+    String PROJECT_SUMMARY = "GetProjectStatusInfoList";
 
 }

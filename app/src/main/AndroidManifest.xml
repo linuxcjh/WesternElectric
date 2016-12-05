@@ -77,13 +77,13 @@
         <activity android:name="com.nuoman.westernele.home.MainTableActivity" />
         <!-- 修改密码 -->
         <activity android:name="com.nuoman.westernele.set.PwdActivity" />
-        <!--关于-->
+        <!-- 关于 -->
         <activity android:name="com.nuoman.westernele.set.AboutActivity" />
-        <!--权限-->
+        <!-- 权限 -->
         <activity android:name="com.nuoman.westernele.common.utils.PermissionsActivity" />
-        <!--修改信息-->
+        <!-- 修改信息 -->
         <activity android:name="com.nuoman.westernele.mine.ChangeInfoActivity" />
-        <!--项目管理-->
+        <!-- 项目管理 -->
         <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageActivity" />
         <!--人员列表-->
         <activity android:name="com.nuoman.westernele.projectmanage.ProjectWorkNumActivity" />
@@ -91,6 +91,8 @@
         <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageDetailActivity" />
         <activity android:name="com.nuoman.westernele.projectmanage.NumberDetailProjectActivity" />
 
+        <!--项目汇总页面-->
+        <activity android:name="com.nuoman.westernele.projectSummary.ProjectSummaryActivity" />
 
         <meta-data
             android:name="UMENG_APPKEY"
