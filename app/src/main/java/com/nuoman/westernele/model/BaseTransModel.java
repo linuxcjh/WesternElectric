@@ -17,6 +17,24 @@ public class BaseTransModel implements Serializable {
     private String token;
     private String picUrl;
     private String state;
+    private String userPwd;
+    private String newPwd;
+
+    public String getUserPwd() {
+        return userPwd;
+    }
+
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd;
+    }
+
+    public String getNewPwd() {
+        return newPwd;
+    }
+
+    public void setNewPwd(String newPwd) {
+        this.newPwd = newPwd;
+    }
 
     public String getState() {
         return state;

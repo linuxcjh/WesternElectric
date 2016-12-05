@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.reflect.TypeToken;
+import com.nuoman.NuoManApplication;
 import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.common.CommonPresenter;
@@ -41,7 +42,7 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
 
 
     @Bind(R.id.search_layout)
-   public LinearLayout searchLayout;
+    public LinearLayout searchLayout;
     @Bind(R.id.pullLoadMoreRecyclerView)
     public PullLoadMoreRecyclerView pullLoadMoreRecyclerView;
     @Bind(R.id.back_iv)
@@ -60,13 +61,20 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
     public CommonPresenter commonPresenter = new CommonPresenter(this);
     public BaseTransModel transModel = new BaseTransModel();
 
+
+    public boolean flag;//那个筛选还是排序
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_manage_layout);
         ButterKnife.bind(this);
+
+        ((NuoManApplication) getApplication()).addActivityList(this);
         initView();
         invoke();
+        commonPresenter.invokeInterfaceObtainData(true, "appProjectCtrl", NuoManService.GETPROJECTCONDITIONS, null, new TypeToken<List<CompanyInfoModel>>() {
+        });
 
     }
 
@@ -85,6 +93,7 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
         pullLoadMoreRecyclerView.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
             @Override
             public void onRefresh() {
+                contactModels.clear();
                 invoke();
             }
 
@@ -111,8 +120,7 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
         transModel.setCondition("0");
         commonPresenter.invokeInterfaceObtainData(true, "appProjectCtrl", NuoManService.GETPROJECTLISTCONDITION, transModel, new TypeToken<List<ProjectModel>>() {
         });
-        commonPresenter.invokeInterfaceObtainData(true, "appProjectCtrl", NuoManService.GETPROJECTCONDITIONS, null, new TypeToken<List<CompanyInfoModel>>() {
-        });
+
     }
 
 
@@ -125,17 +133,18 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
 
     }
 
-    public  Handler mHandler = new Handler() {
+    public Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what) {
                 case NuoManConstant.SEARCHPOPUPWINDOWRESULT:
-//                    mClientPresenter.isSearch = true;
-//                    mClientPresenter.transClientListModel.setFilter("");
-//                    mClientPresenter.transClientListModel.setSorter("");
-//                    mClientPresenter.transClientListModel.setKeyword(((SelectModel) msg.obj).getName());
-//                    mClientPresenter.searchCustomerList();
+                    contactModels.clear();
+                    transModel.setSearch((String) msg.obj);
+                    transModel.setSort("1");
+                    transModel.setCondition("0");
+                    commonPresenter.invokeInterfaceObtainData(true, "appProjectCtrl", NuoManService.GETPROJECTLISTCONDITION, transModel, new TypeToken<List<ProjectModel>>() {
+                    });
                     break;
                 case NuoManConstant.UPDATE_FOCUS:
 
@@ -167,7 +176,22 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
     }
 
     @Override
-    public void obtainSingleFilterSelectedResult(SelectItemModel resultModel) {
+    public void obtainSingleFilterSelectedResult(SelectItemModel resultModel, int selectPosition) {
+        contactModels.clear();
+        if (selectPosition == 0) {
+            transModel.setSearch("");
+            transModel.setCondition(resultModel.getItemValue());
+//            AppTools.getToast(selectPosition + "");
+
+        } else if (selectPosition == 1) {
+            transModel.setSearch("");
+            transModel.setSort(resultModel.getItemValue());
+//            AppTools.getToast(selectPosition + "");
+
+        }
+
+        commonPresenter.invokeInterfaceObtainData(true, "appProjectCtrl", NuoManService.GETPROJECTLISTCONDITION, transModel, new TypeToken<List<ProjectModel>>() {
+        });
 
     }
 
@@ -176,10 +200,12 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
         switch (methodIndex) {
             case NuoManService.GETPROJECTLISTCONDITION:
                 pullLoadMoreRecyclerView.setPullLoadMoreCompleted();
+
                 if (data != null) {
-                    List<ProjectModel> model = (List<ProjectModel>) data;
-                    mAdapter.setData(model);
+                    contactModels = (List<ProjectModel>) data;
                 }
+                mAdapter.setData(contactModels);
+
                 break;
             case NuoManService.GETPROJECTCONDITIONS:
                 if (data != null) {

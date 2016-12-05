@@ -220,7 +220,7 @@ public class FilterViewLayout extends LinearLayout implements OnFilterSelectedLi
                     showPopup(position);
                 }
             } catch (Exception e) {
-                Toast.makeText(mContext.getApplicationContext(),"数据未加载，稍后重试！", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext.getApplicationContext(), "数据未加载，稍后重试！", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
@@ -247,12 +247,12 @@ public class FilterViewLayout extends LinearLayout implements OnFilterSelectedLi
     }
 
     @Override
-    public void obtainSingleFilterSelectedResult(SelectItemModel resultModel) {
+    public void obtainSingleFilterSelectedResult(SelectItemModel resultModel, int select) {
         popupWindow.dismiss();
         if (filterDoubleLayout != null) {
             filterDoubleLayout.resetView();
         }
-        onSelectListener.obtainSingleFilterSelectedResult(resultModel);
+        onSelectListener.obtainSingleFilterSelectedResult(resultModel, selectPosition);
     }
 
 

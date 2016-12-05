@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.google.gson.reflect.TypeToken;
+import com.nuoman.NuoManApplication;
 import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.common.CommonPresenter;
@@ -48,6 +49,8 @@ public class ProjectWorkNumActivity extends BaseActivity implements ICommonActio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_work_num_layout);
         ButterKnife.bind(this);
+        ((NuoManApplication) getApplication()).addActivityList(this);
+
         initView();
         invoke();
 

@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nuoman.westernele.common.BaseFragment;
@@ -16,6 +17,7 @@ import com.nuoman.westernele.numberDetail.Contract;
 import com.nuoman.westernele.numberDetail.model.NodeStatus;
 import com.nuoman.westernele.numberDetail.model.ProgressChart;
 import com.nuoman.westernele.numberDetail.presenter.ProgressChartPresenterImp;
+import com.nuoman.westernele.projectmanage.IClearToHome;
 import com.nuoman.westernelectric.R;
 
 /**
@@ -30,6 +32,7 @@ public class ProgressChartFragment extends BaseFragment implements Contract.Prog
             tv_left, tv_right, tv_progress_chart_one, tv_progress_chart_two,
             tv_progress_chart_three, tv_progress_chart_percent;
     private ViewPager vp_progress_chart;
+    private ImageView toHomeIv;
 
     private ProgressChartPresenterImp progressChartPresenterImp;
 
@@ -40,6 +43,13 @@ public class ProgressChartFragment extends BaseFragment implements Contract.Prog
         bundle.putString("orderId", orderId);
         progressChartFragment.setArguments(bundle);
         return progressChartFragment;
+    }
+
+    IClearToHome iClearToHome;
+
+
+    public void setIClearToHomeListener(IClearToHome iClearToHome) {
+        this.iClearToHome = iClearToHome;
     }
 
     @Nullable
@@ -72,6 +82,7 @@ public class ProgressChartFragment extends BaseFragment implements Contract.Prog
         tv_progress_chart_three = (TextView) rootView.findViewById(R.id.tv_progress_chart_three);
         tv_progress_chart_percent = (TextView) rootView.findViewById(R.id.tv_progress_chart_percent);
         vp_progress_chart = (ViewPager) rootView.findViewById(R.id.vp_progress_chart);
+        toHomeIv = (ImageView) rootView.findViewById(R.id.to_home_iv);
 
     }
 
@@ -167,6 +178,13 @@ public class ProgressChartFragment extends BaseFragment implements Contract.Prog
 
             }
         });
+
+        toHomeIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iClearToHome.clearToHome();
+            }
+        });
     }
 
 
@@ -253,8 +271,11 @@ public class ProgressChartFragment extends BaseFragment implements Contract.Prog
         }
         tv_progress_chart_percent.setText(String.format
                 ("%s%%", progressChart.getTotalCompletePercent()));
-        vp_progress_chart.setAdapter(new ProgressChartAdapter(getActivity().getSupportFragmentManager(),
-                progressChart.getNodeStatus()));
+        if(getActivity()!=null){
+            vp_progress_chart.setAdapter(new ProgressChartAdapter(getActivity().getSupportFragmentManager(),
+                    progressChart.getNodeStatus()));
+        }
+
 
     }
 

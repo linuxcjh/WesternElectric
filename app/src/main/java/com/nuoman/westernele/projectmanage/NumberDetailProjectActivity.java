@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.nuoman.NuoManApplication;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.numberDetail.view.ProgressChartFragment;
 import com.nuoman.westernelectric.R;
@@ -16,7 +17,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class NumberDetailProjectActivity extends BaseActivity {
+public class NumberDetailProjectActivity extends BaseActivity implements IClearToHome {
 
     @Bind(R.id.title_right_tv)
     TextView titleRightTv;
@@ -25,11 +26,15 @@ public class NumberDetailProjectActivity extends BaseActivity {
     @Bind(R.id.container_layout)
     FrameLayout containerLayout;
 
+    ProgressChartFragment fragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_number_infomation_project_layout);
         ButterKnife.bind(this);
+        ((NuoManApplication) getApplication()).addActivityList(this);
+
         initView();
         bindListener();
     }
@@ -44,10 +49,18 @@ public class NumberDetailProjectActivity extends BaseActivity {
     }
 
     private void bindListener() {
+        fragment = ProgressChartFragment.newInstance
+                (getIntent().getStringExtra("number"));
+        fragment.setIClearToHomeListener(this);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.container_layout, ProgressChartFragment.newInstance
-                (getIntent().getStringExtra("number")));
+        transaction.add(R.id.container_layout, fragment);
         transaction.commit();
+    }
+
+    @Override
+    public void clearToHome() {
+        ((NuoManApplication) getApplication()).clearActivityToHome();
+
     }
 
     @OnClick({R.id.title_left_tv, R.id.title_right_tv})

@@ -112,17 +112,34 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_progress_chart_percent"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/progress_chart_circle"
-        android:gravity="center"
-        android:textColor="@color/colorGrayOne"
-        android:textSize="44sp"
-        android:textStyle="bold" />
+        android:layout_marginTop="12dp">
+
+        <TextView
+            android:id="@+id/tv_progress_chart_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/progress_chart_circle"
+            android:gravity="center"
+            android:textColor="@color/colorGrayOne"
+            android:textSize="44sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/to_home_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/zhuye_03_03" />
+
+    </RelativeLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

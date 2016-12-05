@@ -60,7 +60,7 @@ public class ContactsLeaderFragment extends BaseFragment implements ICommonActio
         View view = inflater.inflate(R.layout.fragment_client_layout, null);
         ButterKnife.bind(this, view);
         init();
-        invoke();
+        invoke("");
         return view;
     }
 
@@ -78,7 +78,7 @@ public class ContactsLeaderFragment extends BaseFragment implements ICommonActio
         pullLoadMoreRecyclerView.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
             @Override
             public void onRefresh() {
-                invoke();
+                invoke("");
             }
 
             @Override
@@ -91,9 +91,9 @@ public class ContactsLeaderFragment extends BaseFragment implements ICommonActio
     /**
      * 调用方法获取数据
      */
-    public void invoke() {
+    public void invoke(String searchContent) {
         transModel.setUserId(AppTools.getUser().getUserId());
-        transModel.setSearch("");
+        transModel.setSearch(searchContent);
         commonPresenter.invokeInterfaceObtainData(true, "appContactsCtrl", NuoManService.GETCONTACTSLIST, transModel, new TypeToken<ContactModel>() {
         });
     }
@@ -122,11 +122,7 @@ public class ContactsLeaderFragment extends BaseFragment implements ICommonActio
             super.handleMessage(msg);
             switch (msg.what) {
                 case NuoManConstant.SEARCHPOPUPWINDOWRESULT:
-//                    mClientPresenter.isSearch = true;
-//                    mClientPresenter.transClientListModel.setFilter("");
-//                    mClientPresenter.transClientListModel.setSorter("");
-//                    mClientPresenter.transClientListModel.setKeyword(((SelectModel) msg.obj).getName());
-//                    mClientPresenter.searchCustomerList();
+                    invoke((String) msg.obj);
                     break;
             }
         }

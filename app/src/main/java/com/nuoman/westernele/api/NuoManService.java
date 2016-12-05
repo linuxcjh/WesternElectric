@@ -53,12 +53,12 @@ public interface NuoManService {
     /*
     账户信息标记已读
      */
-    String MARK_BILL_INFORMATION="MarkAccountInfoByPage";
+    String MARK_BILL_INFORMATION = "MarkAccountInfoByPage";
 
     /*
     预警信息标记已读
      */
-    String MARK_WARNING="MarkAlertInfoByPage";
+    String MARK_WARNING = "MarkAlertInfoByPage";
 
     /**
      * 联系人
@@ -78,7 +78,7 @@ public interface NuoManService {
     /**
      * 保存用户头像
      */
-    String SAVEUSERHEADPIC="SaveUserHeadPic";
+    String SAVEUSERHEADPIC = "SaveUserHeadPic";
 
     /**
      * 保存账户信息
@@ -97,36 +97,46 @@ public interface NuoManService {
     /*
     获取详情页面节点照片
      */
-    String NODE_PIC="GetNodePicByNodeId";
+    String NODE_PIC = "GetNodePicByNodeId";
 
     /*
         保存节点信息
      */
-    String SAVE_NODE_INFO="SaveNodeInfo";
+    String SAVE_NODE_INFO = "SaveNodeInfo";
 
     /**
      * 项目管理
      */
-    String GETPROJECTLISTCONDITION="GetProjectListCondition";
+    String GETPROJECTLISTCONDITION = "GetProjectListCondition";
 
     /**
      * 项目员工列表
      */
-    String GETORDERLISTBYPROJECTID="GetOrderListByProjectId";
+    String GETORDERLISTBYPROJECTID = "GetOrderListByProjectId";
 
     /**
      * 项目查询详情
      */
-    String GETNODELISTBYORDERID="GetNodeListByOrderId";
+    String GETNODELISTBYORDERID = "GetNodeListByOrderId";
 
     /**
      * 获取筛选条件
      */
-    String GETPROJECTCONDITIONS="GetProjectConditions";
+    String GETPROJECTCONDITIONS = "GetProjectConditions";
 
     /**
      * 关注
      */
-    String PROJECTCOLLECTION="ProjectCollection";
+    String PROJECTCOLLECTION = "ProjectCollection";
+
+    /**
+     * 验证密码
+     */
+    String CHECKPWD = "CheckPwd";
+
+    /**
+     * 修改密码
+     */
+    String CHANGEPWD = "ChangePwd";
 
 }

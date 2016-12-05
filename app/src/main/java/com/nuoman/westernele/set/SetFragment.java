@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.nuoman.westernele.common.NuoManConstant;
+import com.nuoman.westernele.common.utils.AppConfig;
 import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseFragment;
 
@@ -61,6 +63,7 @@ public class SetFragment extends BaseFragment {
 
                 break;
             case R.id.exit_layout:
+                AppConfig.setBooleanConfig(NuoManConstant.IS_LOGIN, false);
                 getActivity().finish();
                 break;
         }

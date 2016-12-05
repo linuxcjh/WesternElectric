@@ -78,7 +78,7 @@ public class FilterSingleLayout extends LinearLayout {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 adapter.setSelectPosition(position);
-                onSelectListener.obtainSingleFilterSelectedResult((SelectItemModel) parent.getItemAtPosition(position));
+                onSelectListener.obtainSingleFilterSelectedResult((SelectItemModel) parent.getItemAtPosition(position), position);
 
             }
         });
