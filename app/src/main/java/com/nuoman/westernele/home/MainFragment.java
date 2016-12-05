@@ -16,6 +16,7 @@ import com.nuoman.westernele.billInformation.BillInformationActivity;
 import com.nuoman.westernele.common.BaseFragment;
 import com.nuoman.westernele.common.CommonPresenter;
 import com.nuoman.westernele.common.ICommonAction;
+import com.nuoman.westernele.common.utils.AppConfig;
 import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.components.MyGridView;
 import com.nuoman.westernele.home.adapter.ApplicationAdapter;
@@ -94,9 +95,11 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
     private void init() {
 
         commonPresenter.isShowProgressDialog = false;
-        if (AppTools.getUser().getSubcompany().size() > 0) {
-            companyNameTv.setText((AppTools.getUser().getSubcompany().get(0).getDataName()));
-        }
+//        if (AppTools.getUser().getSubcompany().size() > 0) {
+//            companyNameTv.setText((AppTools.getUser().getSubcompany().get(0).getDataName()));
+//        }
+        companyNameTv.setText(AppConfig.getStringConfig("subCompanyName",""));
+
         appGridView.setFocusable(false);
         applicationModels = new ArrayList<>();
         String str[] = getActivity().getResources().getStringArray(R.array.apptitle);
