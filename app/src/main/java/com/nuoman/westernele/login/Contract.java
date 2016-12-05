@@ -1,19 +1,24 @@
 package com.nuoman.westernele.login;
 
 /**
- *  契约类
+ * 契约类
  * Created by 杨小过 on 2016/11/18.
  */
 
 public interface Contract {
 
-    interface LoginView{
+    interface LoginView {
+        void showSubCompanyDialog(String[] subCompanyNames);
+
         void jumpToMain();
+
         void loginError(String errorMsg);
     }
 
-    interface LoginPresenter{
-        void login(String userName,String passWord);
+    interface LoginPresenter {
+        void login(String userName, String passWord);
+
+        void saveSelectedSubCompany(String selectedSubCompany);
     }
 
 }
