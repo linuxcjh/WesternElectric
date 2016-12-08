@@ -1,5 +1,6 @@
 package com.nuoman.westernele.informationDetail;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -8,10 +9,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseActivity;
+import com.nuoman.westernele.common.utils.AppConfig;
 import com.nuoman.westernele.common.utils.AppTools;
+import com.nuoman.westernele.components.displayimage.ShowWebImageActivity;
 import com.nuoman.westernele.informationDetail.model.InformationDetail;
+import com.nuoman.westernelectric.R;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -47,6 +54,7 @@ public class InformationDetailActivity extends BaseActivity implements Contract.
 
     private InformationDetailPresenterImp informationDetailPresenterImp;
     private String nodeId;
+    private String picUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +68,7 @@ public class InformationDetailActivity extends BaseActivity implements Contract.
     private void initVariable() {
         informationDetailPresenterImp = new InformationDetailPresenterImp(this);
         nodeId = getIntent().getStringExtra("nodeId");
+        informationDetailPresenterImp.requestInformationDetail(nodeId);
     }
 
     private void bindListener() {
@@ -75,13 +84,18 @@ public class InformationDetailActivity extends BaseActivity implements Contract.
                 informationDetailPresenterImp.requestCheck(nodeId, "1");
             }
         });
-    }
 
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        informationDetailPresenterImp.requestInformationDetail(nodeId);
+        iv_detail_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                List<String> paths = new ArrayList<>();
+                paths.add(picUrl);
+                Intent intent = new Intent(InformationDetailActivity.this, ShowWebImageActivity.class);
+                intent.putExtra(ShowWebImageActivity.IMAGE_URLS, (Serializable) paths);
+                intent.putExtra(ShowWebImageActivity.POSITION, 1);
+                startActivity(intent);
+            }
+        });
     }
 
     @OnClick(R.id.title_left_tv)
@@ -103,6 +117,7 @@ public class InformationDetailActivity extends BaseActivity implements Contract.
         tv_real_start_date.setText(String.format("计划完成时间：%s", informationDetail.getActualStartDate()));
         tv_real_end_date.setText(String.format("实际完成时间：%s", informationDetail.getActualEndDate()));
         AppTools.setImageViewClub(this, informationDetail.getPicUrl(), iv_detail_photo);
+        picUrl = informationDetail.getPicUrl();
         switch (informationDetail.getNodeCheckStatus()) {
             case "0":
                 tv_detail_status.setText("待审核");
@@ -139,11 +154,11 @@ public class InformationDetailActivity extends BaseActivity implements Contract.
     public void checkFinish(String oper) {
         switch (oper) {
             case "1":
-                Toast.makeText(this, "审核已经通过", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AppConfig.getContext(), "审核已经通过", Toast.LENGTH_SHORT).show();
                 finish();
                 break;
             case "2":
-                Toast.makeText(this, "审核已拒绝", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AppConfig.getContext(), "审核已拒绝", Toast.LENGTH_SHORT).show();
                 finish();
                 break;
         }
