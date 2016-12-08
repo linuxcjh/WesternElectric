@@ -1,18 +1,20 @@
 package com.nuoman.westernele.projectmanage.model;
 
+import java.io.Serializable;
+
 /**
  * 节点照片的对象类
  * Created by 杨小过 on 2016/11/30.
  */
 
-public class NodePic {
+public class NodePic implements Serializable {
 
     /*
     {
         "actualEndDate":"",
         "picUrl":"",
         "planEndDate":"",
-        "status":"0"
+        "status":"0" 1:完成，2：超时
     }
      */
 

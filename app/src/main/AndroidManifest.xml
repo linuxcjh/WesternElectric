@@ -85,14 +85,24 @@
         <activity android:name="com.nuoman.westernele.mine.ChangeInfoActivity" />
         <!-- 项目管理 -->
         <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageActivity" />
-        <!--人员列表-->
+        <!-- 人员列表 -->
         <activity android:name="com.nuoman.westernele.projectmanage.ProjectWorkNumActivity" />
-        <!--详情-->
+        <!-- 详情 -->
         <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageDetailActivity" />
         <activity android:name="com.nuoman.westernele.projectmanage.NumberDetailProjectActivity" />
 
-        <!--项目汇总页面-->
+        <!-- 项目汇总页面 -->
         <activity android:name="com.nuoman.westernele.projectSummary.ProjectSummaryActivity" />
+
+        <!--节点照片展示页-->
+        <activity
+            android:name="com.nuoman.westernele.projectmanage.model.NodePicActivity"
+            android:theme="@style/CustomAlertDialog" />
+
+        <activity android:name="com.nuoman.westernele.welcome.WelcomeActivity" />
+        <activity android:name="com.nuoman.westernele.mine.ProjectManageFocusActivity" />
+        <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageDetailNewActivity" />
+        <activity android:name="com.nuoman.westernele.components.displayimage.ShowWebImageActivity" />
 
         <meta-data
             android:name="UMENG_APPKEY"
@@ -101,10 +111,6 @@
             android:name="UMENG_MESSAGE_SECRET"
             android:value="51f88e2bc8c5076ce8a020208a76402d" />
 
-        <activity android:name="com.nuoman.westernele.welcome.WelcomeActivity" />
-        <activity android:name="com.nuoman.westernele.mine.ProjectManageFocusActivity" />
-        <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageDetailNewActivity" />
-        <activity android:name="com.nuoman.westernele.components.displayimage.ShowWebImageActivity" />
     </application>
 
 </manifest>

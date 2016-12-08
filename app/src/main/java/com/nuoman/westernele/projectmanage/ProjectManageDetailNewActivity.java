@@ -2,6 +2,7 @@ package com.nuoman.westernele.projectmanage;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -26,10 +27,11 @@ import com.nuoman.westernele.common.ICommonAction;
 import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.utils.AppConfig;
 import com.nuoman.westernele.common.utils.AppTools;
-import com.nuoman.westernele.components.displayimage.ShowWebImageActivity;
+import com.nuoman.westernele.common.utils.DateUtil;
 import com.nuoman.westernele.mine.model.BaseDataModel;
 import com.nuoman.westernele.model.BaseTransModel;
 import com.nuoman.westernele.projectmanage.model.NodePic;
+import com.nuoman.westernele.projectmanage.model.NodePicActivity;
 import com.nuoman.westernele.projectmanage.model.NodePicParameter;
 import com.nuoman.westernele.projectmanage.model.ProjectDetailItemModel;
 import com.nuoman.westernele.projectmanage.model.ProjectDetailModel;
@@ -43,8 +45,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -166,12 +167,8 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                 break;
             case NuoManService.NODE_PIC:
                 NodePic nodePic = (NodePic) data;
-                String picUrl = nodePic.getPicUrl();
-                List<String> paths = new ArrayList<>();
-                paths.add(picUrl);
-                Intent intent = new Intent(this, ShowWebImageActivity.class);
-                intent.putExtra(ShowWebImageActivity.IMAGE_URLS, (Serializable) paths);
-                intent.putExtra(ShowWebImageActivity.POSITION, 1);
+                Intent intent = new Intent(this, NodePicActivity.class);
+                intent.putExtra("nodePic", nodePic);
                 startActivity(intent);
                 break;
 
@@ -280,10 +277,40 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                             item_three_tv.setEnabled(false);
                             item_four_tv.setEnabled(false);
                             title_name_tv.setText(model.getNodeName());
-                            item_one_tv.setText("计划开始    " + model.getPlanStartDate());
-                            item_two_tv.setText("计划完工    " + model.getPlanEndDate());
-                            item_three_tv.setText("实际开始    " + model.getActualStartDate());
-                            item_four_tv.setText("实际完工    " + model.getActualEndDate());
+                            String planStart = model.getPlanStartDate();
+                            String planEnd = model.getPlanEndDate();
+                            String realStart = model.getActualStartDate();
+                            String realEnd = model.getActualEndDate();
+                            item_one_tv.setText(String.format("计划开始    %s", planStart));
+                            item_two_tv.setText(String.format("计划完工    %s", planEnd));
+                            Date planStartDate = null, planEndDate = null,
+                                    realStartDate = null, realEndDate = null;
+                            if (!TextUtils.isEmpty(planStart)) {
+                                planStartDate = DateUtil.convertStringToDate("yyyy.MM.dd", planStart);
+                            }
+                            if (!TextUtils.isEmpty(planEnd)) {
+                                planEndDate = DateUtil.convertStringToDate("yyyy.MM.dd", planEnd);
+                            }
+                            if (!TextUtils.isEmpty(realStart)) {
+                                realStartDate = DateUtil.convertStringToDate("yyyy.MM.dd", realStart);
+                            }
+                            if (!TextUtils.isEmpty(realEnd)) {
+                                realEndDate = DateUtil.convertStringToDate("yyyy.MM.dd", realEnd);
+                            }
+                            if (realStartDate != null && planStartDate != null &&
+                                    realStartDate.getTime() > planStartDate.getTime()) {
+                                item_three_tv.setTextColor(Color.RED);
+                            } else {
+                                item_three_tv.setTextColor(Color.BLACK);
+                            }
+                            if (realEndDate != null && planEndDate != null &&
+                                    realEndDate.getTime() > planEndDate.getTime()) {
+                                item_four_tv.setTextColor(Color.RED);
+                            } else {
+                                item_four_tv.setTextColor(Color.BLACK);
+                            }
+                            item_three_tv.setText(String.format("实际开始    %s", realStart));
+                            item_four_tv.setText(String.format("实际完工    %s", realEnd));
 
                             if (model.getIsEditable().equals("0")) {
                                 edit_layout.setVisibility(View.GONE);
