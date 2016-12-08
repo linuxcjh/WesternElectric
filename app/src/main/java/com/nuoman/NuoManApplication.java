@@ -18,6 +18,16 @@ public class NuoManApplication extends Application {
 
     public List<Activity> toHomeList = new ArrayList<>();
 
+    public List<Activity> recordActivity = new ArrayList<>();
+
+    public List<Activity> getRecordActivity() {
+        return recordActivity;
+    }
+
+    public void setRecordActivity(List<Activity> recordActivity) {
+        this.recordActivity = recordActivity;
+    }
+
     public void addActivityList(Activity activity) {
         toHomeList.add(activity);
     }

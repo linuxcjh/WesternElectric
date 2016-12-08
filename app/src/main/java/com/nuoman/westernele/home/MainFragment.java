@@ -18,6 +18,7 @@ import com.nuoman.westernele.common.CommonPresenter;
 import com.nuoman.westernele.common.ICommonAction;
 import com.nuoman.westernele.common.utils.AppConfig;
 import com.nuoman.westernele.common.utils.AppTools;
+import com.nuoman.westernele.common.utils.DateUtil;
 import com.nuoman.westernele.components.MyGridView;
 import com.nuoman.westernele.home.adapter.ApplicationAdapter;
 import com.nuoman.westernele.home.model.ApplicationModel;
@@ -95,6 +96,8 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
 
     private void init() {
 
+
+
         commonPresenter.isShowProgressDialog = false;
 //        if (AppTools.getUser().getSubcompany().size() > 0) {
 //            companyNameTv.setText((AppTools.getUser().getSubcompany().get(0).getDataName()));
@@ -130,6 +133,7 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
     @Override
     public void onResume() {
         super.onResume();
+        dateTv.setText(DateUtil.getTime(DateUtil.getDatePattern())+"  "+DateUtil.getWeekByNow());
         invoke();
     }
 

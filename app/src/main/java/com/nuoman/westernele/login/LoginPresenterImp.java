@@ -17,6 +17,7 @@ import com.nuoman.westernele.login.model.UploadDeviceTokenParameter;
 import com.nuoman.westernele.login.model.User;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -81,6 +82,7 @@ class LoginPresenterImp implements ICommonAction, Contract.LoginPresenter {
         switch (methodIndex) {
             case NuoManService.LOGIN:
                 if (status == 1) {
+                    saveLoginInfo(parameterMap);
                     User user = (User) data;
                     AppTools.saveUser(user);
                     uploadDeviceToken();
@@ -107,6 +109,31 @@ class LoginPresenterImp implements ICommonAction, Contract.LoginPresenter {
                 }
                 break;
         }
+    }
+
+
+    /**
+     * 保存用户名密码
+     * @param parameterMap
+     */
+    private void saveLoginInfo(Map<String, String> parameterMap) {
+
+        if (parameterMap != null) {
+            Iterator<Map.Entry<String, String>> entries = parameterMap.entrySet().iterator();
+            while (entries.hasNext()) {
+                Map.Entry<String, String> entry = entries.next();
+
+                if (entry.getKey().equals("userName")) {
+
+                    AppConfig.setStringConfig("userName", entry.getValue());
+
+                }
+                if (entry.getKey().equals("password")) {
+                    AppConfig.setStringConfig("password", entry.getValue());
+                }
+            }
+        }
+
     }
 
     private void uploadDeviceToken() {

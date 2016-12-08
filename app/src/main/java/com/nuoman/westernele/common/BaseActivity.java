@@ -1,6 +1,7 @@
 package com.nuoman.westernele.common;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -9,24 +10,38 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.view.WindowManager;
 
+import com.google.gson.reflect.TypeToken;
+import com.nuoman.NuoManApplication;
+import com.nuoman.westernele.api.NuoManService;
+import com.nuoman.westernele.common.utils.AppConfig;
+import com.nuoman.westernele.common.utils.AppTools;
+import com.nuoman.westernele.login.LoginActivity;
+import com.nuoman.westernele.login.model.LoginParameter;
+import com.nuoman.westernele.login.model.User;
 import com.nuoman.westernelectric.R;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * AUTHOR: Alex
  * DATE: 21/10/2015 18:55
  */
-public class BaseActivity extends FragmentActivity {
+public class BaseActivity extends FragmentActivity implements ICommonHomeAction {
 
-    public static List<Activity> activityList = new ArrayList<>();
     public SystemBarTintManager tintManager;
+    public boolean isActive = true;//是否处于前台运行
+    public static List<Activity> activityList = new ArrayList<>();
+
+    public CommonHomePresenter commonPresenter = new CommonHomePresenter(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityList.add(0, this);
+        ((NuoManApplication) getApplication()).getRecordActivity().add(0, this);
     }
 
     public void initWindow() {
@@ -45,8 +60,61 @@ public class BaseActivity extends FragmentActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        if (AppTools.isAppOnForeground(BaseActivity.this)) {
+            isActive = true;
+
+        } else {
+            isActive = false;
+        }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!isActive) {
+            isActive = true;
+            loginInvoke(AppConfig.getStringConfig("userName", ""), AppConfig.getStringConfig("password", ""));
+
+        }
+    }
+
+    /**
+     * 验证登陆接口
+     *
+     * @param userName
+     * @param passWord
+     */
+    public void loginInvoke(String userName, String passWord) {
+
+        commonPresenter.isShowProgressDialog = false;
+        LoginParameter loginParameter = new LoginParameter();
+        loginParameter.setUserName(userName);
+        loginParameter.setPassword(passWord);
+        loginParameter.setPhoneType("1");
+        commonPresenter.invokeInterfaceObtainData(true, "appUserCtrl", NuoManService.LOGIN,
+                loginParameter, new TypeToken<User>() {
+                });
+    }
+
+    @Override
+    public void obtainDataHome(Object data, String methodIndex, int status, Map<String, String> parameterMap) {
+        switch (methodIndex) {
+            case NuoManService.LOGIN:
+                if (status == 0) {
+                    AppConfig.setBooleanConfig(NuoManConstant.IS_FIRST, false);
+                    AppConfig.setBooleanConfig(NuoManConstant.IS_LOGIN, false);
+                    AppConfig.setStringConfig("userName", "");
+                    AppConfig.setStringConfig("password", "");
+                    startActivity(new Intent(this, LoginActivity.class));
+
+                    List<Activity> activities = ((NuoManApplication) getApplication()).getRecordActivity();
+                    for (Activity aty : activities) {
+                        aty.finish();
+                    }
+                }
+                break;
+        }
+    }
 
     /**
      * app 字体不受系统字体大小影响
@@ -63,14 +131,9 @@ public class BaseActivity extends FragmentActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
-        activityList.remove(this);
+        ((NuoManApplication) getApplication()).getRecordActivity().remove(this);
     }
 
 

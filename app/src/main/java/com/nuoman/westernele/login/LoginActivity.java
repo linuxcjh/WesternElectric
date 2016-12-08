@@ -1,5 +1,6 @@
 package com.nuoman.westernele.login;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +10,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.utils.AppConfig;
 import com.nuoman.westernele.common.utils.AppTools;
@@ -24,7 +24,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LoginActivity extends BaseActivity implements Contract.LoginView {
+public class LoginActivity extends Activity implements Contract.LoginView {
 
     @Bind(R.id.et_user_name)
     EditText et_user_name;
