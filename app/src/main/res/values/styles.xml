@@ -12,6 +12,12 @@
         <item name="android:fitsSystemWindows">true</item>
     </style>
 
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+
     <!-- 选择对话框-->
     <style name="selection_dialog_theme" parent="android:Theme.Dialog">
         <item name="android:windowFrame">@null</item>

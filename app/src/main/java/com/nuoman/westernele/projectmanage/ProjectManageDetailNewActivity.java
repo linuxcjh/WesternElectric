@@ -30,6 +30,7 @@ import com.nuoman.westernele.components.displayimage.ShowWebImageActivity;
 import com.nuoman.westernele.mine.model.BaseDataModel;
 import com.nuoman.westernele.model.BaseTransModel;
 import com.nuoman.westernele.projectmanage.model.NodePic;
+import com.nuoman.westernele.projectmanage.model.NodePicActivity;
 import com.nuoman.westernele.projectmanage.model.NodePicParameter;
 import com.nuoman.westernele.projectmanage.model.ProjectDetailItemModel;
 import com.nuoman.westernele.projectmanage.model.ProjectDetailModel;
@@ -166,12 +167,15 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                 break;
             case NuoManService.NODE_PIC:
                 NodePic nodePic = (NodePic) data;
-                String picUrl = nodePic.getPicUrl();
+                /*String picUrl = nodePic.getPicUrl();
                 List<String> paths = new ArrayList<>();
                 paths.add(picUrl);
                 Intent intent = new Intent(this, ShowWebImageActivity.class);
                 intent.putExtra(ShowWebImageActivity.IMAGE_URLS, (Serializable) paths);
                 intent.putExtra(ShowWebImageActivity.POSITION, 1);
+                startActivity(intent);*/
+                Intent intent=new Intent(this, NodePicActivity.class);
+                intent.putExtra("nodePic",nodePic);
                 startActivity(intent);
                 break;
 
