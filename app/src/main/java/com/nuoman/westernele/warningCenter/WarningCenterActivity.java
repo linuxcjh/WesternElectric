@@ -28,7 +28,7 @@ public class WarningCenterActivity extends BaseActivity implements Contract.Warn
 
     private WarningCenterPresenterImp warningCenterPresenterImp;
     private WarningCenterAdapter warningCenterAdapter;
-    private String mIsRead="1";
+    private String mIsRead = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,14 +99,17 @@ public class WarningCenterActivity extends BaseActivity implements Contract.Warn
 
     @Override
     public void refreshInformation(List<WarningInformation> data) {
-        lrv_warning_center.setPullLoadMoreCompleted();
         warningCenterAdapter.refreshData(data);
     }
 
     @Override
     public void loadMoreInformation(List<WarningInformation> data) {
-        lrv_warning_center.setPullLoadMoreCompleted();
         warningCenterAdapter.loadMoreInformation(data);
+    }
+
+    @Override
+    public void pullLoadMoreCompleted() {
+        lrv_warning_center.setPullLoadMoreCompleted();
     }
 
     class WarningCenterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

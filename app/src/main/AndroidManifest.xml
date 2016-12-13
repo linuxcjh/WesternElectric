@@ -51,58 +51,82 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.nuoman.westernele.common.utils.CameraNoMarkActivity" />
+        <activity android:name="com.nuoman.westernele.common.utils.CameraNoMarkActivity"
+            android:screenOrientation="portrait"/>
 
         <!-- 登陆界面 -->
-        <activity android:name="com.nuoman.westernele.login.LoginActivity" />
+        <activity android:name="com.nuoman.westernele.login.LoginActivity"
+            android:screenOrientation="portrait"/>
 
         <!-- 工号查询 -->
         <activity
             android:name="com.nuoman.westernele.numberQuery.NumberQueryActivity"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"/>
 
         <!-- 工号的基本信息 -->
-        <activity android:name="com.nuoman.westernele.numberDetail.view.NumberDetailActivity" />
+        <activity android:name="com.nuoman.westernele.numberDetail.view.NumberDetailActivity"
+            android:screenOrientation="portrait"/>
         <!-- 账款信息 -->
-        <activity android:name="com.nuoman.westernele.billInformation.BillInformationActivity" />
+        <activity android:name="com.nuoman.westernele.billInformation.BillInformationActivity"
+            android:screenOrientation="portrait"/>
         <!-- 信息发布页面 -->
-        <activity android:name="com.nuoman.westernele.informationRelease.InformationReleaseActivity" />
+        <activity android:name="com.nuoman.westernele.informationRelease.InformationReleaseActivity"
+            android:screenOrientation="portrait"/>
         <!-- 发布信息详情页 -->
-        <activity android:name="com.nuoman.westernele.informationDetail.InformationDetailActivity" />
+        <activity android:name="com.nuoman.westernele.informationDetail.InformationDetailActivity"
+            android:screenOrientation="portrait"/>
         <!-- 预警中心 -->
-        <activity android:name="com.nuoman.westernele.warningCenter.WarningCenterActivity" />
+        <activity android:name="com.nuoman.westernele.warningCenter.WarningCenterActivity"
+            android:screenOrientation="portrait"/>
         <!-- 西变新闻 -->
-        <activity android:name="com.nuoman.westernele.westNew.WestNewActivity" />
+        <activity android:name="com.nuoman.westernele.westNew.WestNewActivity"
+            android:screenOrientation="portrait"/>
         <!-- 主页导航 -->
-        <activity android:name="com.nuoman.westernele.home.MainTableActivity" />
+        <activity android:name="com.nuoman.westernele.home.MainTableActivity"
+            android:screenOrientation="portrait"/>
         <!-- 修改密码 -->
-        <activity android:name="com.nuoman.westernele.set.PwdActivity" />
+        <activity android:name="com.nuoman.westernele.set.PwdActivity"
+            android:screenOrientation="portrait"/>
         <!-- 关于 -->
-        <activity android:name="com.nuoman.westernele.set.AboutActivity" />
+        <activity android:name="com.nuoman.westernele.set.AboutActivity"
+            android:screenOrientation="portrait"/>
         <!-- 权限 -->
-        <activity android:name="com.nuoman.westernele.common.utils.PermissionsActivity" />
+        <activity android:name="com.nuoman.westernele.common.utils.PermissionsActivity"
+            android:screenOrientation="portrait"/>
         <!-- 修改信息 -->
-        <activity android:name="com.nuoman.westernele.mine.ChangeInfoActivity" />
+        <activity android:name="com.nuoman.westernele.mine.ChangeInfoActivity"
+            android:screenOrientation="portrait"/>
         <!-- 项目管理 -->
-        <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageActivity" />
+        <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageActivity"
+            android:screenOrientation="portrait"/>
         <!-- 人员列表 -->
-        <activity android:name="com.nuoman.westernele.projectmanage.ProjectWorkNumActivity" />
+        <activity android:name="com.nuoman.westernele.projectmanage.ProjectWorkNumActivity"
+            android:screenOrientation="portrait"/>
         <!-- 详情 -->
-        <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageDetailActivity" />
-        <activity android:name="com.nuoman.westernele.projectmanage.NumberDetailProjectActivity" />
+        <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.nuoman.westernele.projectmanage.NumberDetailProjectActivity"
+            android:screenOrientation="portrait"/>
 
         <!-- 项目汇总页面 -->
-        <activity android:name="com.nuoman.westernele.projectSummary.ProjectSummaryActivity" />
+        <activity android:name="com.nuoman.westernele.projectSummary.ProjectSummaryActivity"
+            android:screenOrientation="portrait"/>
 
         <!--节点照片展示页-->
         <activity
             android:name="com.nuoman.westernele.projectmanage.model.NodePicActivity"
-            android:theme="@style/CustomAlertDialog" />
+            android:theme="@style/CustomAlertDialog"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name="com.nuoman.westernele.welcome.WelcomeActivity" />
-        <activity android:name="com.nuoman.westernele.mine.ProjectManageFocusActivity" />
-        <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageDetailNewActivity" />
-        <activity android:name="com.nuoman.westernele.components.displayimage.ShowWebImageActivity" />
+        <activity android:name="com.nuoman.westernele.welcome.WelcomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.nuoman.westernele.mine.ProjectManageFocusActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.nuoman.westernele.projectmanage.ProjectManageDetailNewActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.nuoman.westernele.components.displayimage.ShowWebImageActivity"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="UMENG_APPKEY"

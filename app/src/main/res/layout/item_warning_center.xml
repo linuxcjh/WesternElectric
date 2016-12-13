@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@color/colorTimeContent"
+        android:background="@drawable/gray_border"
         android:padding="4dp"
         android:textColor="@android:color/white"
         android:textSize="16sp" />
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="104dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/border"
+        android:background="@drawable/white_border"
         android:orientation="vertical">
 
         <TextView

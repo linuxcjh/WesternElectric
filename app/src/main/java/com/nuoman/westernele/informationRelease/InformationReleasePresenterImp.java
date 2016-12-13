@@ -50,21 +50,25 @@ public class InformationReleasePresenterImp implements Contract.InformationRelea
 
     @Override
     public void obtainData(Object data, String methodIndex, int status, Map<String, String> parameterMap) {
-        if (status == 1) {
+        switch (methodIndex) {
+            case NuoManService.RELEASE_INFORMATION_LIST:
+                if (status == 1) {
+                    @SuppressWarnings("unchecked")
+                    List<ReleaseInformation> releaseInformationList = (List<ReleaseInformation>) data;
 
-            @SuppressWarnings("unchecked")
-            List<ReleaseInformation> releaseInformationList = (List<ReleaseInformation>) data;
-
-            Set<Map.Entry<String, String>> entries = parameterMap.entrySet();
-            for (Map.Entry<String, String> entry : entries) {
-                if (entry.getKey().equals("pages"))
-                    nowPage = Integer.parseInt(entry.getValue());
-            }
-            if (nowPage == 0) {
-                mInformationReleaseView.refreshInformation(releaseInformationList);
-            } else {
-                mInformationReleaseView.loadMoreInformation(releaseInformationList);
-            }
+                    Set<Map.Entry<String, String>> entries = parameterMap.entrySet();
+                    for (Map.Entry<String, String> entry : entries) {
+                        if (entry.getKey().equals("pages"))
+                            nowPage = Integer.parseInt(entry.getValue());
+                    }
+                    if (nowPage == 0) {
+                        mInformationReleaseView.refreshInformation(releaseInformationList);
+                    } else {
+                        mInformationReleaseView.loadMoreInformation(releaseInformationList);
+                    }
+                }
+                mInformationReleaseView.pullLoadMoreCompleted();
+                break;
         }
 
     }

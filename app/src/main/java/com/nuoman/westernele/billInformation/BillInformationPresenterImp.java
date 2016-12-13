@@ -77,6 +77,7 @@ public class BillInformationPresenterImp implements Contract.BillInformationPres
                                 markBillInformationParameter, null);
                     }
                 }
+                mbillInformationView.pullLoadMoreCompleted();
                 break;
         }
     }

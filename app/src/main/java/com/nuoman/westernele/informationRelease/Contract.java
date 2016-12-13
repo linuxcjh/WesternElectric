@@ -15,6 +15,8 @@ public interface Contract {
         void refreshInformation(List<ReleaseInformation> releaseInformationList);
 
         void loadMoreInformation(List<ReleaseInformation> releaseInformationList);
+
+        void pullLoadMoreCompleted();
     }
 
     interface InformationReleasePresenter {

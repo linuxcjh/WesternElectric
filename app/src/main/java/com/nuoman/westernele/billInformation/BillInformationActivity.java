@@ -110,7 +110,6 @@ public class BillInformationActivity extends BaseActivity implements Contract.Bi
      */
     @Override
     public void refreshInformation(List<BillInformation> data) {
-        rv_bill_information.setPullLoadMoreCompleted();
         billInformationAdapter.refreshData(data);
     }
 
@@ -121,8 +120,12 @@ public class BillInformationActivity extends BaseActivity implements Contract.Bi
      */
     @Override
     public void loadMoreInformation(List<BillInformation> data) {
-        rv_bill_information.setPullLoadMoreCompleted();
         billInformationAdapter.loadMoreInformation(data);
+    }
+
+    @Override
+    public void pullLoadMoreCompleted() {
+        rv_bill_information.setPullLoadMoreCompleted();
     }
 
 

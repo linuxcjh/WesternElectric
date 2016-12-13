@@ -20,6 +20,8 @@ public interface Contract {
         void refreshInformation(List<BillInformation> data);
 
         void loadMoreInformation(List<BillInformation> data);
+
+        void pullLoadMoreCompleted();
     }
 
     interface BillInformationPresenter {

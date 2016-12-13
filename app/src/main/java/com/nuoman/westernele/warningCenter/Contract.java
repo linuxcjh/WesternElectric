@@ -21,6 +21,8 @@ public interface Contract {
 
         void loadMoreInformation(List<WarningInformation> data);
 
+        void pullLoadMoreCompleted();
+
     }
 
     interface WarningCenterPresenter {

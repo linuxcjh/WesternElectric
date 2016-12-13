@@ -109,12 +109,15 @@ public class InformationReleaseActivity extends BaseActivity implements Contract
     @Override
     public void refreshInformation(List<ReleaseInformation> releaseInformationList) {
         informationReleaseAdapter.refresh(releaseInformationList);
-        rv_information_release.setPullLoadMoreCompleted();
     }
 
     @Override
     public void loadMoreInformation(List<ReleaseInformation> releaseInformationList) {
         informationReleaseAdapter.loadMore(releaseInformationList);
+    }
+
+    @Override
+    public void pullLoadMoreCompleted() {
         rv_information_release.setPullLoadMoreCompleted();
     }
 

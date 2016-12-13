@@ -76,6 +76,7 @@ public class WarningCenterPresenterImp implements Contract.WarningCenterPresente
                                 markWarningParameter, null);
                     }
                 }
+                mWarningCenterView.pullLoadMoreCompleted();
                 break;
         }
     }
