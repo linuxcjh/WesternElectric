@@ -12,10 +12,10 @@
 
     <Button
         android:id="@+id/btn_welcome_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="36dp"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/welcome_button"
         android:visibility="gone" />
 </FrameLayout>
