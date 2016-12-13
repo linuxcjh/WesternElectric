@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"
-        android:text="西安西电智慧服务云平台"
+        android:text="变压器服务平台"
         android:textColor="@color/colorListName"
         android:textSize="20sp" />
 

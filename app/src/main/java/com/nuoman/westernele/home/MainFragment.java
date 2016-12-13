@@ -102,7 +102,7 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
 //        if (AppTools.getUser().getSubcompany().size() > 0) {
 //            companyNameTv.setText((AppTools.getUser().getSubcompany().get(0).getDataName()));
 //        }
-        titleTv.setText(AppConfig.getStringConfig("subCompanyName",""));
+        titleTv.setText(String.format("%s智慧服务云平台", AppConfig.getStringConfig("subCompanyName", "")));
 
         appGridView.setFocusable(false);
         applicationModels = new ArrayList<>();
