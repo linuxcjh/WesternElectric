@@ -13,11 +13,11 @@ android {
     }
 
     signingConfigs {
-        release {
-            storeFile file("nuoman.keystore")
-            storePassword "nuoman"
-            keyAlias "nuomankeji"
-            keyPassword "nuoman"
+        config {
+            keyAlias 'westernElectric'
+            keyPassword '02987301181'
+            storeFile file('E:/Signature/westernElectric.keystore')
+            storePassword '02987301181'
         }
     }
 
@@ -28,7 +28,7 @@ android {
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.config
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
