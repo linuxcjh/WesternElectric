@@ -56,6 +56,7 @@
 
         <!-- 登陆界面 -->
         <activity android:name="com.nuoman.westernele.login.LoginActivity"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"/>
 
         <!-- 工号查询 -->

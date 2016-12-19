@@ -60,7 +60,6 @@ public class NumberDetailProjectActivity extends BaseActivity implements IClearT
     @Override
     public void clearToHome() {
         ((NuoManApplication) getApplication()).clearActivityToHome();
-
     }
 
     @OnClick({R.id.title_left_tv, R.id.title_right_tv})

@@ -1,6 +1,7 @@
 package com.nuoman.westernele.mine;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,7 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.gson.reflect.TypeToken;
-import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.common.CommonPresenter;
@@ -16,6 +16,7 @@ import com.nuoman.westernele.common.ICommonAction;
 import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.mine.model.UserInfo;
 import com.nuoman.westernele.model.BaseTransModel;
+import com.nuoman.westernelectric.R;
 
 import java.util.Map;
 
@@ -66,10 +67,17 @@ public class ChangeInfoActivity extends BaseActivity implements ICommonAction {
         info = (UserInfo) getIntent().getSerializableExtra("model");
         nameTv.setText(info.getUserName());
         positionTv.setText(info.getJob());
-        companyNameTv.setText(info.getCompany());
         depNameTv.setText(info.getDepartment());
         phoneTv.setText(info.getUserTel());
         emailTv.setText(info.getMailBox());
+        companyNameTv.setText(info.getCompany());
+        if (AppTools.getUser().getRoleId().equals("5")) {
+            companyNameTv.setBackgroundColor(Color.parseColor("#d4d4d4"));
+            companyNameTv.setEnabled(false);
+        } else {
+            depNameTv.setBackgroundColor(Color.parseColor("#d4d4d4"));
+            depNameTv.setEnabled(false);
+        }
     }
 
     /**

@@ -12,7 +12,7 @@
         android:layout_marginTop="100dp"
         android:drawablePadding="10dp"
         android:drawableTop="@drawable/login_logo"
-        android:text="西安西电智慧服务云平台"
+        android:text="变压器服务平台"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
@@ -25,7 +25,7 @@
         android:drawablePadding="8dp"
         android:gravity="center_vertical"
         android:hint="请输入帐号"
-        android:inputType="number"
+        android:inputType="text"
         android:maxLines="1"
         android:textColorHint="@color/colorGray3" />
 
