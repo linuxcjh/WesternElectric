@@ -59,7 +59,7 @@ public class ProjectWorkNumActivity extends BaseActivity implements ICommonActio
 
     private void initView() {
 
-        titleMidTv.setText("人员");
+        titleMidTv.setText("项目列表");
         commonPresenter.isShowProgressDialog = false;
         pullLoadMoreRecyclerView.setLinearLayout();
         pullLoadMoreRecyclerView.setFooterViewText("加载更多");
