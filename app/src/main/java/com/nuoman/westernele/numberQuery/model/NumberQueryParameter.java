@@ -8,6 +8,15 @@ package com.nuoman.westernele.numberQuery.model;
 public class NumberQueryParameter {
 
     private String orderNo;
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getOrderNo() {
         return orderNo;

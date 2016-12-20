@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.common.CommonPresenter;
 import com.nuoman.westernele.common.ICommonAction;
+import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.numberQuery.model.Number;
 import com.nuoman.westernele.numberQuery.model.NumberQueryParameter;
 
@@ -32,6 +33,7 @@ public class NumberQueryPresenterImp implements Contract.NumberQueryPresenter, I
         if (!TextUtils.isEmpty(number)) {
             NumberQueryParameter numberQueryParameter = new NumberQueryParameter();
             numberQueryParameter.setOrderNo(number);
+            numberQueryParameter.setUserId(AppTools.getUser().getUserId());
             commonPresenter.invokeInterfaceObtainData(true, "appNodeCtrl",
                     NuoManService.NUMBER_QUERY, numberQueryParameter,
                     new TypeToken<List<Number>>() {
