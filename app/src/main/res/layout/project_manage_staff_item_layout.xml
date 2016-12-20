@@ -25,6 +25,18 @@
             android:textColor="@color/colorListName"
             android:textSize="16sp" />
 
+
+        <TextView
+            android:id="@+id/staff_status_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:text=" "
+            android:textColor="@color/colorListName"
+            android:textSize="16sp" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

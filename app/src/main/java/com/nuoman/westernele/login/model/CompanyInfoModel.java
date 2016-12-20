@@ -9,6 +9,33 @@ public class CompanyInfoModel {
 
     private String dataName;
     private String id;
+    private String status;
+    private String orderId;
+    private String orderName;
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getOrderName() {
+        return orderName;
+    }
+
+    public void setOrderName(String orderName) {
+        this.orderName = orderName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public CompanyInfoModel(String dataName, String id) {
         this.dataName = dataName;

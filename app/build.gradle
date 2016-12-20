@@ -14,10 +14,10 @@ android {
 
     signingConfigs {
         config {
-            keyAlias 'westernElectric'
-            keyPassword '02987301181'
-            storeFile file('E:/Signature/westernElectric.keystore')
-            storePassword '02987301181'
+//            keyAlias 'westernElectric'
+//            keyPassword '02987301181'
+//            storeFile file('E:/Signature/westernElectric.keystore')
+//            storePassword '02987301181'
         }
     }
 

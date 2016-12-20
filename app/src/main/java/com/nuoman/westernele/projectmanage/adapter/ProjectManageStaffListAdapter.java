@@ -26,7 +26,8 @@ public class ProjectManageStaffListAdapter extends BaseRecyclerAdapter<CompanyIn
     protected void convert(ViewHolder holder, CompanyInfoModel model, int position) {
 
         RelativeLayout rootLayout = holder.getView(R.id.root_layout);
-        holder.setText(R.id.staff_name_tv, model.getDataName());
+        holder.setText(R.id.staff_name_tv, model.getOrderName());
+        holder.setText(R.id.staff_status_tv, model.getStatus());
         rootLayout.setOnClickListener(this);
         rootLayout.setTag(model);
 
@@ -39,7 +40,7 @@ public class ProjectManageStaffListAdapter extends BaseRecyclerAdapter<CompanyIn
         switch (v.getId()) {
             case R.id.root_layout:
 
-                context.startActivity(new Intent(context, NumberDetailProjectActivity.class).putExtra("number",item.getId()).putExtra("title",item.getDataName()));
+                context.startActivity(new Intent(context, NumberDetailProjectActivity.class).putExtra("number",item.getOrderId()).putExtra("title",item.getOrderName()));
 
 
                 break;
