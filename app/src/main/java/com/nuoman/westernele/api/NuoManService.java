@@ -141,6 +141,6 @@ public interface NuoManService {
     /*
     项目概览
      */
-    String PROJECT_SUMMARY = "GetProjectStatusInfoList";
+    String PROJECT_SUMMARY = "GetSaleOrderStatusInfoList";
 
 }

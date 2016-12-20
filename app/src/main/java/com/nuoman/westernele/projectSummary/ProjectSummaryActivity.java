@@ -5,11 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nuoman.westernele.common.BaseActivity;
-import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.projectSummary.model.ProjectData;
 import com.nuoman.westernelectric.R;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
@@ -68,12 +66,12 @@ public class ProjectSummaryActivity extends BaseActivity implements Contract.Pro
         lrv_project_summary.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
             @Override
             public void onRefresh() {
-                projectSummaryPresenterImp.requestProject(kind,0);
+                projectSummaryPresenterImp.requestProject(kind, 0);
             }
 
             @Override
             public void onLoadMore() {
-                projectSummaryPresenterImp.requestProject(kind,1);
+                projectSummaryPresenterImp.requestProject(kind, 1);
             }
         });
     }
@@ -157,24 +155,24 @@ public class ProjectSummaryActivity extends BaseActivity implements Contract.Pro
 
         private class ProjectSummaryViewHolder extends RecyclerView.ViewHolder {
 
-            ImageView iv_project_icon;
-            TextView tv_project_name_summary, tv_project_time_summary,
+            //            ImageView iv_project_icon;
+            TextView /*tv_project_name_summary, tv_project_time_summary,*/
                     tv_project_manage_people_summary;
 
             ProjectSummaryViewHolder(View itemView) {
                 super(itemView);
-                iv_project_icon = (ImageView) itemView.findViewById(R.id.iv_project_icon);
+                /*iv_project_icon = (ImageView) itemView.findViewById(R.id.iv_project_icon);
                 tv_project_name_summary = (TextView) itemView.findViewById(R.id.tv_project_name_summary);
-                tv_project_time_summary = (TextView) itemView.findViewById(R.id.tv_project_time_summary);
+                tv_project_time_summary = (TextView) itemView.findViewById(R.id.tv_project_time_summary);*/
                 tv_project_manage_people_summary = (TextView) itemView.findViewById(R.id.tv_project_manage_people_summary);
             }
 
             void formatView(ProjectData projectData) {
-                AppTools.setImageViewPicture(ProjectSummaryActivity.this,
+                /*AppTools.setImageViewPicture(ProjectSummaryActivity.this,
                         projectData.getProjectPic(), iv_project_icon);
                 tv_project_name_summary.setText(projectData.getProjectName());
-                tv_project_time_summary.setText(projectData.getFdate());
-                tv_project_manage_people_summary.setText(String.format("项目主管:%s", projectData.getProjectManager()));
+                tv_project_time_summary.setText(projectData.getFdate());*/
+                tv_project_manage_people_summary.setText(projectData.getSaleOrderName());
             }
         }
     }
