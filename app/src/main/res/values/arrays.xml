@@ -5,7 +5,7 @@
     <!-- 应用-->
     <string-array name="apptitle">
         <item>西变新闻</item>
-        <item>项目查询</item>
+        <item>项目进度</item>
         <item>工号查询</item>
         <item>账款信息</item>
         <item>信息发布</item>
