@@ -162,7 +162,16 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                 progressDialog.dismiss();
                 if (data != null) {
                     model = (ProjectDetailItemModel) data;
-                    root1Layout.performClick();
+
+                    if (AppTools.getUser().getRoleId().equals("8")) {
+                        root1Layout.performClick();
+                    } else if (AppTools.getUser().getRoleId().equals("9")) {
+                        root2Layout.performClick();
+                    } else if (AppTools.getUser().getRoleId().equals("10")) {
+                        root3Layout.performClick();
+                    } else {
+                        root1Layout.performClick();
+                    }
                 }
                 break;
             case NuoManService.NODE_PIC:
@@ -206,7 +215,6 @@ public class ProjectManageDetailNewActivity extends BaseActivity implements ICom
                 break;
             case R.id.root_2_layout:
                 setView(gridLayout2Tect, status2Iv, model.getPurchase());
-
                 break;
             case R.id.root_3_layout:
                 setView(gridLayout3Tect, status3Iv, model.getProduction());
