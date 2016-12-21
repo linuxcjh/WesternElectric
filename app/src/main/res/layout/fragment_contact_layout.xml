@@ -38,9 +38,40 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/top_1_layout"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/client_1_bt"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/client_top_left_normal"
+                android:gravity="center"
+                android:text="客户"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/staff_1_bt"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/client_top_right_fouces"
+                android:text="员工"
+                android:textColor="@color/colorBlue"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
 
     </RelativeLayout>
-w
+    w
+
     <com.nuoman.westernele.components.NoScrollViewPager
         android:id="@+id/content_viewPager"
         android:layout_width="match_parent"

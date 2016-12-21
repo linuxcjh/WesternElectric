@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.nuoman.westernele.common.BaseFragment;
 import com.nuoman.westernele.components.NoScrollViewPager;
@@ -38,6 +38,14 @@ public class ContactsFragment extends BaseFragment {
     Button staffBt;
     @Bind(R.id.content_viewPager)
     NoScrollViewPager contentViewPager;
+    @Bind(R.id.top_layout)
+    LinearLayout topLayout;
+    @Bind(R.id.client_1_bt)
+    Button client1Bt;
+    @Bind(R.id.staff_1_bt)
+    Button staff1Bt;
+    @Bind(R.id.top_1_layout)
+    LinearLayout top1Layout;
 
 
     private ContactsLeaderFragment leaderFragment = new ContactsLeaderFragment();
@@ -73,12 +81,12 @@ public class ContactsFragment extends BaseFragment {
                 switch (position) {
                     case CLIENT_LABEL_INDEX:
                         changeStatus = CLIENT_LABEL_INDEX;
-                        setLayoutStatus(clientBt, false);
+                        setLayoutStatus(false);
 
                         break;
                     case CLIENT_BUSINESS_INDEX:
                         changeStatus = CLIENT_BUSINESS_INDEX;
-                        setLayoutStatus(staffBt, true);
+                        setLayoutStatus(true);
 
                         break;
                 }
@@ -120,14 +128,18 @@ public class ContactsFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.client_bt, R.id.staff_bt})
+    @OnClick({R.id.client_bt, R.id.staff_bt, R.id.client_1_bt, R.id.staff_1_bt})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.client_bt:
+            case R.id.client_1_bt:
+
                 contentViewPager.setCurrentItem(CLIENT_LABEL_INDEX, true);
 
                 break;
             case R.id.staff_bt:
+            case R.id.staff_1_bt:
+
                 contentViewPager.setCurrentItem(CLIENT_BUSINESS_INDEX, true);
 
                 break;
@@ -138,27 +150,17 @@ public class ContactsFragment extends BaseFragment {
     /**
      * 设置View状态
      *
-     * @param button
+     * @param
      */
-    private void setLayoutStatus(Button button, boolean isRight) {
-        resetLayout();
-        button.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorBlue));
-        if (isRight) {
-            button.setBackgroundResource(R.drawable.client_top_right_fouces);
+    private void setLayoutStatus(boolean isRight) {
+        if (!isRight) {
+            topLayout.setVisibility(View.VISIBLE);
+            top1Layout.setVisibility(View.GONE);
         } else {
-            button.setBackgroundResource(R.drawable.client_top_left_fouces);
-
+            topLayout.setVisibility(View.GONE);
+            top1Layout.setVisibility(View.VISIBLE);
         }
     }
 
-    private void resetLayout() {
 
-
-        clientBt.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorWhite));
-        staffBt.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorWhite));
-
-        clientBt.setBackgroundResource(R.drawable.client_top_left_normal);
-        staffBt.setBackgroundResource(R.drawable.client_top_right_normal);
-
-    }
 }
