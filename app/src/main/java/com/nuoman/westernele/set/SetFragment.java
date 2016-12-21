@@ -2,16 +2,20 @@ package com.nuoman.westernele.set;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.nuoman.westernele.common.BaseFragment;
 import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.utils.AppConfig;
+import com.nuoman.westernele.common.utils.AppTools;
+import com.nuoman.westernele.components.MyDialog;
 import com.nuoman.westernelectric.R;
-import com.nuoman.westernele.common.BaseFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -57,6 +61,10 @@ public class SetFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(), PwdActivity.class));
                 break;
             case R.id.connect_layout:
+                MyDialog dialog = new MyDialog(getActivity(), mHandler);
+                dialog.buildDialog().setTitle("联系客服").setMessage("4008591181");
+
+
                 break;
             case R.id.about_layout:
                 startActivity(new Intent(getActivity(), AboutActivity.class));
@@ -68,4 +76,16 @@ public class SetFragment extends BaseFragment {
                 break;
         }
     }
+
+    Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case NuoManConstant.CONFIRMDIALOG:
+                    AppTools.callPhone(getActivity(), "4008591181");
+                    break;
+            }
+        }
+    };
 }

@@ -10,7 +10,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.nuoman.westernele.api.NuoManAPI;
 import com.nuoman.westernele.common.utils.AppConfig;
+import com.nuoman.westernele.common.utils.AppTools;
 import com.nuoman.westernele.common.utils.Utils;
+import com.nuoman.westernelectric.BuildConfig;
 import com.squareup.okhttp.OkHttpClient;
 
 import java.util.Map;
@@ -83,6 +85,9 @@ public abstract class BasePresenter {
                 call = service.serviceAPI(part, methodName, parameterMap);
             } else {
                 call = service.serviceGetAPI(part, methodName, parameterMap);
+            }
+            if (BuildConfig.DEBUG) {
+                AppTools.ergodicParameters(parameterMap);
             }
             call.enqueue(new Callback<String>() {
                 @Override

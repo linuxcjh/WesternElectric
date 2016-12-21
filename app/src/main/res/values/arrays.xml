@@ -12,5 +12,11 @@
         <item>预警信息</item>
     </string-array>
 
-
+    <string-array name="apptitle_5">
+        <item>西变新闻</item>
+        <item>项目进度</item>
+        <item>工号查询</item>
+        <item>账款信息</item>
+        <item>预警信息</item>
+    </string-array>
 </resources>

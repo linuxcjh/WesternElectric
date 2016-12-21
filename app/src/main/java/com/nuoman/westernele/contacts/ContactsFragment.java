@@ -11,8 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.nuoman.westernelectric.R;
 import com.nuoman.westernele.common.BaseFragment;
+import com.nuoman.westernele.components.NoScrollViewPager;
+import com.nuoman.westernelectric.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ public class ContactsFragment extends BaseFragment {
     @Bind(R.id.staff_bt)
     Button staffBt;
     @Bind(R.id.content_viewPager)
-    ViewPager contentViewPager;
+    NoScrollViewPager contentViewPager;
 
 
     private ContactsLeaderFragment leaderFragment = new ContactsLeaderFragment();

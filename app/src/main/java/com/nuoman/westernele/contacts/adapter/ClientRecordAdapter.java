@@ -69,5 +69,8 @@ public class ClientRecordAdapter extends BaseRecyclerAdapter<Customer> implement
 
                 break;
         }
+
     }
+
+
 }

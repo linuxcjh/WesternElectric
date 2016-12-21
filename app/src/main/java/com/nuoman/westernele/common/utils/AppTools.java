@@ -21,6 +21,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -46,6 +47,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.IdentityHashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -54,7 +56,20 @@ import java.util.Map;
  * DATE: 12/11/2015 09:47
  */
 public class AppTools {
-
+    /**
+     * 遍历参数
+     *
+     * @param map
+     */
+    public static void ergodicParameters(Map<String, String> map) {
+        if (map != null) {
+            Iterator<Map.Entry<String, String>> entries = map.entrySet().iterator();
+            while (entries.hasNext()) {
+                Map.Entry<String, String> entry = entries.next();
+                Log.i("NuoMan", "Key = " + entry.getKey() + ", Value = " + entry.getValue());
+            }
+        }
+    }
 
     /**
      * Bean Convert Map

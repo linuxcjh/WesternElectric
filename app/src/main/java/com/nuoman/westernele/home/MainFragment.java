@@ -78,6 +78,12 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
             R.drawable.shenhe_03,
             R.drawable.xiaoxizhongxin_03};
 
+    int index_5[] = {
+            R.drawable.xibianxinwen_03,
+            R.drawable.xiangmuchaxun_03,
+            R.drawable.gonghaochaxun_03,
+            R.drawable.zhangkuanxinxi_03,
+            R.drawable.xiaoxizhongxin_03};
 
     private CommonPresenter commonPresenter = new CommonPresenter(this);
     private BaseTransModel transModel = new BaseTransModel();
@@ -97,7 +103,6 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
     private void init() {
 
 
-
         commonPresenter.isShowProgressDialog = false;
 //        if (AppTools.getUser().getSubcompany().size() > 0) {
 //            companyNameTv.setText((AppTools.getUser().getSubcompany().get(0).getDataName()));
@@ -106,13 +111,26 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
 
         appGridView.setFocusable(false);
         applicationModels = new ArrayList<>();
+
         String str[] = getActivity().getResources().getStringArray(R.array.apptitle);
-        for (int i = 0; i < str.length; i++) {
-            ApplicationModel model = new ApplicationModel();
-            model.setIds(index[i]);
-            model.setTitle(str[i]);
-            applicationModels.add(model);
+        String str_5[] = getActivity().getResources().getStringArray(R.array.apptitle_5);
+
+        if (!AppTools.getUser().getRoleId().equals("5")) {
+            for (int i = 0; i < str.length; i++) {
+                ApplicationModel model = new ApplicationModel();
+                model.setIds(index[i]);
+                model.setTitle(str[i]);
+                applicationModels.add(model);
+            }
+        } else {
+            for (int i = 0; i < str_5.length; i++) {
+                ApplicationModel model = new ApplicationModel();
+                model.setIds(index_5[i]);
+                model.setTitle(str_5[i]);
+                applicationModels.add(model);
+            }
         }
+
         mAdapter = new ApplicationAdapter(getActivity(), R.layout.fragment_application_item, applicationModels);
         appGridView.setAdapter(mAdapter);
         appGridView.setOnItemClickListener(this);
@@ -133,7 +151,7 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
     @Override
     public void onResume() {
         super.onResume();
-        dateTv.setText(DateUtil.getTime(DateUtil.getDatePattern())+"  "+DateUtil.getWeekByNow());
+        dateTv.setText(DateUtil.getTime(DateUtil.getDatePattern()) + "  " + DateUtil.getWeekByNow());
         invoke();
     }
 
@@ -155,12 +173,15 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
                         applicationModels.get(3).setVisible(false);
 
                     }
-                    if (mainPageModel.getHasNewAlertInfo().equals("1")) {
-                        applicationModels.get(5).setVisible(true);
-                    } else {
-                        applicationModels.get(5).setVisible(false);
 
+                    if (!AppTools.getUser().getRoleId().equals("5")) {
+                        if (mainPageModel.getHasNewAlertInfo().equals("1")) {
+                            applicationModels.get(5).setVisible(true);
+                        } else {
+                            applicationModels.get(5).setVisible(false);
+                        }
                     }
+
                     mAdapter.setData(applicationModels);
 
 
@@ -173,34 +194,63 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
         Intent intent;
-        switch (position) {
-            case 0:
-                intent = new Intent(getActivity(), WestNewActivity.class);
-                startActivity(intent);
-                break;
-            case 1:
-                startActivity(new Intent(getActivity(), ProjectManageActivity.class));
-                break;
-            case 2:
-                intent = new Intent(getActivity(), NumberQueryActivity.class);
-                startActivity(intent);
-                break;
-            case 3:
-                intent = new Intent(getActivity(), BillInformationActivity.class);
-                intent.putExtra("hasRedPoint", mainPageModel.getHasNewAccountInfo());
-                startActivity(intent);
-                break;
-            case 4:
-                intent = new Intent(getActivity(), InformationReleaseActivity.class);
-                startActivity(intent);
-                break;
-            case 5:
-                intent = new Intent(getActivity(), WarningCenterActivity.class);
-                intent.putExtra("hasRedPoint", mainPageModel.getHasNewAlertInfo());
-                startActivity(intent);
-                break;
 
+        if (!AppTools.getUser().getRoleId().equals("5")) {
+            switch (position) {
+                case 0:
+                    intent = new Intent(getActivity(), WestNewActivity.class);
+                    startActivity(intent);
+                    break;
+                case 1:
+                    startActivity(new Intent(getActivity(), ProjectManageActivity.class));
+                    break;
+                case 2:
+                    intent = new Intent(getActivity(), NumberQueryActivity.class);
+                    startActivity(intent);
+                    break;
+                case 3:
+                    intent = new Intent(getActivity(), BillInformationActivity.class);
+                    intent.putExtra("hasRedPoint", mainPageModel.getHasNewAccountInfo());
+                    startActivity(intent);
+                    break;
+                case 4:
+                    intent = new Intent(getActivity(), InformationReleaseActivity.class);
+                    startActivity(intent);
+                    break;
+                case 5:
+                    intent = new Intent(getActivity(), WarningCenterActivity.class);
+                    intent.putExtra("hasRedPoint", mainPageModel.getHasNewAlertInfo());
+                    startActivity(intent);
+                    break;
+
+            }
+        } else {
+            switch (position) {
+                case 0:
+                    intent = new Intent(getActivity(), WestNewActivity.class);
+                    startActivity(intent);
+                    break;
+                case 1:
+                    startActivity(new Intent(getActivity(), ProjectManageActivity.class));
+                    break;
+                case 2:
+                    intent = new Intent(getActivity(), NumberQueryActivity.class);
+                    startActivity(intent);
+                    break;
+                case 3:
+                    intent = new Intent(getActivity(), BillInformationActivity.class);
+                    intent.putExtra("hasRedPoint", mainPageModel.getHasNewAccountInfo());
+                    startActivity(intent);
+                    break;
+                case 4:
+                    intent = new Intent(getActivity(), WarningCenterActivity.class);
+                    intent.putExtra("hasRedPoint", mainPageModel.getHasNewAlertInfo());
+                    startActivity(intent);
+                    break;
+
+            }
         }
+
 
     }
 
@@ -216,18 +266,18 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
         Intent intent;
         switch (view.getId()) {
             case R.id.unstart_laytout:
-                intent=new Intent(getContext(), ProjectSummaryActivity.class);
-                intent.putExtra("kind",0);
+                intent = new Intent(getContext(), ProjectSummaryActivity.class);
+                intent.putExtra("kind", 0);
                 startActivity(intent);
                 break;
             case R.id.producting_layout:
-                intent=new Intent(getContext(), ProjectSummaryActivity.class);
-                intent.putExtra("kind",1);
+                intent = new Intent(getContext(), ProjectSummaryActivity.class);
+                intent.putExtra("kind", 1);
                 startActivity(intent);
                 break;
             case R.id.completed_layout:
-                intent=new Intent(getContext(), ProjectSummaryActivity.class);
-                intent.putExtra("kind",2);
+                intent = new Intent(getContext(), ProjectSummaryActivity.class);
+                intent.putExtra("kind", 2);
                 startActivity(intent);
                 break;
         }
