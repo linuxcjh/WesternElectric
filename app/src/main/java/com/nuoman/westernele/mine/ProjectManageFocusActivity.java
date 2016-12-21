@@ -23,6 +23,7 @@ public class ProjectManageFocusActivity extends ProjectManageActivity {
             case NuoManService.GETPROJECTLISTCONDITION:
                 pullLoadMoreRecyclerView.setPullLoadMoreCompleted();
                 if (data != null) {
+                    temp.clear();
                     List<ProjectModel> model = (List<ProjectModel>) data;
 
                     for (int i = 0; i < model.size(); i++) {
