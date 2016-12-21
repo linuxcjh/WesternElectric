@@ -42,7 +42,7 @@ public class WestNewActivity extends BaseActivity {
         WebSettings webSettings = wv_west_new.getSettings();
         webSettings.setDomStorageEnabled(true);
         webSettings.setJavaScriptEnabled(true);
-        wv_west_new.loadUrl("http://120.27.137.6:8080/IntelligenceTransformer/Html/PhonePages/News.html");
+        wv_west_new.loadUrl("http://124.115.229.139:8088/IntelligenceTransformer/Html/PhonePages/News.html");
     }
 
     @OnClick({R.id.title_left_tv})

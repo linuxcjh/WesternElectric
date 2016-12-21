@@ -229,6 +229,7 @@ public class ProgressChartFragment extends BaseFragment implements Contract.Prog
                 break;
             case "doing":
                 tv_product.setBackgroundResource(R.drawable.progress_chart_ongoing);
+                break;
             case "unstart":
                 tv_product.setBackgroundResource(R.drawable.progress_chart_not_start);
                 break;
@@ -247,6 +248,7 @@ public class ProgressChartFragment extends BaseFragment implements Contract.Prog
                 break;
             case "doing":
                 tv_technology.setBackgroundResource(R.drawable.progress_chart_ongoing);
+                break;
             case "unstart":
                 tv_technology.setBackgroundResource(R.drawable.progress_chart_not_start);
                 break;
@@ -265,6 +267,7 @@ public class ProgressChartFragment extends BaseFragment implements Contract.Prog
                 break;
             case "doing":
                 tv_shipment.setBackgroundResource(R.drawable.progress_chart_ongoing);
+                break;
             case "unstart":
                 tv_shipment.setBackgroundResource(R.drawable.progress_chart_not_start);
                 break;

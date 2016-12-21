@@ -37,4 +37,7 @@
     <color name="colorGreen">#5AAF0E</color>
     <color name="colorYellow">#F6E24A</color>
 
+    <drawable name="colorBlue">#3099F0</drawable>
+    <drawable name="colorPrimary">#3F51B5</drawable>
+
 </resources>
