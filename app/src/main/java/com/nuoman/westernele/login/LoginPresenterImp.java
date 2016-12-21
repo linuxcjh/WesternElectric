@@ -99,6 +99,8 @@ class LoginPresenterImp implements ICommonAction, Contract.LoginPresenter {
                         AppConfig.setStringConfig("subCompanyName", "变压器服务平台");
                         mLoginView.jumpToMain();
                     }
+                }else {
+                    AppTools.getToast("网络不给力");
                 }
                 break;
             case NuoManService.UPLOAD_DEVICE_TOKEN:
