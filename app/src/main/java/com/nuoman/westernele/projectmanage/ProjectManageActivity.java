@@ -14,6 +14,7 @@ import com.nuoman.NuoManApplication;
 import com.nuoman.westernele.api.NuoManService;
 import com.nuoman.westernele.common.BaseActivity;
 import com.nuoman.westernele.common.CommonPresenter;
+import com.nuoman.westernele.common.CustomProgressDialog;
 import com.nuoman.westernele.common.ICommonAction;
 import com.nuoman.westernele.common.NuoManConstant;
 import com.nuoman.westernele.common.utils.AppTools;
@@ -60,6 +61,7 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
 
     public CommonPresenter commonPresenter = new CommonPresenter(this);
     public BaseTransModel transModel = new BaseTransModel();
+    public CustomProgressDialog progressDialog;
 
 
     public boolean flag;//那个筛选还是排序
@@ -78,12 +80,20 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        commonPresenter.isShowProgressDialog = true;
+
+    }
 
     public void initView() {
+        progressDialog = new CustomProgressDialog(this);
+
         filterLayout.setTitleValue(new String[]{"筛选", "排序"});
         setFilerData();
 
-        commonPresenter.isShowProgressDialog = false;
+        commonPresenter.isShowProgressDialog = true;
         pullLoadMoreRecyclerView.setLinearLayout();
         pullLoadMoreRecyclerView.setFooterViewText("加载更多");
 
@@ -114,6 +124,7 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
      * 调用方法获取数据
      */
     public void invoke() {
+        progressDialog.show();
         transModel.setUserId(AppTools.getUser().getUserId());
         transModel.setSearch("");
         transModel.setSort("1");
@@ -197,6 +208,7 @@ public class ProjectManageActivity extends BaseActivity implements ICommonAction
 
     @Override
     public void obtainData(Object data, String methodIndex, int status, Map<String, String> parameterMap) {
+        progressDialog.dismiss();
         switch (methodIndex) {
             case NuoManService.GETPROJECTLISTCONDITION:
                 pullLoadMoreRecyclerView.setPullLoadMoreCompleted();
