@@ -52,8 +52,8 @@
                 android:background="@drawable/main_company_item"
                 android:gravity="center"
                 android:minWidth="230dp"
-                android:visibility="gone"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/company_name_tv"
@@ -242,6 +242,7 @@
             android:id="@+id/app_gridView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:horizontalSpacing="1dp"
             android:numColumns="3"
             android:verticalSpacing="1dp" />
