@@ -70,6 +70,7 @@ public class ContactsStaffFragment extends BaseFragment implements ICommonAction
 
         pullLoadMoreRecyclerView.setLinearLayout();
         pullLoadMoreRecyclerView.setFooterViewText("加载更多");
+        pullLoadMoreRecyclerView.setHasMore(false);
 
 
         mAdapter = new ClientRecordAdapter(getActivity(), R.layout.fragment_client_clue_item_layout, contactModels);
@@ -83,6 +84,7 @@ public class ContactsStaffFragment extends BaseFragment implements ICommonAction
 
             @Override
             public void onLoadMore() {
+                pullLoadMoreRecyclerView.setPullLoadMoreCompleted();
 
             }
         });

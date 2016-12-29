@@ -70,6 +70,8 @@ public class ContactsLeaderFragment extends BaseFragment implements ICommonActio
 
         pullLoadMoreRecyclerView.setLinearLayout();
         pullLoadMoreRecyclerView.setFooterViewText("加载更多");
+        pullLoadMoreRecyclerView.setPushRefreshEnable(false);
+        pullLoadMoreRecyclerView.setHasMore(false);
 
 
         mAdapter = new ClientRecordAdapter(getActivity(), R.layout.fragment_client_clue_item_layout, contactModels);
@@ -83,6 +85,7 @@ public class ContactsLeaderFragment extends BaseFragment implements ICommonActio
 
             @Override
             public void onLoadMore() {
+                pullLoadMoreRecyclerView.setPullLoadMoreCompleted();
 
             }
         });
