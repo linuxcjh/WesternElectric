@@ -62,7 +62,7 @@ public class SetFragment extends BaseFragment {
                 break;
             case R.id.connect_layout:
                 MyDialog dialog = new MyDialog(getActivity(), mHandler);
-                dialog.buildDialog().setTitle("联系客服").setMessage("4008591181");
+                dialog.buildDialog().setTitle("联系客服").setMessage("029-87301181");
 
 
                 break;
@@ -83,7 +83,7 @@ public class SetFragment extends BaseFragment {
             super.handleMessage(msg);
             switch (msg.what) {
                 case NuoManConstant.CONFIRMDIALOG:
-                    AppTools.callPhone(getActivity(), "4008591181");
+                    AppTools.callPhone(getActivity(), "02987301181");
                     break;
             }
         }
