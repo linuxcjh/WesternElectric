@@ -96,7 +96,7 @@ class LoginPresenterImp implements ICommonAction, Contract.LoginPresenter {
                         mLoginView.showSubCompanyDialog(subCompanyNames);
 
                     } else {
-                        AppConfig.setStringConfig("subCompanyName", "变压器服务平台");
+                        AppConfig.setStringConfig("subCompanyName", "变压器");
                         mLoginView.jumpToMain();
                     }
                 }else {
